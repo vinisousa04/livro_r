@@ -1,0 +1,110 @@
+---
+title: "Estrutura do Livro"
+author: "Vinicius Melquíades de Sousa"
+output: 
+  html_document:
+    number_sections: true
+date: "`r Sys.Date()`"
+---
+
+# Prefácio {-} 
+
+1. Motivação
+    - Para quem é este livro?
+    - O que você vai aprender
+2. Estrutura 
+    - do livro
+    - de cada capítulo
+3. Sobre o autor
+4. Agradecimentos
+
+
+#  Parte I: Introdução ao mundo R {-}
+
+# R e Rstudio
+
+- o que são
+- layout dp RStudio
+- working direcory
+- pacotes (lembrar de falar pra baixar do github e cran)
+
+# Primeiros comandos no R
+
+- Calculadora
+- Workspace/Environment
+- Funções
+- Ajuda e documentação
+
+# Estruturas de dados
+
+- Tipos de dados, i.e., "modes"
+- Vetores
+- Matrizes
+- *Data frames*
+- Listas
+- Datas
+
+# Estruturas de programação
+
+- se, então (IF -ELSE)
+- *for loop*
+- *nested loop* ( se, então dentro de *loop*)
+
+# Escrever funções 
+
+(para uso próprio)
+
+# Introdução ao pacote ggplot2
+
+- "Lógica" do ggplot2 (*grammar of graphics*) e (i) falar que vamos aprender com exemplos e (ii) plot de séries temporais será visto na seção de séries temporais.
+- Histograma
+- Scatter-plot
+- Plotar densidade de variáveis
+- boxplot
+
+# Parte II: Dados {-}
+
+# Importar dados para o R
+
+- Importar dados locais
+    - read.csv()
+    - read.stata()
+    - read.spss() 
+- Importar dados (de economia) direto do R 
+    - Economia brasileira: BETS, rbcb, ribge, ecoseries
+    - Economia Geral: Quandl, quantmod etc...
+
+# Tidy Data (pacotes dplyr and tidyr)
+
+- Modificando um mesmo dataset
+    - long to wide
+    - wide to long
+- Juntando data sets diferentes
+- filter, group_by, mutate()
+
+# Salvar dados
+
+- Salvar como csv
+- Salvar como .RDATA
+
+# Parte III: Análise de dados {-}
+
+# Teste de hipótese
+
+- Intervalo de confiança
+- Independent t-test/wilcox rank sum
+- Paired t-test/wilcox signed-rank test
+- chi square test
+
+# Análise de regressão
+
+Assunto de econometria I
+
+# Séries temporais
+
+Assunto de econometria II
+    
+- Plot de séries temporais
+- testes e etc..
+
+# modelos em painel (?)

@@ -1,0 +1,32 @@
+# Estruturas de Dados {#estruturas_de_dados}
+
+
+
+
+Neste capítulo vamos apresentar ao leitor os tipos de dados tipo de dados e estruturas de dados fundamentais do R. Nota-se que não são apresentados todos os tipos e estruturas de dados, entretanto ganratimos que os aqui apresentados serão o suficiente para resolver quase todos (se não todos) os problemas e aplicações que o leitor se deparar com. Também resalvamos que talvez esse capítulo seja o mais importante desta parte do livro, pois um bom entendimento sobre os tipos de informações e como elas são armazenadas (dentro do R) é essencial para o desenvolvimento de habilidades para lidar com dados.  
+
+
+Os tipo de dados são como uma determinada informação pode ser registrada e já as estruturas de dados são como as informações são armazenadas de modo que possam ser utilizadas, um pouco abstrata essa explicação até agora não acham? Bem, uma analogia que pode ajudar a compreender a **diferença entre tipos de dados e estruturas de dados** é a seguinte: Acredito que seja familiar a todos o final do filme Toy Story (o primeiro da trilogia), quando o Woody e o Buzz perdem o caminhão da mudança contratado pela Mãe do Andy (digo mãe e não família pois o Pai do Andy é um mistério). Bem se recordarmos bem alguns brinquedos o Andy trouxe com ele dentro do carro (em especial teria trazido o Woody e o Buzz) e ao mesmo tempo outro brinquedos estavam sendo transportados no caminhão. Onde eu quero chegar com isso? Os brinquedos seriam um tipo de informação (no caso de uma mudança poderíamos pensar que as roupas seriam outro tipo de informação) e o caminhão da transportadora e o carro da mão do Andy seriam as diferentes estruturas nas quais é possível carregar os dados. 
+
+Com a diferença entre tipos e estruturas de dados explicada vamos agora apresentar ao leitor explicitamente o funcionamente de tais coisas no R. Começamos apresentando os tipos de dados e em seguida as estrutura.
+
+## Tipos de dados {#modes}
+
+```{r dados exemplo de tipos de dados,echo=FALSE}
+empregados <- data.frame(Nome = randomNames::randomNames(n = 10,which.names = "first",return.complete.data = F),
+                         Idade = 30:39,
+                         Setor = sample(c("Financeiro","Estrutura","MArketing"),size = 10,replace = T),
+                         Peso = rnorm(n = 10,mean = 40,3.7),
+                         Nascimento = sample(seq(as.Date('1999/01/01'), as.Date('2000/01/01'), by="day"), 10),
+                         Casado = sample(x = c(T,F),size = 10, replace = T))
+
+empregados$Nome <- as.character(empregados$Nome)
+```
+
+Para apresentar os diferentes tipos de como as informações podem ser armazenadas vamos utlizar uma base fictícia de empregados apresentada na tabela \@ref(tab:empregados)
+
+```{r empregados, echo=FALSE}
+knitr::kable(empregados,digits = 2,caption = "Empregados")
+```
+
+

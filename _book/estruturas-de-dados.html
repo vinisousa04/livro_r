@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Título aqui</title>
+  <meta name="description" content="Esta é a minha tentativa de facilitar, em especial, os alunos de ciências sociais, a desenvolveram habilidades relacionadas ao processo de analise de dados">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Título aqui" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Esta é a minha tentativa de facilitar, em especial, os alunos de ciências sociais, a desenvolveram habilidades relacionadas ao processo de analise de dados" />
+  <meta name="github-repo" content="vinisousa04/livro_r" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Título aqui" />
+  
+  <meta name="twitter:description" content="Esta é a minha tentativa de facilitar, em especial, os alunos de ciências sociais, a desenvolveram habilidades relacionadas ao processo de analise de dados" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#para-quem-e-este-livro"><i class="fa fa-check"></i>Para quem é este livro?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#o-que-voce-vai-aprender-com-este-livro"><i class="fa fa-check"></i>O que você vai aprender com este livro?</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html"><i class="fa fa-check"></i><b>1</b> Estruturas de Dados</a><ul>
+<li class="chapter" data-level="1.1" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#modes"><i class="fa fa-check"></i><b>1.1</b> Tipos de dados</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Título aqui</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="estruturas_de_dados" class="section level1">
+<h1><span class="header-section-number">1</span> Estruturas de Dados</h1>
+<p>Neste capítulo vamos apresentar ao leitor os tipos de dados tipo de dados e estruturas de dados fundamentais do R. Nota-se que não são apresentados todos os tipos e estruturas de dados, entretanto ganratimos que os aqui apresentados serão o suficiente para resolver quase todos (se não todos) os problemas e aplicações que o leitor se deparar com. Também resalvamos que talvez esse capítulo seja o mais importante desta parte do livro, pois um bom entendimento sobre os tipos de informações e como elas são armazenadas (dentro do R) é essencial para o desenvolvimento de habilidades para lidar com dados.</p>
+<p>Os tipo de dados são como uma determinada informação pode ser registrada e já as estruturas de dados são como as informações são armazenadas de modo que possam ser utilizadas, um pouco abstrata essa explicação até agora não acham? Bem, uma analogia que pode ajudar a compreender a <strong>diferença entre tipos de dados e estruturas de dados</strong> é a seguinte: Acredito que seja familiar a todos o final do filme Toy Story (o primeiro da trilogia), quando o Woody e o Buzz perdem o caminhão da mudança contratado pela Mãe do Andy (digo mãe e não família pois o Pai do Andy é um mistério). Bem se recordarmos bem alguns brinquedos o Andy trouxe com ele dentro do carro (em especial teria trazido o Woody e o Buzz) e ao mesmo tempo outro brinquedos estavam sendo transportados no caminhão. Onde eu quero chegar com isso? Os brinquedos seriam um tipo de informação (no caso de uma mudança poderíamos pensar que as roupas seriam outro tipo de informação) e o caminhão da transportadora e o carro da mão do Andy seriam as diferentes estruturas nas quais é possível carregar os dados.</p>
+<p>Com a diferença entre tipos e estruturas de dados explicada vamos agora apresentar ao leitor explicitamente o funcionamente de tais coisas no R. Começamos apresentando os tipos de dados e em seguida as estrutura.</p>
+<div id="modes" class="section level2">
+<h2><span class="header-section-number">1.1</span> Tipos de dados</h2>
+<p>Para apresentar os diferentes tipos de como as informações podem ser armazenadas vamos utlizar uma base fictícia de empregados apresentada na tabela <a href="estruturas-de-dados.html#tab:empregados">1.1</a></p>
+<table>
+<caption><span id="tab:empregados">Table 1.1: </span>Empregados</caption>
+<thead>
+<tr class="header">
+<th align="left">Nome</th>
+<th align="right">Idade</th>
+<th align="right">Peso</th>
+<th align="left">Nascimento</th>
+<th align="left">Casado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Michael</td>
+<td align="right">30</td>
+<td align="right">39.69</td>
+<td align="left">1999-04-21</td>
+<td align="left">FALSE</td>
+</tr>
+<tr class="even">
+<td align="left">Joshua</td>
+<td align="right">31</td>
+<td align="right">32.86</td>
+<td align="left">1999-07-14</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">Kyla</td>
+<td align="right">32</td>
+<td align="right">40.39</td>
+<td align="left">1999-01-01</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">Michelle</td>
+<td align="right">33</td>
+<td align="right">37.85</td>
+<td align="left">1999-11-19</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">Zaidaan</td>
+<td align="right">34</td>
+<td align="right">39.83</td>
+<td align="left">1999-02-07</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">Veronica</td>
+<td align="right">35</td>
+<td align="right">44.19</td>
+<td align="left">1999-03-11</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">Tevin</td>
+<td align="right">36</td>
+<td align="right">43.63</td>
+<td align="left">1999-10-18</td>
+<td align="left">FALSE</td>
+</tr>
+<tr class="even">
+<td align="left">Fat’hiyaa</td>
+<td align="right">37</td>
+<td align="right">40.70</td>
+<td align="left">1999-09-09</td>
+<td align="left">FALSE</td>
+</tr>
+<tr class="odd">
+<td align="left">Asmaa</td>
+<td align="right">38</td>
+<td align="right">37.33</td>
+<td align="left">1999-03-24</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">Sandeep</td>
+<td align="right">39</td>
+<td align="right">43.24</td>
+<td align="left">1999-09-27</td>
+<td align="left">FALSE</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

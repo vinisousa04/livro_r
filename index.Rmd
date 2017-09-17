@@ -1,0 +1,25 @@
+---
+title: "Título aqui"
+output:
+  bookdown::gitbook:
+    highlight: haddock
+documentclass: book
+site: bookdown::bookdown_site
+#bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: vinisousa04/livro_r
+description: "Esta é a minha tentativa de facilitar, em especial, os alunos de ciências sociais, a desenvolveram habilidades relacionadas ao processo de analise de dados"
+---
+
+# Prefácio {-}
+
+
+## Para quem é este livro? {-}
+
+De maneira sucinta este livro é minha humilde tentativa de facilitar o aprendizado e utilização da linguagem R para alunos de graduação em ciências sociais, inevitavelmente, em especial economia. 
+
+## O que você vai aprender com este livro? {-}
+
+- O que são o R e o RStudio **(colocar aqui que não vou ensinar a instalar os programas pois há muito material sobre isso na internet)**
+- Mostrar como o R facilita o processo de analise dados em cada um dos processos tradicionais 
