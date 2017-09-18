@@ -33,7 +33,7 @@ date: "`r Sys.Date()`"
 - Calculadora
 - Workspace/Environment
 - Funções
-- Ajuda e documentação
+- Ajuda e documentação (aqui falar sobre erros, mensagens e avisos)
 
 # Estruturas de dados
 

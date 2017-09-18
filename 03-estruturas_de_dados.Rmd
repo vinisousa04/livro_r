@@ -47,31 +47,36 @@ str(empregados)
 ```
 
 
-## Estruturas de Dados {#estruturas_de_dados} 
-
 Seguindo na nossa analogia da mudança as estruturas de dados seriam os meios através dos quais podemos transportar os objetos de uma casa para outro, como carros, caminhões etc. Deste modo, nesta seção vamos apresenta ao leitor o que são e exemplos de como construir: (i) Vetores, (ii) Matrizes, (iii) Data frames e (iv) Listas
 
-### Vetores {#vetores}
+## Vetores {#vetores}
 
 É a estrutura mais básica (e fundamental) do R. De maneira objetiva um **vetor é uma sequência de elementos do mesmo tipo**. Agora vamos introduzir aqui 4 aspectos importantes sobre vetores.
 
-#### Criando Vetores {-}
+### Criando Vetores {-}
 
-Há diversas maneiras de se criar vetores e sua imaginação é de fato o limite, porém há jeitos mais triviais que são muito utilizados. Dois destes triviais são através da função concatenar, `c()`, e a função sequência, `seq()`. O chunk abaixo ilustra maneiras diferentes de se criar a sequência `r 1:10`.
+Há diversas maneiras de se criar vetores e a sua imaginação é de fato o limite, porém há jeitos mais triviais que são muito utilizados. Dois destes triviais são através da função concatenar, `c()`, e a função sequência, `seq()`. O chunk abaixo ilustra maneiras diferentes de se criar a sequência `r 1:10`.
 
 ```{r, echo=TRUE}
 c(1,2,3,4,5,6,7,8,9,10)
 c(1:10)
 seq(from = 1, to = 10, by=1)
 seq(from = 1, length.out = 10,by = 1)
-letters[1:5]
-
 ```
 Quando quisermos salvar um determinado vetor em um objeto `x`, basta utilizarmos o operador de atribuição `<-` da seguinte maneira `x <- c(1:10)`.
 
-E essa lógica funciona para qualquer que seja o tipo de
+A lógica é a mesma para criar vetores com outros tipos de dados, como por exemplo criar um vetor contendo as primeiras letras do alfabeto e outro com os primeiros dias de 2017.
 
-#### Acessando elementos {-}
+```{r,echo=TRUE}
+letras <- letters[1:5]
+letras
+dias <- seq(from = as.Date("01/01/2017",format="%d/%m/%Y"),length.out = 5,by = "day")
+dias
+```
+
+Não se preocupe caso não tenha ficado claro a sintaxe do vetor `dias`, mais para frente vamos discutir em maior detalhe datas^[**colocar aqui depois a seção na qual isso é discutido**]
+
+### Acessando elementos {-}
 
 Acessar elementos específicos de vetores é algo muito útil (acreditem no que eu digo) e fácil, basta utilizar `x[i]`, onde `x` é um vetor e `i` o i-ésimo elemento^[Ressaltamos para aqueles que são familiares com outro linguagem de programação, como C, a indexação dos vetores no R começa em 1 e não em 0.]. No chunk abaixo segue mostro alguns exemplos de como acessar elementos dos vetores
 ```{r,echo=TRUE}
@@ -81,9 +86,29 @@ x[length(x)] <- 0 # substituindo o último elemento por 0
 
 ```
 
-Mais adiante no livro^[**colocar aqui no final as seções corretas**] mostraremos que os filtros utilizados nos dados (como por exemplo selecionar apenas os pacientes com pressão arterial acima de 140 X 90 mmHg) nada mais é do que acessar elementos do vetores que satisfaçam de terminadas condições.
+Mais adiante no livro^[**colocar aqui no final as seções corretas**] mostraremos que os filtros utilizados nos dados (como por exemplo selecionar de um banco de dados apenas os pacientes com pressão arterial acima de 140 X 90 mmHg) nada mais é do que acessar elementos do vetores que satisfaçam de terminadas condições.
 
-#### Operações Veorizadas {-}
+### Operações Vetorizadas {-}
+
+Dizer que as operações são vetorizadas é apenas dizer que ao aplicar uma funções em um vetor essa função será aplicada em cada um dos elementos do vetor. Daí inclusive a importância de internamente o R não aceitar vetores com tipos de informação diferentes, pois não faria sentido, por exemplo, efetuar a multiplicação em um vetor que contem letras!! A ideia é bastante simples e intuitiva, porém não custa nada visualizar alguns exemplos.
+
+```{r, echo=TRUE}
+a <- c(1,4,9,16,25,36,49,64,81)
+sqrt(a) # sqrt é a raiz quadrada
+a+1
+```
+Perceba que cada vez que uma função é aplicada no vetor ela na verdade é aplicada em cada elemento que compõe o vetor. O último aspecto importante para se introduzir sobre vetores é a reciclagem.
+
+### Reciglagem {-}
+
+O que você imagina que acontece quando a operação `c(1,2)+c(1,1,1,1)` é efetuada? O nome da subseção já da uma boa dica. O que acontece é que o vetor de menor comprimento é reciclado, isto é, reutilizado, para que a operação seja efetuada e resultando no seguinte vetor `c(2,3,2,3)`. Importante salientar que isso ocorre quando comprimento do maior vetor é múltiplo do comprimento do vetor menor, caso não seja este caso será retornado um erro. O chunk abaixo explicita essas duas situações
+
+```{r, echo=TRUE}
+c(1,1)+c(1,2,1,2)
+c(1,1)+c(1,2,1,2,1)
+```
+
+
 
 
 

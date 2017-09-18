@@ -12,8 +12,17 @@ github-repo: vinisousa04/livro_r
 description: "Esta é a minha tentativa de facilitar, em especial, os alunos de ciências sociais, a desenvolveram habilidades relacionadas ao processo de analise de dados"
 ---
 
+```{r}
+knitr::opts_chunk$set(echo = FALSE,
+                      prompt = TRUE, comment = '#',
+                      fig.align = "center")
+```
+
+
+
 # Prefácio {-}
 
+lembrar que foi dia 17/09/2017 que eu vi o [vídeo](https://www.youtube.com/watch?v=1POb5fx_m3I) que me inspirei.
 
 ## Para quem é este livro? {-}
 

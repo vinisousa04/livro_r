@@ -98,8 +98,11 @@ code > span.in { color: #008000; } /* Information */
 </ul></li>
 <li class="chapter" data-level="1" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html"><i class="fa fa-check"></i><b>1</b> Estruturas de Dados</a><ul>
 <li class="chapter" data-level="1.1" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#modes"><i class="fa fa-check"></i><b>1.1</b> Tipos de dados</a></li>
-<li class="chapter" data-level="1.2" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#estruturas_de_dados"><i class="fa fa-check"></i><b>1.2</b> Estruturas de Dados</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#vetores"><i class="fa fa-check"></i><b>1.2.1</b> Vetores</a></li>
+<li class="chapter" data-level="1.2" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#vetores"><i class="fa fa-check"></i><b>1.2</b> Vetores</a><ul>
+<li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#criando-vetores"><i class="fa fa-check"></i>Criando Vetores</a></li>
+<li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#acessando-elementos"><i class="fa fa-check"></i>Acessando elementos</a></li>
+<li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#operacoes-vetorizadas"><i class="fa fa-check"></i>Operações Vetorizadas</a></li>
+<li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#reciglagem"><i class="fa fa-check"></i>Reciglagem</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -121,12 +124,12 @@ code > span.in { color: #008000; } /* Information */
             <section class="normal" id="section-">
 <div id="estruturas_de_dados" class="section level1">
 <h1><span class="header-section-number">1</span> Estruturas de Dados</h1>
-<p>Neste capítulo vamos apresentar ao leitor os tipos de dados e estruturas de dados fundamentais do R. Nota-se que não são apresentados todos os tipos e estruturas de dados, entretanto ganratimos que os aqui apresentados serão o suficiente para resolver quase todos (se não todos) os problemas e aplicações que o leitor se deparar com. Também resalvamos que talvez esse capítulo seja o mais importante desta parte do livro, pois um bom entendimento sobre os tipos de informações e como elas são armazenadas (dentro do R) é essencial para o desenvolvimento de habilidades para lidar com dados.</p>
+<p>Neste capítulo vamos apresentar ao leitor os tipos de dados e estruturas de dados fundamentais do R. Nota-se que não são apresentados todos os tipos e estruturas de dados, entretanto garantimos que os aqui apresentados serão o suficiente para resolver quase todos (se não todos) os problemas e aplicações que o leitor se deparar com. Também ressalvamos que talvez esse capítulo seja o mais importante desta parte do livro, pois um bom entendimento sobre os tipos de informações e como elas são armazenadas (dentro do R) é essencial para o desenvolvimento de habilidades para lidar com dados.</p>
 <p>Sem mais delongas os tipo de dados são como uma determinada informação pode ser registrada e já as estruturas de dados são como as informações são armazenadas de modo que possam ser utilizadas, um pouco abstrata essa explicação até agora não acham? Bem, uma analogia que pode ajudar a compreender a <strong>diferença entre tipos de dados e estruturas de dados</strong> é a seguinte: Acredito que seja familiar a todos o final do filme Toy Story (o primeiro da trilogia), quando o Woody e o Buzz perdem o caminhão da mudança contratado pela Mãe do Andy (digo mãe e não família pois o Pai do Andy é um mistério). Bem se recordarmos bem alguns brinquedos o Andy trouxe com ele dentro do carro (em especial teria trazido o Woody e o Buzz) e ao mesmo tempo outro brinquedos estavam sendo transportados no caminhão. Onde eu quero chegar com isso? Os brinquedos seriam um tipo de informação (no caso de uma mudança poderíamos pensar que as roupas seriam outro tipo de informação) e o caminhão da transportadora e o carro da mão do Andy seriam as diferentes estruturas nas quais é possível carregar os dados.</p>
-<p>Com a diferença entre tipos e estruturas de dados explicada vamos agora apresentar ao leitor explicitamente o funcionamente de tais coisas no R. Começamos apresentando os tipos de dados e em seguida as estrutura.</p>
+<p>Com a diferença entre tipos e estruturas de dados explicada vamos agora apresentar ao leitor explicitamente o funcionamento de tais coisas no R. Começamos apresentando os tipos de dados e em seguida as estrutura.</p>
 <div id="modes" class="section level2">
 <h2><span class="header-section-number">1.1</span> Tipos de dados</h2>
-<p>Para apresentar os diferentes tipos de como as informações podem ser armazenadas vamos utlizar uma base fictícia de empregados apresentada na tabela <a href="estruturas-de-dados.html#tab:empregados">1.1</a>. Nela temos 6 colunas representando diferentes variáveis.</p>
+<p>Para apresentar os diferentes tipos de como as informações podem ser armazenadas vamos utilizar uma base fictícia de empregados apresentada na tabela <a href="estruturas-de-dados.html#tab:empregados">1.1</a>. Nela temos 6 colunas representando diferentes variáveis.</p>
 <table>
 <caption><span id="tab:empregados">Table 1.1: </span>Empregados</caption>
 <thead>
@@ -141,138 +144,164 @@ code > span.in { color: #008000; } /* Information */
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Kristine</td>
+<td align="left">Rayyaan</td>
 <td align="right">30</td>
-<td align="left">Financeiro</td>
-<td align="right">34.10</td>
-<td align="left">1999-09-14</td>
+<td align="left">Estrutura</td>
+<td align="right">46.79</td>
+<td align="left">1999-03-25</td>
 <td align="left">TRUE</td>
 </tr>
 <tr class="even">
-<td align="left">Donovan</td>
+<td align="left">Ha Eun</td>
 <td align="right">31</td>
-<td align="left">Financeiro</td>
-<td align="right">36.64</td>
-<td align="left">1999-10-03</td>
+<td align="left">Estrutura</td>
+<td align="right">34.30</td>
+<td align="left">1999-02-10</td>
 <td align="left">TRUE</td>
 </tr>
 <tr class="odd">
-<td align="left">Adhraaa</td>
+<td align="left">Keschon</td>
 <td align="right">32</td>
 <td align="left">Estrutura</td>
-<td align="right">38.34</td>
-<td align="left">1999-06-29</td>
+<td align="right">33.01</td>
+<td align="left">1999-05-20</td>
 <td align="left">TRUE</td>
 </tr>
 <tr class="even">
-<td align="left">Nicholas</td>
+<td align="left">Aadil</td>
 <td align="right">33</td>
-<td align="left">Estrutura</td>
-<td align="right">41.77</td>
-<td align="left">1999-10-18</td>
+<td align="left">Marketing</td>
+<td align="right">38.30</td>
+<td align="left">1999-07-06</td>
 <td align="left">TRUE</td>
 </tr>
 <tr class="odd">
-<td align="left">Seth</td>
+<td align="left">Julienne</td>
 <td align="right">34</td>
 <td align="left">Estrutura</td>
-<td align="right">38.98</td>
-<td align="left">1999-09-19</td>
+<td align="right">44.07</td>
+<td align="left">1999-02-06</td>
 <td align="left">TRUE</td>
 </tr>
 <tr class="even">
-<td align="left">Marjan</td>
+<td align="left">Ashley</td>
 <td align="right">35</td>
-<td align="left">Estrutura</td>
-<td align="right">40.64</td>
-<td align="left">1999-09-13</td>
+<td align="left">Marketing</td>
+<td align="right">44.80</td>
+<td align="left">1999-11-10</td>
 <td align="left">TRUE</td>
 </tr>
 <tr class="odd">
-<td align="left">Marcus</td>
+<td align="left">Claire</td>
 <td align="right">36</td>
 <td align="left">Estrutura</td>
-<td align="right">37.98</td>
-<td align="left">1999-02-02</td>
+<td align="right">39.36</td>
+<td align="left">1999-01-29</td>
 <td align="left">TRUE</td>
 </tr>
 <tr class="even">
-<td align="left">Dominick</td>
+<td align="left">Cole</td>
 <td align="right">37</td>
 <td align="left">Estrutura</td>
-<td align="right">42.35</td>
-<td align="left">1999-09-07</td>
+<td align="right">50.29</td>
+<td align="left">1999-12-07</td>
 <td align="left">FALSE</td>
 </tr>
 <tr class="odd">
-<td align="left">Cecil</td>
+<td align="left">Haaroon</td>
 <td align="right">38</td>
-<td align="left">Marketing</td>
-<td align="right">42.67</td>
-<td align="left">1999-10-09</td>
+<td align="left">Financeiro</td>
+<td align="right">40.04</td>
+<td align="left">1999-09-20</td>
 <td align="left">TRUE</td>
 </tr>
 <tr class="even">
-<td align="left">Michele</td>
+<td align="left">Victoria</td>
 <td align="right">39</td>
-<td align="left">Marketing</td>
-<td align="right">35.54</td>
-<td align="left">1999-03-11</td>
-<td align="left">TRUE</td>
+<td align="left">Financeiro</td>
+<td align="right">42.50</td>
+<td align="left">1999-05-22</td>
+<td align="left">FALSE</td>
 </tr>
 </tbody>
 </table>
-<p>Cada coluna possui um tipo diferente de informação e cada informação é armazenada de um jeito diferente. A lista abaixo sintetiza os tipos de dados e a coluna da tabela com a qual ela está relaciondada<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p>
+<p>Cada coluna possui um tipo diferente de informação e cada informação é armazenada de um jeito diferente. A lista abaixo sintetiza os tipos de dados e a coluna da tabela com a qual ela está relacionada<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p>
 <ul>
-<li>Character (ou string): São caracteres textuais que podem assumir qualquer valor. Na tabela é a coluna relacionda ao Nome;</li>
+<li>Character (ou string): São caracteres textuais que podem assumir qualquer valor. Na tabela é a coluna relaciona ao Nome;</li>
 <li>Integer: São números inteiros, neste caso relacionado com a coluna idade;</li>
 <li>Double: São números decimais, neste caso relacionado à coluna de peso;</li>
-<li>Factor: São caracteres textuais mais podem assumir somente um determinado tipo de valor. Neste caso seria a coluna que traz o setor no qual o empregado trabalha. Outro exemplo de factor seria o tipo sanguineo em um banco de dados de pacintes;</li>
+<li>Factor: São caracteres textuais mais podem assumir somente um determinado tipo de valor. Neste caso seria a coluna que traz o setor no qual o empregado trabalha. Outro exemplo de factor seria o tipo sanguíneo em um banco de dados de pacientes;</li>
 <li>Dates: São valores textuais que são interpretados como datas, neste caso relacionado à coluna nascimento;</li>
 <li>Logical: Assumem o valor <code>TRUE</code> ou <code>FALSE</code>, também chamados de valores booleanos.</li>
 </ul>
 <p>A função <code>str()</code> permite verificar a estrutura dos nossos objetos, o chunk abaixo mostra a utilização da função na nossa base de dados de empregados</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(empregados)
-## &#39;data.frame&#39;:    10 obs. of  6 variables:
-##  $ Nome      : chr  &quot;Kristine&quot; &quot;Donovan&quot; &quot;Adhraaa&quot; &quot;Nicholas&quot; ...
-##  $ Idade     : int  30 31 32 33 34 35 36 37 38 39
-##  $ Setor     : Factor w/ 3 levels &quot;Estrutura&quot;,&quot;Financeiro&quot;,..: 2 2 1 1 1 1 1 1 3 3
-##  $ Peso      : num  34.1 36.6 38.3 41.8 39 ...
-##  $ Nascimento: Date, format: &quot;1999-09-14&quot; &quot;1999-10-03&quot; ...
-##  $ Casado    : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">str</span>(empregados)
+<span class="co"># &#39;data.frame&#39;: 10 obs. of  6 variables:</span>
+<span class="co">#  $ Nome      : chr  &quot;Rayyaan&quot; &quot;Ha Eun&quot; &quot;Keschon&quot; &quot;Aadil&quot; ...</span>
+<span class="co">#  $ Idade     : int  30 31 32 33 34 35 36 37 38 39</span>
+<span class="co">#  $ Setor     : Factor w/ 3 levels &quot;Estrutura&quot;,&quot;Financeiro&quot;,..: 1 1 1 3 1 3 1 1 2 2</span>
+<span class="co">#  $ Peso      : num  46.8 34.3 33 38.3 44.1 ...</span>
+<span class="co">#  $ Nascimento: Date, format: &quot;1999-03-25&quot; &quot;1999-02-10&quot; ...</span>
+<span class="co">#  $ Casado    : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...</span></code></pre></div>
+<p>Seguindo na nossa analogia da mudança as estruturas de dados seriam os meios através dos quais podemos transportar os objetos de uma casa para outro, como carros, caminhões etc. Deste modo, nesta seção vamos apresenta ao leitor o que são e exemplos de como construir: (i) Vetores, (ii) Matrizes, (iii) Data frames e (iv) Listas</p>
 </div>
-<div id="estruturas_de_dados" class="section level2">
-<h2><span class="header-section-number">1.2</span> Estruturas de Dados</h2>
-<p>Seguinda na nossa analogia da mudança as estruturas de dados seriam os meios através dos quais podemos transportar os objetos de uma casa para outro, como carros, caminhões etc. Deste modo, nesta seção vamos apresenta ao leitor o que são e exemplos de como construir: (i) Vetores, (ii) Matrizes, (iii) Data frames e (iv) Listas</p>
-<div id="vetores" class="section level3">
-<h3><span class="header-section-number">1.2.1</span> Vetores</h3>
-<p>É a estruta mais básica (e fundamental) do R. De maneira objetiva um <strong>vetor é uma sequência de elementos do mesmo tipo</strong>. Agora vamos introduzir aqui 4 aspectos importantes sobre vetores.</p>
-<div id="criando-vetores" class="section level4 unnumbered">
-<h4>Criando Vetores</h4>
-<p>Há diversas maneiras de se criar vetores e sua imaginação é de fato o limite, porém há jeitos mais triviais que são muito utilizados. Dois destes triviais são através da função concatnar, <code>c()</code>, e a função sequência, <code>seq()</code>. O chunk abaixo ilustra maneiras diferentes de se criar a sequência 1, 2, 3, 4, 5, 6, 7, 8, 9, 10.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>)
-##  [1]  1  2  3  4  5  6  7  8  9 10
-<span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">10</span>)
-##  [1]  1  2  3  4  5  6  7  8  9 10
-<span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">by=</span><span class="dv">1</span>)
-##  [1]  1  2  3  4  5  6  7  8  9 10
-<span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">length.out =</span> <span class="dv">10</span>,<span class="dt">by =</span> <span class="dv">1</span>)
-##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre></div>
+<div id="vetores" class="section level2">
+<h2><span class="header-section-number">1.2</span> Vetores</h2>
+<p>É a estrutura mais básica (e fundamental) do R. De maneira objetiva um <strong>vetor é uma sequência de elementos do mesmo tipo</strong>. Agora vamos introduzir aqui 4 aspectos importantes sobre vetores.</p>
+<div id="criando-vetores" class="section level3 unnumbered">
+<h3>Criando Vetores</h3>
+<p>Há diversas maneiras de se criar vetores e a sua imaginação é de fato o limite, porém há jeitos mais triviais que são muito utilizados. Dois destes triviais são através da função concatenar, <code>c()</code>, e a função sequência, <code>seq()</code>. O chunk abaixo ilustra maneiras diferentes de se criar a sequência 1, 2, 3, 4, 5, 6, 7, 8, 9, 10.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>)
+<span class="co">#  [1]  1  2  3  4  5  6  7  8  9 10</span>
+&gt;<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">10</span>)
+<span class="co">#  [1]  1  2  3  4  5  6  7  8  9 10</span>
+&gt;<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">to =</span> <span class="dv">10</span>, <span class="dt">by=</span><span class="dv">1</span>)
+<span class="co">#  [1]  1  2  3  4  5  6  7  8  9 10</span>
+&gt;<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1</span>, <span class="dt">length.out =</span> <span class="dv">10</span>,<span class="dt">by =</span> <span class="dv">1</span>)
+<span class="co">#  [1]  1  2  3  4  5  6  7  8  9 10</span></code></pre></div>
 <p>Quando quisermos salvar um determinado vetor em um objeto <code>x</code>, basta utilizarmos o operador de atribuição <code>&lt;-</code> da seguinte maneira <code>x &lt;- c(1:10)</code>.</p>
+<p>A lógica é a mesma para criar vetores com outros tipos de dados, como por exemplo criar um vetor contendo as primeiras letras do alfabeto e outro com os primeiros dias de 2017.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>letras &lt;-<span class="st"> </span>letters[<span class="dv">1</span>:<span class="dv">5</span>]
+&gt;<span class="st"> </span>letras
+<span class="co"># [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot;</span>
+&gt;<span class="st"> </span>dias &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="kw">as.Date</span>(<span class="st">&quot;01/01/2017&quot;</span>,<span class="dt">format=</span><span class="st">&quot;%d/%m/%Y&quot;</span>),<span class="dt">length.out =</span> <span class="dv">5</span>,<span class="dt">by =</span> <span class="st">&quot;day&quot;</span>)
+&gt;<span class="st"> </span>dias
+<span class="co"># [1] &quot;2017-01-01&quot; &quot;2017-01-02&quot; &quot;2017-01-03&quot; &quot;2017-01-04&quot; &quot;2017-01-05&quot;</span></code></pre></div>
+<p>Não se preocupe caso não tenha ficado claro a sintaxe do vetor <code>dias</code>, mais para frente vamos discutir em maior detalhe datas<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
 </div>
-<div id="acessando-elementos" class="section level4 unnumbered">
-<h4>Acessando elementos</h4>
-<p>Acessar elementes específicos de vetores é algo muito útil (acreditem no que eu digo) e fácil, bastana utilizar <code>x[i]</code>, onde <code>x</code> é um vetor e <code>i</code> o i-nésimo elemento<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>. No chunk abaixo segue mostro alguns exemplos de como acessar elementos dos vetores</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">10</span>) <span class="co"># criando um vetor x</span>
-x[<span class="dv">7</span>:<span class="dv">9</span>]       <span class="co"># pegando elementos de 7 a 9</span>
-## [1] 7 8 9
-x[<span class="kw">length</span>(x)] &lt;-<span class="st"> </span><span class="dv">0</span> <span class="co"># substituindo o último elemento por 0</span></code></pre></div>
-<p>Mais adiante no livro<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> mostraremos que os filtros utilizados nos dados (como por exemplo selecionar apenas os pacientes com pressão arterial acima de 140 X 90 mmHg) nada mais é do que acessar elementes do vetores que satisfaçam de terminadas condições.</p>
+<div id="acessando-elementos" class="section level3 unnumbered">
+<h3>Acessando elementos</h3>
+<p>Acessar elementos específicos de vetores é algo muito útil (acreditem no que eu digo) e fácil, basta utilizar <code>x[i]</code>, onde <code>x</code> é um vetor e <code>i</code> o i-ésimo elemento<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>. No chunk abaixo segue mostro alguns exemplos de como acessar elementos dos vetores</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">10</span>) <span class="co"># criando um vetor x</span>
+&gt;<span class="st"> </span>x[<span class="dv">7</span>:<span class="dv">9</span>]       <span class="co"># pegando elementos de 7 a 9</span>
+<span class="co"># [1] 7 8 9</span>
+&gt;<span class="st"> </span>x[<span class="kw">length</span>(x)] &lt;-<span class="st"> </span><span class="dv">0</span> <span class="co"># substituindo o último elemento por 0</span></code></pre></div>
+<p>Mais adiante no livro<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> mostraremos que os filtros utilizados nos dados (como por exemplo selecionar de um banco de dados apenas os pacientes com pressão arterial acima de 140 X 90 mmHg) nada mais é do que acessar elementos do vetores que satisfaçam de terminadas condições.</p>
+</div>
+<div id="operacoes-vetorizadas" class="section level3 unnumbered">
+<h3>Operações Vetorizadas</h3>
+<p>Dizer que as operações são vetorizadas é apenas dizer que ao aplicar uma funções em um vetor essa função será aplicada em cada um dos elementos do vetor. Daí inclusive a importância de internamente o R não aceitar vetores com tipos de informação diferentes, pois não faria sentido, por exemplo, efetuar a multiplicação em um vetor que contem letras!! A ideia é bastante simples e intuitiva, porém não custa nada vizualizar alguns exemplos.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">16</span>,<span class="dv">25</span>,<span class="dv">36</span>,<span class="dv">49</span>,<span class="dv">64</span>,<span class="dv">81</span>)
+&gt;<span class="st"> </span><span class="kw">sqrt</span>(a) <span class="co"># sqrt é a raiz quadrada</span>
+<span class="co"># [1] 1 2 3 4 5 6 7 8 9</span>
+&gt;<span class="st"> </span>a<span class="dv">+1</span>
+<span class="co"># [1]  2  5 10 17 26 37 50 65 82</span></code></pre></div>
+<p>Perceba que cada vez que uma função é aplicada no vetor ela na verdade é aplicada em cada elemento que compoe o vetor. O último aspecto importante para se introduzir sobre vetores é a reciglagem.</p>
+</div>
+<div id="reciglagem" class="section level3 unnumbered">
+<h3>Reciglagem</h3>
+<p>O que você imagina que acontece quando a operação <code>c(1,2)+c(1,1,1,1)</code> é efetuada? O nome da subseção já da uma boa dica. O que acontece é que o vetor de menor comprimento é reciclado, isto é, reutilizado, para que a operação seja efetuada e resultando no seguinte vetor <code>c(2,3,2,3)</code>. Impotante salientar que isso ocorre quando comprimento do maior vetor é múltiplo do comprimento do vetor menor, caso não seja este caso será retornado um erro. O chunk abaixo explicíta essas duas situações</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>)+<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>)
+<span class="co"># [1] 2 3 2 3</span>
+&gt;<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>)+<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>)
+<span class="co"># Warning in c(1, 1) + c(1, 2, 1, 2, 1): longer object length is not a</span>
+<span class="co"># multiple of shorter object length</span>
+<span class="co"># [1] 2 3 2 3 2</span></code></pre></div>
 
 </div>
 </div>
 </div>
-</div>
+
 
 
 
@@ -284,9 +313,10 @@ x[<span class="kw">length</span>(x)] &lt;-<span class="st"> </span><span class="
 <div class="footnotes">
 <hr />
 <ol start="1">
-<li id="fn1"><p>Na estatística existem basicamente dois tipos de variáveis cada uma delas com dois subtipos. A primeira é chamda de variáveis qualitativas, que podem assumir valores nominais, por exemplo Nomes, ou assumir valores ordinais, por exemplo dividir peso pena, peso médio etc. O segundo tipo de variável é chamado de variáveis quantitavivas, que podem ser intervalos, por exemplo a previsão do tempo quando nos traz temperatura miníma e máxima, ou assumir valore pontuais, como por exemplo a medição do pesos das pessoas<a href="estruturas-de-dados.html#fnref1">↩</a></p></li>
-<li id="fn2"><p>Ressaltamos para aqueles que são familiares com outro linguagem de programação, como C, a indexação dos vetores no R começa em 1 e não em 0.<a href="estruturas-de-dados.html#fnref2">↩</a></p></li>
-<li id="fn3"><p><strong>colocar aqui no final as seções corretas</strong><a href="estruturas-de-dados.html#fnref3">↩</a></p></li>
+<li id="fn1"><p>Na estatística existem basicamente dois tipos de variáveis cada uma delas com dois subtipos. A primeira é chamada de variáveis qualitativas, que podem assumir valores nominais, por exemplo Nomes, ou assumir valores ordinais, por exemplo dividir peso pena, peso médio etc. O segundo tipo de variável é chamado de variáveis quantitativas, que podem ser intervalos, por exemplo a previsão do tempo quando nos traz temperatura miníma e máxima, ou assumir valore pontuais, como por exemplo a medição do pesos das pessoas<a href="estruturas-de-dados.html#fnref1">↩</a></p></li>
+<li id="fn2"><p><strong>colocar aqui depois a seção na qual isso é discutido</strong><a href="estruturas-de-dados.html#fnref2">↩</a></p></li>
+<li id="fn3"><p>Ressaltamos para aqueles que são familiares com outro linguagem de programação, como C, a indexação dos vetores no R começa em 1 e não em 0.<a href="estruturas-de-dados.html#fnref3">↩</a></p></li>
+<li id="fn4"><p><strong>colocar aqui no final as seções corretas</strong><a href="estruturas-de-dados.html#fnref4">↩</a></p></li>
 </ol>
 </div>
             </section>
