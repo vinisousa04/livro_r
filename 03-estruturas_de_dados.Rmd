@@ -119,9 +119,9 @@ Assim como foi feito com vetores, vamos mostrar como criar matrizes do zero, com
 
 Para criar matriz utiliza a função `matrix()`, que surpresa, onde dois argumentos no mínimo são necessários. O argumento para o argumento `data` deve ser passado um vetor que ira popular a matriz e o segundo argumento necessário é ou `ncol`ou `nrow`, especificando claramente o número de colunas ou o número de linhas. Perceba que é importante que o vetor passado para `data` deve ter um comprimento compátivel com o número de linhas ou número de colunas. Abaixo tem o exemplo de como criar uma matriz
 ```{r,echo=TRUE}
-matrix(data = c(1:10),nrow = 5,byrow = TRUE)
+matrix(data = c(1:25),nrow = 5,byrow = TRUE)
 ```
 
-
+O terceiro argumento `byrow` recebe um valor logical, tem como default  `FALSE` e como o nome diz ele indica se a matriz deve ser preenchida por linhas, `byrow=TRUE` ou por colunas.
 
 
