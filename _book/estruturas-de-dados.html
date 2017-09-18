@@ -47,6 +47,38 @@
 
 
 
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #0000ff; } /* Keyword */
+code > span.ch { color: #008080; } /* Char */
+code > span.st { color: #008080; } /* String */
+code > span.co { color: #008000; } /* Comment */
+code > span.ot { color: #ff4000; } /* Other */
+code > span.al { color: #ff0000; } /* Alert */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #008000; font-weight: bold; } /* Warning */
+code > span.cn { } /* Constant */
+code > span.sc { color: #008080; } /* SpecialChar */
+code > span.vs { color: #008080; } /* VerbatimString */
+code > span.ss { color: #008080; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { color: #0000ff; } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #ff4000; } /* Preprocessor */
+code > span.do { color: #008000; } /* Documentation */
+code > span.an { color: #008000; } /* Annotation */
+code > span.cv { color: #008000; } /* CommentVar */
+code > span.at { } /* Attribute */
+code > span.in { color: #008000; } /* Information */
+</style>
 
 </head>
 
@@ -66,6 +98,9 @@
 </ul></li>
 <li class="chapter" data-level="1" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html"><i class="fa fa-check"></i><b>1</b> Estruturas de Dados</a><ul>
 <li class="chapter" data-level="1.1" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#modes"><i class="fa fa-check"></i><b>1.1</b> Tipos de dados</a></li>
+<li class="chapter" data-level="1.2" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#estruturas_de_dados"><i class="fa fa-check"></i><b>1.2</b> Estruturas de Dados</a><ul>
+<li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#vetores"><i class="fa fa-check"></i>Vetores</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -86,18 +121,19 @@
             <section class="normal" id="section-">
 <div id="estruturas_de_dados" class="section level1">
 <h1><span class="header-section-number">1</span> Estruturas de Dados</h1>
-<p>Neste capítulo vamos apresentar ao leitor os tipos de dados tipo de dados e estruturas de dados fundamentais do R. Nota-se que não são apresentados todos os tipos e estruturas de dados, entretanto ganratimos que os aqui apresentados serão o suficiente para resolver quase todos (se não todos) os problemas e aplicações que o leitor se deparar com. Também resalvamos que talvez esse capítulo seja o mais importante desta parte do livro, pois um bom entendimento sobre os tipos de informações e como elas são armazenadas (dentro do R) é essencial para o desenvolvimento de habilidades para lidar com dados.</p>
-<p>Os tipo de dados são como uma determinada informação pode ser registrada e já as estruturas de dados são como as informações são armazenadas de modo que possam ser utilizadas, um pouco abstrata essa explicação até agora não acham? Bem, uma analogia que pode ajudar a compreender a <strong>diferença entre tipos de dados e estruturas de dados</strong> é a seguinte: Acredito que seja familiar a todos o final do filme Toy Story (o primeiro da trilogia), quando o Woody e o Buzz perdem o caminhão da mudança contratado pela Mãe do Andy (digo mãe e não família pois o Pai do Andy é um mistério). Bem se recordarmos bem alguns brinquedos o Andy trouxe com ele dentro do carro (em especial teria trazido o Woody e o Buzz) e ao mesmo tempo outro brinquedos estavam sendo transportados no caminhão. Onde eu quero chegar com isso? Os brinquedos seriam um tipo de informação (no caso de uma mudança poderíamos pensar que as roupas seriam outro tipo de informação) e o caminhão da transportadora e o carro da mão do Andy seriam as diferentes estruturas nas quais é possível carregar os dados.</p>
+<p>Neste capítulo vamos apresentar ao leitor os tipos de dados e estruturas de dados fundamentais do R. Nota-se que não são apresentados todos os tipos e estruturas de dados, entretanto ganratimos que os aqui apresentados serão o suficiente para resolver quase todos (se não todos) os problemas e aplicações que o leitor se deparar com. Também resalvamos que talvez esse capítulo seja o mais importante desta parte do livro, pois um bom entendimento sobre os tipos de informações e como elas são armazenadas (dentro do R) é essencial para o desenvolvimento de habilidades para lidar com dados.</p>
+<p>Sem mais delongas os tipo de dados são como uma determinada informação pode ser registrada e já as estruturas de dados são como as informações são armazenadas de modo que possam ser utilizadas, um pouco abstrata essa explicação até agora não acham? Bem, uma analogia que pode ajudar a compreender a <strong>diferença entre tipos de dados e estruturas de dados</strong> é a seguinte: Acredito que seja familiar a todos o final do filme Toy Story (o primeiro da trilogia), quando o Woody e o Buzz perdem o caminhão da mudança contratado pela Mãe do Andy (digo mãe e não família pois o Pai do Andy é um mistério). Bem se recordarmos bem alguns brinquedos o Andy trouxe com ele dentro do carro (em especial teria trazido o Woody e o Buzz) e ao mesmo tempo outro brinquedos estavam sendo transportados no caminhão. Onde eu quero chegar com isso? Os brinquedos seriam um tipo de informação (no caso de uma mudança poderíamos pensar que as roupas seriam outro tipo de informação) e o caminhão da transportadora e o carro da mão do Andy seriam as diferentes estruturas nas quais é possível carregar os dados.</p>
 <p>Com a diferença entre tipos e estruturas de dados explicada vamos agora apresentar ao leitor explicitamente o funcionamente de tais coisas no R. Começamos apresentando os tipos de dados e em seguida as estrutura.</p>
 <div id="modes" class="section level2">
 <h2><span class="header-section-number">1.1</span> Tipos de dados</h2>
-<p>Para apresentar os diferentes tipos de como as informações podem ser armazenadas vamos utlizar uma base fictícia de empregados apresentada na tabela <a href="estruturas-de-dados.html#tab:empregados">1.1</a></p>
+<p>Para apresentar os diferentes tipos de como as informações podem ser armazenadas vamos utlizar uma base fictícia de empregados apresentada na tabela <a href="estruturas-de-dados.html#tab:empregados">1.1</a>. Nela temos 6 colunas representando diferentes variáveis.</p>
 <table>
 <caption><span id="tab:empregados">Table 1.1: </span>Empregados</caption>
 <thead>
 <tr class="header">
 <th align="left">Nome</th>
 <th align="right">Idade</th>
+<th align="left">Setor</th>
 <th align="right">Peso</th>
 <th align="left">Nascimento</th>
 <th align="left">Casado</th>
@@ -105,79 +141,133 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Michael</td>
+<td align="left">Timothy</td>
 <td align="right">30</td>
-<td align="right">39.69</td>
-<td align="left">1999-04-21</td>
+<td align="left">Estrutura</td>
+<td align="right">45.62</td>
+<td align="left">1999-10-23</td>
 <td align="left">FALSE</td>
 </tr>
 <tr class="even">
-<td align="left">Joshua</td>
+<td align="left">Shawn</td>
 <td align="right">31</td>
-<td align="right">32.86</td>
-<td align="left">1999-07-14</td>
+<td align="left">Estrutura</td>
+<td align="right">41.19</td>
+<td align="left">1999-03-20</td>
 <td align="left">TRUE</td>
 </tr>
 <tr class="odd">
-<td align="left">Kyla</td>
+<td align="left">Kyra</td>
 <td align="right">32</td>
-<td align="right">40.39</td>
-<td align="left">1999-01-01</td>
+<td align="left">Marketing</td>
+<td align="right">44.74</td>
+<td align="left">1999-06-17</td>
 <td align="left">TRUE</td>
 </tr>
 <tr class="even">
-<td align="left">Michelle</td>
+<td align="left">Tranae</td>
 <td align="right">33</td>
-<td align="right">37.85</td>
-<td align="left">1999-11-19</td>
+<td align="left">Financeiro</td>
+<td align="right">37.48</td>
+<td align="left">1999-09-13</td>
 <td align="left">TRUE</td>
 </tr>
 <tr class="odd">
-<td align="left">Zaidaan</td>
+<td align="left">Safaaa</td>
 <td align="right">34</td>
-<td align="right">39.83</td>
-<td align="left">1999-02-07</td>
+<td align="left">Marketing</td>
+<td align="right">47.80</td>
+<td align="left">1999-01-11</td>
 <td align="left">TRUE</td>
 </tr>
 <tr class="even">
-<td align="left">Veronica</td>
+<td align="left">Nicholas</td>
 <td align="right">35</td>
-<td align="right">44.19</td>
-<td align="left">1999-03-11</td>
-<td align="left">TRUE</td>
+<td align="left">Financeiro</td>
+<td align="right">47.64</td>
+<td align="left">1999-12-07</td>
+<td align="left">FALSE</td>
 </tr>
 <tr class="odd">
-<td align="left">Tevin</td>
+<td align="left">Virrilyn</td>
 <td align="right">36</td>
-<td align="right">43.63</td>
-<td align="left">1999-10-18</td>
+<td align="left">Estrutura</td>
+<td align="right">35.70</td>
+<td align="left">1999-05-07</td>
 <td align="left">FALSE</td>
 </tr>
 <tr class="even">
-<td align="left">Fat’hiyaa</td>
+<td align="left">Lauryn</td>
 <td align="right">37</td>
-<td align="right">40.70</td>
-<td align="left">1999-09-09</td>
-<td align="left">FALSE</td>
-</tr>
-<tr class="odd">
-<td align="left">Asmaa</td>
-<td align="right">38</td>
-<td align="right">37.33</td>
-<td align="left">1999-03-24</td>
+<td align="left">Estrutura</td>
+<td align="right">43.41</td>
+<td align="left">1999-05-09</td>
 <td align="left">TRUE</td>
 </tr>
-<tr class="even">
-<td align="left">Sandeep</td>
-<td align="right">39</td>
-<td align="right">43.24</td>
-<td align="left">1999-09-27</td>
+<tr class="odd">
+<td align="left">Shaakir</td>
+<td align="right">38</td>
+<td align="left">Marketing</td>
+<td align="right">45.84</td>
+<td align="left">1999-07-03</td>
 <td align="left">FALSE</td>
+</tr>
+<tr class="even">
+<td align="left">Ghaaliba</td>
+<td align="right">39</td>
+<td align="left">Financeiro</td>
+<td align="right">32.61</td>
+<td align="left">1999-10-04</td>
+<td align="left">TRUE</td>
 </tr>
 </tbody>
 </table>
+<p>Cada coluna possui um tipo diferente de informação e cada informação é armazenada de um jeito diferente. A lista abaixo sintetiza os tipos de dados e a coluna da tabela com a qual ela está relaciondada<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p>
+<ul>
+<li>Character (ou string): São caracteres textuais que podem assumir qualquer valor. Na tabela é a coluna relacionda ao Nome;</li>
+<li>Integer: São números inteiros, neste caso relacionado com a coluna idade;</li>
+<li>Double: São números decimais, neste caso relacionado à coluna de peso;</li>
+<li>Factor: São caracteres textuais mais podem assumir somente um determinado tipo de valor. Neste caso seria a coluna que traz o setor no qual o empregado trabalha. Outro exemplo de factor seria o tipo sanguineo em um banco de dados de pacintes;</li>
+<li>Dates: São valores textuais que são interpretados como datas, neste caso relacionado à coluna nascimento;</li>
+<li>Logical: Assumem o valor <code>TRUE</code> ou <code>FALSE</code>, também chamados de valores booleanos.</li>
+</ul>
+<p>A função <code>str()</code> permite verificar a estrutura dos nossos objetos, o chunk abaixo mostra a utilização da função na nossa base de dados de empregados</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(empregados)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    10 obs. of  6 variables:
+##  $ Nome      : chr  &quot;Timothy&quot; &quot;Shawn&quot; &quot;Kyra&quot; &quot;Tranae&quot; ...
+##  $ Idade     : int  30 31 32 33 34 35 36 37 38 39
+##  $ Setor     : Factor w/ 3 levels &quot;Estrutura&quot;,&quot;Financeiro&quot;,..: 1 1 3 2 3 2 1 1 3 2
+##  $ Peso      : num  45.6 41.2 44.7 37.5 47.8 ...
+##  $ Nascimento: Date, format: &quot;1999-10-23&quot; &quot;1999-03-20&quot; ...
+##  $ Casado    : logi  FALSE TRUE TRUE TRUE TRUE FALSE ...</code></pre>
+</div>
+<div id="estruturas_de_dados" class="section level2">
+<h2><span class="header-section-number">1.2</span> Estruturas de Dados</h2>
+<p>Seguinda na nossa analogia da mudança as estruturas de dados seriam os meios através dos quais podemos transportar os objetos de uma casa para outro, como carros, caminhões etc. Deste modo, esta seção vamos apresenta ao leitor o que são e exemplos de como construir: (i) Vetores, (ii) Matrizes, (iii) Data frames e (iv) Listas</p>
+<div id="vetores" class="section level3 unnumbered">
+<h3>Vetores</h3>
+<p>É a estruta mais básica (e fundamental) do R. De maneira objetiva um <strong>vetor é uma sequência de elementos do mesmo tipo</strong>. Há diversas maneiras de se criar um vetor, o chunk que segue mostra duas maneiras comumns, através da função <code>c()</code>concatenar e <code>seq()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>) 
+x</code></pre></div>
+<pre><code>## [1] 1 3 5 7</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">1</span>,<span class="dt">to =</span> <span class="dv">10</span>,<span class="dt">by =</span> <span class="dv">2</span>)
+y</code></pre></div>
+<pre><code>## [1] 1 3 5 7 9</code></pre>
 
 </div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Na estatística existem basicamente dois tipos de variáveis cada uma delas com dois subtipos. A primeira é chamda de variáveis qualitativas, que podem assumir valores nominais, por exemplo Nomes, ou assumir valores ordinais, por exemplo dividir peso pena, peso médio etc. O segundo tipo de variável é chamado de variáveis quantitavivas, que podem ser intervalos, por exemplo a previsão do tempo quando nos traz temperatura miníma e máxima, ou assumir valore pontuais, como por exemplo a medição do pesos das pessoas<a href="estruturas-de-dados.html#fnref1">↩</a></p></li>
+</ol>
 </div>
             </section>
 
