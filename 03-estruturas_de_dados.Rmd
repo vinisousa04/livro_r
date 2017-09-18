@@ -1,8 +1,5 @@
 # Estruturas de Dados {#estruturas_de_dados}
 
-```{r, include=FALSE}
-knitr::opts_chunk$set(collapse = T)
-```
 
 
 Neste capítulo vamos apresentar ao leitor os tipos de dados e estruturas de dados fundamentais do R. Nota-se que não são apresentados todos os tipos e estruturas de dados, entretanto garantimos que os aqui apresentados serão o suficiente para resolver quase todos (se não todos) os problemas e aplicações que o leitor se deparar com. Também ressalvamos que talvez esse capítulo seja o mais importante desta parte do livro, pois um bom entendimento sobre os tipos de informações e como elas são armazenadas (dentro do R) é essencial para o desenvolvimento de habilidades para lidar com dados.  
@@ -108,6 +105,22 @@ c(1,1)+c(1,2,1,2)
 c(1,1)+c(1,2,1,2,1)
 ```
 
+## Matrizes {#matrizes}
+
+A segunda estutura apresentada é a matriz, que nada mais é do que uma extensão do vetor para uma dimensão a mais. Colocando de outro jeito uma **matriz é uma estrutura com colunas com o mesmo número de linhas e que armazenam o mesmo tipo de informação**. O leitor provavelmente já se deparou em algum momento da vida com uma matriz do seguinte formato
+
+```{r}
+matrix(data = letters[1:6],ncol=3)
+```
+
+Assim como foi feito com vetores, vamos mostrar como criar matrizes do zero, como acessar seu elementos e por fim como discutiremos a título de informação, não se preocupem, sobre operações matemática com matrizes.
+
+### Criando Matrizes {-}
+
+Para criar matriz utiliza a função `matrix()`, que surpresa, onde dois argumentos no mínimo são necessários. O argumento para o argumento `data` deve ser passado um vetor que ira popular a matriz e o segundo argumento necessário é ou `ncol`ou `nrow`, especificando claramente o número de colunas ou o número de linhas. Perceba que é importante que o vetor passado para `data` deve ter um comprimento compátivel com o número de linhas ou número de colunas. Abaixo tem o exemplo de como criar uma matriz
+```{r,echo=TRUE}
+matrix(data = c(1:10),nrow = 5,byrow = TRUE)
+```
 
 
 

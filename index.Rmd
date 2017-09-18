@@ -12,10 +12,13 @@ github-repo: vinisousa04/livro_r
 description: "Esta é a minha tentativa de facilitar, em especial, os alunos de ciências sociais, a desenvolveram habilidades relacionadas ao processo de analise de dados"
 ---
 
-```{r}
+```{r, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE,
                       prompt = TRUE, comment = '#',
-                      fig.align = "center")
+                      fig.align = "center",
+                      collapse = TRUE)
+
+library(knitr)
 ```
 
 

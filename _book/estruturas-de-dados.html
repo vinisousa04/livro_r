@@ -104,6 +104,7 @@ code > span.in { color: #008000; } /* Information */
 <li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#operacoes-vetorizadas"><i class="fa fa-check"></i>Operações Vetorizadas</a></li>
 <li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#reciglagem"><i class="fa fa-check"></i>Reciglagem</a></li>
 </ul></li>
+<li class="chapter" data-level="1.3" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#matrizes"><i class="fa fa-check"></i><b>1.3</b> Matrizes</a></li>
 </ul></li>
 </ul>
 
@@ -144,83 +145,83 @@ code > span.in { color: #008000; } /* Information */
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Rayyaan</td>
+<td align="left">Katrina</td>
 <td align="right">30</td>
-<td align="left">Estrutura</td>
-<td align="right">46.79</td>
-<td align="left">1999-03-25</td>
+<td align="left">Financeiro</td>
+<td align="right">43.62</td>
+<td align="left">1999-08-21</td>
 <td align="left">TRUE</td>
 </tr>
 <tr class="even">
-<td align="left">Ha Eun</td>
+<td align="left">Ivette</td>
 <td align="right">31</td>
 <td align="left">Estrutura</td>
-<td align="right">34.30</td>
-<td align="left">1999-02-10</td>
+<td align="right">44.66</td>
+<td align="left">1999-12-18</td>
 <td align="left">TRUE</td>
 </tr>
 <tr class="odd">
-<td align="left">Keschon</td>
+<td align="left">Kashaun</td>
 <td align="right">32</td>
-<td align="left">Estrutura</td>
-<td align="right">33.01</td>
-<td align="left">1999-05-20</td>
-<td align="left">TRUE</td>
+<td align="left">Marketing</td>
+<td align="right">41.39</td>
+<td align="left">1999-11-04</td>
+<td align="left">FALSE</td>
 </tr>
 <tr class="even">
-<td align="left">Aadil</td>
+<td align="left">Austin</td>
 <td align="right">33</td>
-<td align="left">Marketing</td>
-<td align="right">38.30</td>
-<td align="left">1999-07-06</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="left">Julienne</td>
-<td align="right">34</td>
 <td align="left">Estrutura</td>
-<td align="right">44.07</td>
-<td align="left">1999-02-06</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="left">Ashley</td>
-<td align="right">35</td>
-<td align="left">Marketing</td>
-<td align="right">44.80</td>
-<td align="left">1999-11-10</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="left">Claire</td>
-<td align="right">36</td>
-<td align="left">Estrutura</td>
-<td align="right">39.36</td>
-<td align="left">1999-01-29</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="even">
-<td align="left">Cole</td>
-<td align="right">37</td>
-<td align="left">Estrutura</td>
-<td align="right">50.29</td>
-<td align="left">1999-12-07</td>
+<td align="right">37.66</td>
+<td align="left">1999-04-05</td>
 <td align="left">FALSE</td>
 </tr>
 <tr class="odd">
-<td align="left">Haaroon</td>
-<td align="right">38</td>
+<td align="left">Austin</td>
+<td align="right">34</td>
+<td align="left">Estrutura</td>
+<td align="right">41.99</td>
+<td align="left">1999-01-06</td>
+<td align="left">FALSE</td>
+</tr>
+<tr class="even">
+<td align="left">Malik</td>
+<td align="right">35</td>
+<td align="left">Marketing</td>
+<td align="right">46.27</td>
+<td align="left">1999-03-31</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">Quinn</td>
+<td align="right">36</td>
 <td align="left">Financeiro</td>
-<td align="right">40.04</td>
+<td align="right">45.52</td>
 <td align="left">1999-09-20</td>
+<td align="left">FALSE</td>
+</tr>
+<tr class="even">
+<td align="left">Charles</td>
+<td align="right">37</td>
+<td align="left">Financeiro</td>
+<td align="right">40.96</td>
+<td align="left">1999-09-10</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">Taylor</td>
+<td align="right">38</td>
+<td align="left">Marketing</td>
+<td align="right">45.10</td>
+<td align="left">1999-03-09</td>
 <td align="left">TRUE</td>
 </tr>
 <tr class="even">
-<td align="left">Victoria</td>
+<td align="left">Samantha</td>
 <td align="right">39</td>
-<td align="left">Financeiro</td>
-<td align="right">42.50</td>
-<td align="left">1999-05-22</td>
+<td align="left">Marketing</td>
+<td align="right">35.44</td>
+<td align="left">1999-06-27</td>
 <td align="left">FALSE</td>
 </tr>
 </tbody>
@@ -237,12 +238,12 @@ code > span.in { color: #008000; } /* Information */
 <p>A função <code>str()</code> permite verificar a estrutura dos nossos objetos, o chunk abaixo mostra a utilização da função na nossa base de dados de empregados</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">str</span>(empregados)
 <span class="co"># &#39;data.frame&#39;: 10 obs. of  6 variables:</span>
-<span class="co">#  $ Nome      : chr  &quot;Rayyaan&quot; &quot;Ha Eun&quot; &quot;Keschon&quot; &quot;Aadil&quot; ...</span>
+<span class="co">#  $ Nome      : chr  &quot;Katrina&quot; &quot;Ivette&quot; &quot;Kashaun&quot; &quot;Austin&quot; ...</span>
 <span class="co">#  $ Idade     : int  30 31 32 33 34 35 36 37 38 39</span>
-<span class="co">#  $ Setor     : Factor w/ 3 levels &quot;Estrutura&quot;,&quot;Financeiro&quot;,..: 1 1 1 3 1 3 1 1 2 2</span>
-<span class="co">#  $ Peso      : num  46.8 34.3 33 38.3 44.1 ...</span>
-<span class="co">#  $ Nascimento: Date, format: &quot;1999-03-25&quot; &quot;1999-02-10&quot; ...</span>
-<span class="co">#  $ Casado    : logi  TRUE TRUE TRUE TRUE TRUE TRUE ...</span></code></pre></div>
+<span class="co">#  $ Setor     : Factor w/ 3 levels &quot;Estrutura&quot;,&quot;Financeiro&quot;,..: 2 1 3 1 1 3 2 2 3 3</span>
+<span class="co">#  $ Peso      : num  43.6 44.7 41.4 37.7 42 ...</span>
+<span class="co">#  $ Nascimento: Date, format: &quot;1999-08-21&quot; &quot;1999-12-18&quot; ...</span>
+<span class="co">#  $ Casado    : logi  TRUE TRUE FALSE FALSE FALSE TRUE ...</span></code></pre></div>
 <p>Seguindo na nossa analogia da mudança as estruturas de dados seriam os meios através dos quais podemos transportar os objetos de uma casa para outro, como carros, caminhões etc. Deste modo, nesta seção vamos apresenta ao leitor o que são e exemplos de como construir: (i) Vetores, (ii) Matrizes, (iii) Data frames e (iv) Listas</p>
 </div>
 <div id="vetores" class="section level2">
@@ -280,25 +281,50 @@ code > span.in { color: #008000; } /* Information */
 </div>
 <div id="operacoes-vetorizadas" class="section level3 unnumbered">
 <h3>Operações Vetorizadas</h3>
-<p>Dizer que as operações são vetorizadas é apenas dizer que ao aplicar uma funções em um vetor essa função será aplicada em cada um dos elementos do vetor. Daí inclusive a importância de internamente o R não aceitar vetores com tipos de informação diferentes, pois não faria sentido, por exemplo, efetuar a multiplicação em um vetor que contem letras!! A ideia é bastante simples e intuitiva, porém não custa nada vizualizar alguns exemplos.</p>
+<p>Dizer que as operações são vetorizadas é apenas dizer que ao aplicar uma funções em um vetor essa função será aplicada em cada um dos elementos do vetor. Daí inclusive a importância de internamente o R não aceitar vetores com tipos de informação diferentes, pois não faria sentido, por exemplo, efetuar a multiplicação em um vetor que contem letras!! A ideia é bastante simples e intuitiva, porém não custa nada visualizar alguns exemplos.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">16</span>,<span class="dv">25</span>,<span class="dv">36</span>,<span class="dv">49</span>,<span class="dv">64</span>,<span class="dv">81</span>)
 &gt;<span class="st"> </span><span class="kw">sqrt</span>(a) <span class="co"># sqrt é a raiz quadrada</span>
 <span class="co"># [1] 1 2 3 4 5 6 7 8 9</span>
 &gt;<span class="st"> </span>a<span class="dv">+1</span>
 <span class="co"># [1]  2  5 10 17 26 37 50 65 82</span></code></pre></div>
-<p>Perceba que cada vez que uma função é aplicada no vetor ela na verdade é aplicada em cada elemento que compoe o vetor. O último aspecto importante para se introduzir sobre vetores é a reciglagem.</p>
+<p>Perceba que cada vez que uma função é aplicada no vetor ela na verdade é aplicada em cada elemento que compõe o vetor. O último aspecto importante para se introduzir sobre vetores é a reciclagem.</p>
 </div>
 <div id="reciglagem" class="section level3 unnumbered">
 <h3>Reciglagem</h3>
-<p>O que você imagina que acontece quando a operação <code>c(1,2)+c(1,1,1,1)</code> é efetuada? O nome da subseção já da uma boa dica. O que acontece é que o vetor de menor comprimento é reciclado, isto é, reutilizado, para que a operação seja efetuada e resultando no seguinte vetor <code>c(2,3,2,3)</code>. Impotante salientar que isso ocorre quando comprimento do maior vetor é múltiplo do comprimento do vetor menor, caso não seja este caso será retornado um erro. O chunk abaixo explicíta essas duas situações</p>
+<p>O que você imagina que acontece quando a operação <code>c(1,2)+c(1,1,1,1)</code> é efetuada? O nome da subseção já da uma boa dica. O que acontece é que o vetor de menor comprimento é reciclado, isto é, reutilizado, para que a operação seja efetuada e resultando no seguinte vetor <code>c(2,3,2,3)</code>. Importante salientar que isso ocorre quando comprimento do maior vetor é múltiplo do comprimento do vetor menor, caso não seja este caso será retornado um erro. O chunk abaixo explicita essas duas situações</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>)+<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>)
 <span class="co"># [1] 2 3 2 3</span>
 &gt;<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>)+<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1</span>)
 <span class="co"># Warning in c(1, 1) + c(1, 2, 1, 2, 1): longer object length is not a</span>
 <span class="co"># multiple of shorter object length</span>
 <span class="co"># [1] 2 3 2 3 2</span></code></pre></div>
-
 </div>
+</div>
+<div id="matrizes" class="section level2">
+<h2><span class="header-section-number">1.3</span> Matrizes</h2>
+<p>A segunda estutura apresentada é a matriz, que nada mais é do que uma extensão do vetor para uma dimensão a mais. Colocando de outro jeito uma <strong>matriz é uma estrutura com colunas com o mesmo número de linhas e que armazenam o mesmo tipo de informação</strong>. O leitor provavelmente já se deparou em algum momento da vida com uma matriz do seguinte formato</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">col1</th>
+<th align="left">col2</th>
+<th align="left">col3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">a</td>
+<td align="left">c</td>
+<td align="left">e</td>
+</tr>
+<tr class="even">
+<td align="left">b</td>
+<td align="left">d</td>
+<td align="left">f</td>
+</tr>
+</tbody>
+</table>
+
 </div>
 </div>
 
