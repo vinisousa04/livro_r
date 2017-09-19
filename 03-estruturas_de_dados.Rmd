@@ -143,4 +143,27 @@ Um vetor! E neste caso teríamos que nos perguntar: Queremos que o resultado da 
 matriz_simples[,3, drop = F]
 ```
 
-Por fim, note que o resultado de não selecionar nenhuma coluna é selecionar todas as colunas, e o mesmo se aplica para colunas.
+Por fim, note que o resultado de não selecionar nenhuma coluna é selecionar todas as colunas, e o mesmo se aplica para colunas. E neste caso as operações que efetuarmos nas matrizes coluna ou linha serão automaticamente vetorizadas.
+
+### Operações com matrizes {-}
+
+Vamos aqui mostrar a título de informação algumas operações matemáticas com matrizes. Digo a título de informação, pois constatei na minha experiência que a utilização dessas operações é rara, porém acredito que seja importante saber da existência.
+
+Antes de mostarmos os procedimentos vamos criar duas matrizes para trabalharmos com elas, vamos criativamente chama-las matrix_1 e matrix_2.
+```{r}
+matrix_1 <- matrix(data = 1:6,ncol = 3)
+matrix_2 <- matrix(data = 1:6, ncol = 3)
+```
+
+#### Multiplicação e Soma {-}
+
+De maneira geral podemos nos deparar com dois casos: (i) queremos somar/multiplicar um número com/por uma matriz ou (ii) queremos somar/multiplicar duas matrizes. 
+
+Quando nos encontramos no primeiro caso basta usar os operadores apresentados na seção **colocar aqui a referencia para a seção R como calculadora** e a operação é aplicada em cada elemento da matrix, como feito no chunk que segue
+```{r}
+3+matrix_1
+3*matrix_2
+```
+
+
+
