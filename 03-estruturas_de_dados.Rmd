@@ -80,9 +80,11 @@ Acessar elementos específicos de vetores é algo muito útil (acreditem no que 
 x <- c(1:10) # criando um vetor x
 x[7:9]       # pegando elementos de 7 a 9
 x[length(x)] <- 0 # substituindo o último elemento por 0
+y <- x[1:4]
 
 ```
 
+A última linha do chunk acima crian um novo vetor `y` com os 4 primeiros valores do vetor `x`, ou seja, mais um jeito de se criar vetores.  
 Mais adiante no livro^[**colocar aqui no final as seções corretas**] mostraremos que os filtros utilizados nos dados (como por exemplo selecionar de um banco de dados apenas os pacientes com pressão arterial acima de 140 X 90 mmHg) nada mais é do que acessar elementos do vetores que satisfaçam de terminadas condições.
 
 ### Operações Vetorizadas {-}
@@ -117,11 +119,28 @@ Assim como foi feito com vetores, vamos mostrar como criar matrizes do zero, com
 
 ### Criando Matrizes {-}
 
-Para criar matriz utiliza a função `matrix()`, que surpresa, onde dois argumentos no mínimo são necessários. O argumento para o argumento `data` deve ser passado um vetor que ira popular a matriz e o segundo argumento necessário é ou `ncol`ou `nrow`, especificando claramente o número de colunas ou o número de linhas. Perceba que é importante que o vetor passado para `data` deve ter um comprimento compátivel com o número de linhas ou número de colunas. Abaixo tem o exemplo de como criar uma matriz
+Para criar matriz utilize a função de nome `matrix()`, que surpresa, na qual são necessários no mínimo dois argumentos. O argumento `data` para o qual deve ser passado um vetor que irá popular a matriz e o segundo argumento necessário é ou `ncol`ou `nrow`, especificando claramente o número de colunas ou o número de linhas. Perceba que é importante que o vetor passado para `data` tenha um comprimento compátivel com o número de linhas ou número de colunas. Abaixo tem o exemplo de como criar uma matriz
 ```{r,echo=TRUE}
-matrix(data = c(1:25),nrow = 5,byrow = TRUE)
+matriz_simples <- matrix(data = c(1:25),nrow = 5,byrow = TRUE)
+matriz_simples
 ```
 
-O terceiro argumento `byrow` recebe um valor logical, tem como default  `FALSE` e como o nome diz ele indica se a matriz deve ser preenchida por linhas, `byrow=TRUE` ou por colunas.
+O terceiro argumento `byrow` recebe um valor lógico, e tem como default  `FALSE` e como o nome diz ele indica se a matriz deve ser preenchida por linhas, `byrow=TRUE` ou por colunas. Perceba que na primeira matriz apresentada nesta seção não tem o esse argumento e por consequência a matriz foi preenchida por colunas.
 
+### Acessando Elemntos {-}
 
+Como a matriz é uma extensão dos vetores a ideia é a mesma, com a única diferença que é necessário diferenciar o indexador de linha e de coluna. E isso é feito de maneira muito simples e direta com o operador `[]`, da seguinte maneira: `matriz[i,j]` onde `i` denota as linhas e `j` denota as colunas. Caso quiséssemos pegar somente os elementos das duas primeiras linhas e das duas últimas colunas da `matriz_simples` uma maneira seria
+```{r}
+matriz_simples[-c(3:5),c(4,5)]
+```
+
+Note que usamos `-c(3:5)` para indicar que queremos todas as linhas menos as linhas `r 3:5`. O mesmo poderia ter sido feito para as colunas. Vale destacar uma sutileza importante para compreender a utilização de matrizes no R. Pode haver casos em que desejamos acessar apenas uma coluna (ou linha) específica de uma determinada matriz e acredito que a tentativa mais natural para todos seria algo como `matriz_simples[,3]`, mas ao executar esse comando no console teríamos como resultado
+```{r}
+matriz_simples[,3]
+```
+Um vetor! E neste caso teríamos que nos perguntar: Queremos que o resultado da nossa operação (selecionar uma ou coluna especifica) seja um vetor ou uma matriz coluna (ou linha)? Caso a resposta seja um vetor deve ser executado o comando como acima, porém caso não seja esse o caso adicionamos o argumento `drop=FALSE` fazendo com que a estrutura de matriz seja preservada.
+```{r}
+matriz_simples[,3, drop = F]
+```
+
+Por fim, note que o resultado de não selecionar nenhuma coluna é selecionar todas as colunas, e o mesmo se aplica para colunas.
