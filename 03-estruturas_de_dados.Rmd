@@ -218,5 +218,12 @@ A sintaxe `c(rep("sim",5),rep("não",5))` cria um vetor repetindo o termo `sim` 
 str(empregados)
 ```
 
-Destaco aqui que não mostro como criar data frame do zero, pois como mencianado no início desta seção, os data frames são muito utilizados para armazenar dados que serão importados para dentro do R **(colocar aqui o capitulo que falará sobre importar dados para o R)** e não digitados no console ou script.
+Destaco aqui que não mostro como criar data frame do zero, pois como mencionado no início desta seção, os data frames são muito utilizados para armazenar dados que serão importados para dentro do R **(colocar aqui o capitulo que falará sobre importar dados para o R)** e não digitados no console ou script.
 
+## Listas {#listas}
+
+A última estrutura de dados é chamada de lista (ou vetor recursivo). De maneira objetiva a lista é um vetor no qual seus elementos podem ser qualquer outro tipo de estrutura, isto quer dizer que podemos ter uma lista que contém vetor, matrizes, data frames e etc. Perceba que ao passo que data frame tem colunas com o mesmo número de linhas as listas tem elementos que não só podem ter número de linhas diferentes como estruturas de dados diferentes! Se a explicação até agora está um pouco abstrata, não se preocupe pois está será a estrutura que gastaremos mais tempo discutindo, devido a sua grande versatilidade. Antes de entrarmos na discussão mesmo sobre listas vamos apresentar um exemplo de como as listas são realmente úteis e versáteis quando utilizamos o R.
+
+```{example, name="Versatilidade da Estrututa Lista"}
+O objetivo desse exemplo é mostrar uma aplicação de como as listas são usadas dentro R, faremos isso mostrando que ao efetuar uma regressão no R os resultados são armazenados em listas. Para tal vamos utilizar o dataset *gapminder* (disponível no pacote gapminder) que é um excerto dos dados de expectativa de vida, PIB per capita e população por país. Vamos construir um modelo onde a expectativa de vida depende do PIB percapita e do tamanho da população.  
+```

@@ -110,6 +110,7 @@ code > span.in { color: #008000; } /* Information */
 <li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#operacoes-com-matrizes"><i class="fa fa-check"></i>Operações com matrizes</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#data-frames"><i class="fa fa-check"></i><b>1.4</b> Data Frames</a></li>
+<li class="chapter" data-level="1.5" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#listas"><i class="fa fa-check"></i><b>1.5</b> Listas</a></li>
 </ul></li>
 </ul>
 
@@ -150,83 +151,83 @@ code > span.in { color: #008000; } /* Information */
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Leon</td>
+<td align="left">Joshua</td>
 <td align="right">1</td>
-<td align="left">Estrutura</td>
-<td align="right">46.25</td>
-<td align="left">1999-03-21</td>
+<td align="left">Financeiro</td>
+<td align="right">41.06</td>
+<td align="left">1999-04-05</td>
 <td align="left">TRUE</td>
 </tr>
 <tr class="even">
-<td align="left">Thomas</td>
+<td align="left">Danielle</td>
 <td align="right">2</td>
 <td align="left">Marketing</td>
-<td align="right">43.38</td>
-<td align="left">1999-09-12</td>
-<td align="left">FALSE</td>
+<td align="right">41.89</td>
+<td align="left">1999-06-09</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="odd">
-<td align="left">Christina</td>
+<td align="left">Najeema</td>
 <td align="right">3</td>
-<td align="left">Marketing</td>
-<td align="right">42.30</td>
-<td align="left">1999-03-24</td>
-<td align="left">TRUE</td>
+<td align="left">Estrutura</td>
+<td align="right">40.08</td>
+<td align="left">1999-01-01</td>
+<td align="left">FALSE</td>
 </tr>
 <tr class="even">
-<td align="left">Briana</td>
+<td align="left">Tulaiha</td>
 <td align="right">4</td>
-<td align="left">Financeiro</td>
-<td align="right">37.32</td>
-<td align="left">1999-02-23</td>
-<td align="left">TRUE</td>
+<td align="left">Estrutura</td>
+<td align="right">38.13</td>
+<td align="left">1999-08-30</td>
+<td align="left">FALSE</td>
 </tr>
 <tr class="odd">
-<td align="left">Hayley</td>
+<td align="left">Josie</td>
 <td align="right">5</td>
-<td align="left">Estrutura</td>
-<td align="right">43.56</td>
-<td align="left">1999-12-01</td>
-<td align="left">TRUE</td>
+<td align="left">Financeiro</td>
+<td align="right">39.13</td>
+<td align="left">1999-11-13</td>
+<td align="left">FALSE</td>
 </tr>
 <tr class="even">
-<td align="left">Cyra</td>
+<td align="left">Nathan</td>
 <td align="right">6</td>
-<td align="left">Marketing</td>
-<td align="right">37.89</td>
-<td align="left">1999-10-10</td>
-<td align="left">FALSE</td>
+<td align="left">Financeiro</td>
+<td align="right">45.03</td>
+<td align="left">1999-09-27</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="odd">
-<td align="left">Ty</td>
+<td align="left">Kristoffer</td>
 <td align="right">7</td>
-<td align="left">Marketing</td>
-<td align="right">35.88</td>
-<td align="left">1999-10-30</td>
+<td align="left">Estrutura</td>
+<td align="right">37.16</td>
+<td align="left">1999-03-28</td>
 <td align="left">TRUE</td>
 </tr>
 <tr class="even">
-<td align="left">Justin</td>
+<td align="left">Wadha</td>
 <td align="right">8</td>
-<td align="left">Estrutura</td>
-<td align="right">43.66</td>
-<td align="left">1999-11-16</td>
+<td align="left">Marketing</td>
+<td align="right">42.06</td>
+<td align="left">1999-05-08</td>
 <td align="left">TRUE</td>
 </tr>
 <tr class="odd">
-<td align="left">Jaquelyn</td>
+<td align="left">Jasmine</td>
 <td align="right">9</td>
-<td align="left">Marketing</td>
-<td align="right">38.74</td>
-<td align="left">1999-07-03</td>
-<td align="left">FALSE</td>
+<td align="left">Estrutura</td>
+<td align="right">35.66</td>
+<td align="left">1999-05-01</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="even">
-<td align="left">Holly</td>
+<td align="left">Hazeela</td>
 <td align="right">10</td>
 <td align="left">Financeiro</td>
-<td align="right">43.42</td>
-<td align="left">1999-05-28</td>
+<td align="right">41.33</td>
+<td align="left">1999-08-05</td>
 <td align="left">TRUE</td>
 </tr>
 </tbody>
@@ -243,12 +244,12 @@ code > span.in { color: #008000; } /* Information */
 <p>A função <code>str()</code> permite verificar a estrutura dos nossos objetos, o chunk abaixo mostra a utilização da função na nossa base de dados de empregados</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">str</span>(empregados)
 <span class="co"># &#39;data.frame&#39;: 10 obs. of  6 variables:</span>
-<span class="co">#  $ Nome         : chr  &quot;Leon&quot; &quot;Thomas&quot; &quot;Christina&quot; &quot;Briana&quot; ...</span>
+<span class="co">#  $ Nome         : chr  &quot;Joshua&quot; &quot;Danielle&quot; &quot;Najeema&quot; &quot;Tulaiha&quot; ...</span>
 <span class="co">#  $ Tempo_emprego: int  1 2 3 4 5 6 7 8 9 10</span>
-<span class="co">#  $ Setor        : Factor w/ 3 levels &quot;Estrutura&quot;,&quot;Financeiro&quot;,..: 1 3 3 2 1 3 3 1 3 2</span>
-<span class="co">#  $ Peso         : num  46.3 43.4 42.3 37.3 43.6 ...</span>
-<span class="co">#  $ Nascimento   : Date, format: &quot;1999-03-21&quot; &quot;1999-09-12&quot; ...</span>
-<span class="co">#  $ Casado       : logi  TRUE FALSE TRUE TRUE TRUE FALSE ...</span></code></pre></div>
+<span class="co">#  $ Setor        : Factor w/ 3 levels &quot;Estrutura&quot;,&quot;Financeiro&quot;,..: 2 3 1 1 2 2 1 3 1 2</span>
+<span class="co">#  $ Peso         : num  41.1 41.9 40.1 38.1 39.1 ...</span>
+<span class="co">#  $ Nascimento   : Date, format: &quot;1999-04-05&quot; &quot;1999-06-09&quot; ...</span>
+<span class="co">#  $ Casado       : logi  TRUE TRUE FALSE FALSE FALSE TRUE ...</span></code></pre></div>
 <p>Seguindo na nossa analogia da mudança as estruturas de dados seriam os meios através dos quais podemos transportar os objetos de uma casa para outro, como carros, caminhões etc. Deste modo, nesta seção vamos apresenta ao leitor o que são e exemplos de como construir: (i) Vetores, (ii) Matrizes, (iii) Data frames e (iv) Listas</p>
 </div>
 <div id="vetores" class="section level2">
@@ -403,8 +404,8 @@ Mais adiante no livro<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup>
 <p>Os data frames possuem a mesma estrutura que uma matriz, isto é, colunas com o mesmo número de linhas. Porém, há duas vantagens de se trabalhar com data frames<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>: (i) Cada coluna pode contar tipos de informações diferentes e (ii) nomeando as colunas podemos acessar colunas específicas sem precisar saber exatamente a indexação da coluna. Essas duas diferenças tornam os data frames o jeito mais comum de se trabalhar com bases de dados no R. Pois podemos ter diversas variáveis, relacionadas a mesma observação, com tipos de informação diferente em uma mesma estrutura! O leitor atento percebeu que a tabela <a href="estruturas-de-dados.html#tab:empregados">1.1</a> é na verdade um exemplo de data frame, onde cada coluna representa uma variável com tipo diferente de informação.</p>
 <p>Para acessar colunas pelo nome utiliza-se o <code>$</code> logo em seguida do nome do data frame. Caso quissésemos acessar só os nomes do nosso data frame de empregados poderíamos fazer da seguinte maneira:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>empregados$Nome
-<span class="co">#  [1] &quot;Leon&quot;      &quot;Thomas&quot;    &quot;Christina&quot; &quot;Briana&quot;    &quot;Hayley&quot;   </span>
-<span class="co">#  [6] &quot;Cyra&quot;      &quot;Ty&quot;        &quot;Justin&quot;    &quot;Jaquelyn&quot;  &quot;Holly&quot;</span></code></pre></div>
+<span class="co">#  [1] &quot;Joshua&quot;     &quot;Danielle&quot;   &quot;Najeema&quot;    &quot;Tulaiha&quot;    &quot;Josie&quot;     </span>
+<span class="co">#  [6] &quot;Nathan&quot;     &quot;Kristoffer&quot; &quot;Wadha&quot;      &quot;Jasmine&quot;    &quot;Hazeela&quot;</span></code></pre></div>
 <p>O RStudio possui uma ferramenta conveniente para nos ajudar, ao digitar <code>empregados$</code> e em seguida pressionar <code>TAB</code> o RStudio mostrará um menu <em>dropdown</em> com os nomes das colunas do data frame, como mostra a figura <a href="estruturas-de-dados.html#fig:rstudio-dropdown-menu">1.1</a>, de modo que não é necessário sabermos qual o número da coluna em que se encontra a variável de interesse e nem ter que saber de cabeça o nome de todas as variáveis disponíveis no data frame.</p>
 <div class="figure" style="text-align: center"><span id="fig:rstudio-dropdown-menu"></span>
 <img src="images/_empregados_colunas.png" alt="Menu Dropdown do RStudio" width="682" />
@@ -415,30 +416,25 @@ Figure 1.1: Menu Dropdown do RStudio
 <p>Outra utilidade do <code>$</code> quando se tratando de data frames é adicionar novas variáveis ao data frame. Ainda no nosso exemplo do data frame com informações sobre os empregados, poderíamos pensar que foi oferecido aos empregados um treinamento no qual a participação é optativa e depois que o treinamento foi realizado gostaríamos de adicionar uma coluna indicando quais empregados optaram por participar do treinamento. Para facilitar o entendimento vamos supor que os 5 primeiros empregados () optaram por participar do treinamento e os últimos 5 por não participar. Desse modo queremos adicionar uma coluna com o nome de <code>Treinamento</code> que receberá o valor <code>sim</code> caso o empregado tenha participado do treinamento e <code>não</code> caso ele não tenha participado. Isso é feito da seguinte maneira:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>empregados$Treinamento &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;sim&quot;</span>,<span class="dv">5</span>),<span class="kw">rep</span>(<span class="st">&quot;não&quot;</span>,<span class="dv">5</span>))</code></pre></div>
 <p>A sintaxe <code>c(rep(&quot;sim&quot;,5),rep(&quot;não&quot;,5))</code> cria um vetor repetindo o termo <code>sim</code> cinco vezes e depois repetindo o termo <code>não</code> também cinco vezes. Agora se verificarmos nosso data frame veremos que a coluna <code>Treinamento</code> adicionada com sucesso.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>empregados
-<span class="co">#         Nome Tempo_emprego      Setor     Peso Nascimento Casado</span>
-<span class="co"># 1       Leon             1  Estrutura 46.25402 1999-03-21   TRUE</span>
-<span class="co"># 2     Thomas             2  Marketing 43.37910 1999-09-12  FALSE</span>
-<span class="co"># 3  Christina             3  Marketing 42.30094 1999-03-24   TRUE</span>
-<span class="co"># 4     Briana             4 Financeiro 37.31686 1999-02-23   TRUE</span>
-<span class="co"># 5     Hayley             5  Estrutura 43.56367 1999-12-01   TRUE</span>
-<span class="co"># 6       Cyra             6  Marketing 37.89354 1999-10-10  FALSE</span>
-<span class="co"># 7         Ty             7  Marketing 35.87515 1999-10-30   TRUE</span>
-<span class="co"># 8     Justin             8  Estrutura 43.65624 1999-11-16   TRUE</span>
-<span class="co"># 9   Jaquelyn             9  Marketing 38.73981 1999-07-03  FALSE</span>
-<span class="co"># 10     Holly            10 Financeiro 43.41862 1999-05-28   TRUE</span>
-<span class="co">#    Treinamento</span>
-<span class="co"># 1          sim</span>
-<span class="co"># 2          sim</span>
-<span class="co"># 3          sim</span>
-<span class="co"># 4          sim</span>
-<span class="co"># 5          sim</span>
-<span class="co"># 6          não</span>
-<span class="co"># 7          não</span>
-<span class="co"># 8          não</span>
-<span class="co"># 9          não</span>
-<span class="co"># 10         não</span></code></pre></div>
-<p>Destaco aqui que não mostro como criar data frame do zero, pois como mencianado no início desta seção, os data frames são muito utilizados para armazenar dados que serão importados para dentro do R <strong>(colocar aqui o capitulo que falará sobre importar dados para o R)</strong> e não digitados no console ou script.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">str</span>(empregados)
+<span class="co"># &#39;data.frame&#39;: 10 obs. of  7 variables:</span>
+<span class="co">#  $ Nome         : chr  &quot;Joshua&quot; &quot;Danielle&quot; &quot;Najeema&quot; &quot;Tulaiha&quot; ...</span>
+<span class="co">#  $ Tempo_emprego: int  1 2 3 4 5 6 7 8 9 10</span>
+<span class="co">#  $ Setor        : Factor w/ 3 levels &quot;Estrutura&quot;,&quot;Financeiro&quot;,..: 2 3 1 1 2 2 1 3 1 2</span>
+<span class="co">#  $ Peso         : num  41.1 41.9 40.1 38.1 39.1 ...</span>
+<span class="co">#  $ Nascimento   : Date, format: &quot;1999-04-05&quot; &quot;1999-06-09&quot; ...</span>
+<span class="co">#  $ Casado       : logi  TRUE TRUE FALSE FALSE FALSE TRUE ...</span>
+<span class="co">#  $ Treinamento  : chr  &quot;sim&quot; &quot;sim&quot; &quot;sim&quot; &quot;sim&quot; ...</span></code></pre></div>
+<p>Destaco aqui que não mostro como criar data frame do zero, pois como mencionado no início desta seção, os data frames são muito utilizados para armazenar dados que serão importados para dentro do R <strong>(colocar aqui o capitulo que falará sobre importar dados para o R)</strong> e não digitados no console ou script.</p>
+</div>
+<div id="listas" class="section level2">
+<h2><span class="header-section-number">1.5</span> Listas</h2>
+<p>A última estrutura de dados é chamada de lista (ou vetor recursivo). De maneira objetiva a lista é um vetor no qual seus elementos podem ser qualquer outro tipo de estrutura, isto quer dizer que podemos ter uma lista que contém vetor, matrizes, data frames e etc. Perceba que ao passo que data frame tem colunas com o mesmo número de linhas as listas tem elementos que não só podem ter número de linhas diferentes como estruturas de dados diferentes! Se a explicação até agora está um pouco abstrata, não se preocupe pois está será a estrutura que gastaremos mais tempo discutindo, devido a sua grande versatilidade. Antes de entrarmos na discussão mesmo sobre listas vamos apresentar um exemplo de como as listas são realmente úteis e versáteis quando utilizamos o R.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-21" class="example"><strong>Example 1.1  (Versatilidade da Estrututa Lista)  </strong></span>O objetivo desse exemplo é mostrar uma aplicação de como as listas são usadas dentro R, faremos isso mostrando que ao efetuar uma regressão no R os resultados são armazenados em listas. Para tal vamos utilizar o dataset <em>gapminder</em> (disponível no pacote gapminder) que é um excerto dos dados de expectativa de vida, PIB per capita e população por país. Vamos construir um modelo onde a expectativa de vida depende do PIB percapita e do tamanho da população.
+</div>
+<p></p>
 
 </div>
 </div>
