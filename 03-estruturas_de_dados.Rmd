@@ -13,7 +13,7 @@ Com a diferença entre tipos e estruturas de dados explicada vamos agora apresen
 
 ```{r dados exemplo de tipos de dados,echo=FALSE}
 empregados <- data.frame(Nome = randomNames::randomNames(n = 10,which.names = "first",return.complete.data = F),
-                         Idade = 30:39,
+                         Tempo_emprego = 1:10,
                          Setor = sample(c("Financeiro","Estrutura","Marketing"),size = 10,replace = T),
                          Peso = rnorm(n = 10,mean = 40,3.7),
                          Nascimento = sample(seq(as.Date('1999/01/01'), as.Date('2000/01/01'), by="day"), 10),
@@ -30,7 +30,7 @@ knitr::kable(empregados,digits = 2,caption = "Empregados")
 
 Cada coluna possui um tipo diferente de informação e cada informação é armazenada de um jeito diferente.  A lista abaixo sintetiza os tipos de dados e a coluna da tabela com a qual ela está relacionada^[Na estatística existem basicamente dois tipos de variáveis cada uma delas com dois subtipos. A primeira é chamada de variáveis qualitativas, que podem assumir valores nominais, por exemplo Nomes, ou assumir valores ordinais, por exemplo dividir peso pena, peso médio etc. O segundo tipo de variável é chamado de variáveis quantitativas, que podem ser intervalos, por exemplo a previsão do tempo quando nos traz temperatura miníma e máxima, ou assumir valore pontuais, como por exemplo a medição do pesos das pessoas]. 
 
-- Character (ou string): São caracteres textuais que podem assumir qualquer valor. Na tabela é a coluna relaciona ao Nome;
+- Character (ou string): São caracteres textuais que podem assumir qualquer valor. Na tabela é a coluna relaciona ao Nome. Os elementos dos vetores de caracteres devem estar entre aspas `"elemento"`;
 - Integer: São números inteiros, neste caso relacionado com a coluna idade;
 - Double: São números decimais, neste caso relacionado à coluna de peso;
 - Factor: São caracteres textuais mais podem assumir somente um determinado tipo de valor. Neste caso seria a coluna que traz o setor no qual o empregado trabalha. Outro exemplo de factor seria o tipo sanguíneo em um banco de dados de pacientes;
@@ -65,7 +65,7 @@ Quando quisermos salvar um determinado vetor em um objeto `x`, basta utilizarmos
 A lógica é a mesma para criar vetores com outros tipos de dados, como por exemplo criar um vetor contendo as primeiras letras do alfabeto e outro com os primeiros dias de 2017.
 
 ```{r,echo=TRUE}
-letras <- letters[1:5]
+letras <- c("a","b","c","d")
 letras
 dias <- seq(from = as.Date("01/01/2017",format="%d/%m/%Y"),length.out = 5,by = "day")
 dias
@@ -127,7 +127,7 @@ matriz_simples
 
 O terceiro argumento `byrow` recebe um valor lógico, e tem como default  `FALSE` e como o nome diz ele indica se a matriz deve ser preenchida por linhas, `byrow=TRUE` ou por colunas. Perceba que na primeira matriz apresentada nesta seção não tem o esse argumento e por consequência a matriz foi preenchida por colunas.
 
-### Acessando Elemntos {-}
+### Acessando Elementos {-}
 
 Como a matriz é uma extensão dos vetores a ideia é a mesma, com a única diferença que é necessário diferenciar o indexador de linha e de coluna. E isso é feito de maneira muito simples e direta com o operador `[]`, da seguinte maneira: `matriz[i,j]` onde `i` denota as linhas e `j` denota as colunas. Caso quiséssemos pegar somente os elementos das duas primeiras linhas e das duas últimas colunas da `matriz_simples` uma maneira seria
 ```{r}
@@ -152,18 +152,71 @@ Vamos aqui mostrar a título de informação algumas operações matemáticas co
 Antes de mostarmos os procedimentos vamos criar duas matrizes para trabalharmos com elas, vamos criativamente chama-las matrix_1 e matrix_2.
 ```{r}
 matrix_1 <- matrix(data = 1:6,ncol = 3)
-matrix_2 <- matrix(data = 1:6, ncol = 3)
+matrix_2 <- matrix(data = 1:6, ncol = 2)
 ```
 
 #### Multiplicação e Soma {-}
 
-De maneira geral podemos nos deparar com dois casos: (i) queremos somar/multiplicar um número com/por uma matriz ou (ii) queremos somar/multiplicar duas matrizes. 
+De maneira geral podemos nos deparar com dois casos: (i) queremos somar/multiplicar um número com/por uma matriz ou (ii) queremos multiplicar duas matrizes. 
 
-Quando nos encontramos no primeiro caso basta usar os operadores apresentados na seção **colocar aqui a referencia para a seção R como calculadora** e a operação é aplicada em cada elemento da matrix, como feito no chunk que segue
+Quando nos encontramos no primeiro (somar/multiplicar um número por um matriz) caso basta usar os operadores apresentados na seção **colocar aqui a referencia para a seção R como calculadora** e a operação é aplicada em cada elemento da matrix, como feito no chunk que segue
 ```{r}
 3+matrix_1
 3*matrix_2
+sqrt(matrix_1)
 ```
 
+Já no segundo caso (multiplicar matrizes) temos que colocar o operador `*` entre `%`s para que o R entenda que queremos efetuar operações matriciais
+```{r}
+matrix_1 %*% matrix_2
+```
 
+É claro que as matrizes devem ter dimensões vpalidas para que a multiplicação seja efetuada.
+
+#### Determinante, Transposta e Inversa {-}
+
+Brevemente vamos apresentar as funções para obtermos o determinante, a transposta e a inversa de uma matriz. Começamos com o determinante que é calculado através da função `det()`:  
+
+```{r}
+matriz <- matrix(c(1:4),ncol=2,byrow = T)
+det(matriz)
+```
+
+A transposta por sua vez é calculada através da função `t()`: 
+```{r}
+t(matriz)
+```
+
+E por fim a inversa é obtida através da função `solve()`:
+```{r}
+solve(matriz)
+```
+
+Passamos agora para a estrutura chamda de *data frame*, que funciona com os principios de vetores e matrizes, porém com algumas modificações que a tornam muito útil na prática.
+
+## Data Frames {#data-frames}
+
+Os data frames possuem a mesma estrutura que uma matriz, isto é, colunas com o mesmo número de linhas. Porém, há duas vantagens de se trabalhar com data frames^[Para aqueles que conhecem um pouco de computação a única desvantagem do data frame em relação a matriz é que as operação feitas com data frames são significativamente mais lentas do que quando feitas com matrizes, isso ocorre devido ao jeti de como as informações são salvas na mémoria do computador]: (i) Cada coluna pode contar tipos de informações diferentes e (ii) nomeando as colunas podemos acessar colunas específicas sem precisar saber exatamente a indexação da coluna. Essas duas diferenças tornam os data frames o jeito mais comum de se trabalhar com bases de dados no R. Pois podemos ter diversas variáveis, relacionadas a mesma observação, com tipos de informação diferente em uma mesma estrutura! O leitor atento percebeu que a tabela \@ref(tab:empregados) é na verdade um exemplo de data frame, onde cada coluna representa uma variável com tipo diferente de informação. 
+
+Para acessar colunas pelo nome utiliza-se o `$` logo em seguida do nome do data frame. Caso quissésemos acessar só os nomes do nosso data frame de empregados poderíamos fazer da seguinte maneira:
+```{r}
+empregados$Nome
+```
+
+O RStudio possui uma ferramenta conveniente para nos ajudar, ao digitar `empregados$` e em seguida pressionar `TAB` o RStudio mostrará um menu *dropdown* com os nomes das colunas do data frame, como mostra a figura \@ref(fig:rstudio-dropdown-menu), de modo que não é necessário sabermos qual o número da coluna em que se encontra a variável de interesse e nem ter que saber de cabeça o nome de todas as variáveis disponíveis no data frame. 
+
+```{r rstudio-dropdown-menu, echo=FALSE,fig.cap="Menu Dropdown do RStudio"}
+include_graphics("images/_empregados_colunas.png")
+```
+
+Outra utilidade do `$` quando se tratando de data frames é adicionar novas variáveis ao data frame. Ainda no nosso exemplo do data frame com informações sobre os empregados, poderíamos pensar que foi oferecido aos empregados um treinamento no qual a participação é optativa e depois que o treinamento foi realizado gostaríamos de adicionar uma coluna indicando quais empregados optaram por participar do treinamento. Para facilitar o entendimento vamos supor que os 5 primeiros empregados (`r empregados$Nomes[1:5]`) optaram por participar do treinamento e os últimos 5 por não participar. Desse modo queremos adicionar uma coluna com o nome de `Treinamento` que receberá o valor `sim` caso o empregado tenha participado do treinamento e `não` caso ele não tenha participado. Isso é feito da seguinte maneira:
+```{r}
+empregados$Treinamento <- c(rep("sim",5),rep("não",5))
+```
+A sintaxe `c(rep("sim",5),rep("não",5))` cria um vetor repetindo o termo `sim` cinco vezes e depois repetindo o termo `não` também cinco vezes. Agora se verificarmos nosso data frame veremos que a coluna `Treinamento` adicionada com sucesso.
+```{r}
+str(empregados)
+```
+
+Destaco aqui que não mostro como criar data frame do zero, pois como mencianado no início desta seção, os data frames são muito utilizados para armazenar dados que serão importados para dentro do R **(colocar aqui o capitulo que falará sobre importar dados para o R)** e não digitados no console ou script.
 

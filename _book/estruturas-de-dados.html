@@ -106,8 +106,10 @@ code > span.in { color: #008000; } /* Information */
 </ul></li>
 <li class="chapter" data-level="1.3" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#matrizes"><i class="fa fa-check"></i><b>1.3</b> Matrizes</a><ul>
 <li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#criando-matrizes"><i class="fa fa-check"></i>Criando Matrizes</a></li>
-<li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#acessando-elemntos"><i class="fa fa-check"></i>Acessando Elemntos</a></li>
+<li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#acessando-elementos-1"><i class="fa fa-check"></i>Acessando Elementos</a></li>
+<li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#operacoes-com-matrizes"><i class="fa fa-check"></i>Operações com matrizes</a></li>
 </ul></li>
+<li class="chapter" data-level="1.4" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#data-frames"><i class="fa fa-check"></i><b>1.4</b> Data Frames</a></li>
 </ul></li>
 </ul>
 
@@ -139,7 +141,7 @@ code > span.in { color: #008000; } /* Information */
 <thead>
 <tr class="header">
 <th align="left">Nome</th>
-<th align="right">Idade</th>
+<th align="right">Tempo_emprego</th>
 <th align="left">Setor</th>
 <th align="right">Peso</th>
 <th align="left">Nascimento</th>
@@ -148,90 +150,90 @@ code > span.in { color: #008000; } /* Information */
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Jordan</td>
-<td align="right">30</td>
-<td align="left">Marketing</td>
-<td align="right">37.76</td>
-<td align="left">1999-09-28</td>
-<td align="left">FALSE</td>
-</tr>
-<tr class="even">
-<td align="left">Peonie</td>
-<td align="right">31</td>
-<td align="left">Marketing</td>
-<td align="right">36.53</td>
-<td align="left">1999-10-22</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="left">Jacob</td>
-<td align="right">32</td>
-<td align="left">Marketing</td>
-<td align="right">33.95</td>
-<td align="left">1999-06-12</td>
-<td align="left">FALSE</td>
-</tr>
-<tr class="even">
-<td align="left">Brittney</td>
-<td align="right">33</td>
+<td align="left">Leon</td>
+<td align="right">1</td>
 <td align="left">Estrutura</td>
-<td align="right">42.52</td>
-<td align="left">1999-11-01</td>
-<td align="left">TRUE</td>
-</tr>
-<tr class="odd">
-<td align="left">Marisa</td>
-<td align="right">34</td>
-<td align="left">Marketing</td>
-<td align="right">40.89</td>
-<td align="left">1999-02-06</td>
+<td align="right">46.25</td>
+<td align="left">1999-03-21</td>
 <td align="left">TRUE</td>
 </tr>
 <tr class="even">
-<td align="left">Raadiya</td>
-<td align="right">35</td>
-<td align="left">Estrutura</td>
-<td align="right">35.91</td>
-<td align="left">1999-07-15</td>
+<td align="left">Thomas</td>
+<td align="right">2</td>
+<td align="left">Marketing</td>
+<td align="right">43.38</td>
+<td align="left">1999-09-12</td>
 <td align="left">FALSE</td>
 </tr>
 <tr class="odd">
-<td align="left">Gabriel</td>
-<td align="right">36</td>
-<td align="left">Estrutura</td>
-<td align="right">41.39</td>
-<td align="left">1999-10-09</td>
-<td align="left">FALSE</td>
+<td align="left">Christina</td>
+<td align="right">3</td>
+<td align="left">Marketing</td>
+<td align="right">42.30</td>
+<td align="left">1999-03-24</td>
+<td align="left">TRUE</td>
 </tr>
 <tr class="even">
-<td align="left">Juan</td>
-<td align="right">37</td>
-<td align="left">Estrutura</td>
-<td align="right">33.85</td>
-<td align="left">1999-01-22</td>
-<td align="left">FALSE</td>
-</tr>
-<tr class="odd">
-<td align="left">Larae</td>
-<td align="right">38</td>
-<td align="left">Estrutura</td>
-<td align="right">36.16</td>
-<td align="left">1999-08-26</td>
-<td align="left">FALSE</td>
-</tr>
-<tr class="even">
-<td align="left">Siraaj</td>
-<td align="right">39</td>
+<td align="left">Briana</td>
+<td align="right">4</td>
 <td align="left">Financeiro</td>
-<td align="right">37.96</td>
-<td align="left">1999-07-01</td>
+<td align="right">37.32</td>
+<td align="left">1999-02-23</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">Hayley</td>
+<td align="right">5</td>
+<td align="left">Estrutura</td>
+<td align="right">43.56</td>
+<td align="left">1999-12-01</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">Cyra</td>
+<td align="right">6</td>
+<td align="left">Marketing</td>
+<td align="right">37.89</td>
+<td align="left">1999-10-10</td>
 <td align="left">FALSE</td>
+</tr>
+<tr class="odd">
+<td align="left">Ty</td>
+<td align="right">7</td>
+<td align="left">Marketing</td>
+<td align="right">35.88</td>
+<td align="left">1999-10-30</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">Justin</td>
+<td align="right">8</td>
+<td align="left">Estrutura</td>
+<td align="right">43.66</td>
+<td align="left">1999-11-16</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="odd">
+<td align="left">Jaquelyn</td>
+<td align="right">9</td>
+<td align="left">Marketing</td>
+<td align="right">38.74</td>
+<td align="left">1999-07-03</td>
+<td align="left">FALSE</td>
+</tr>
+<tr class="even">
+<td align="left">Holly</td>
+<td align="right">10</td>
+<td align="left">Financeiro</td>
+<td align="right">43.42</td>
+<td align="left">1999-05-28</td>
+<td align="left">TRUE</td>
 </tr>
 </tbody>
 </table>
 <p>Cada coluna possui um tipo diferente de informação e cada informação é armazenada de um jeito diferente. A lista abaixo sintetiza os tipos de dados e a coluna da tabela com a qual ela está relacionada<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p>
 <ul>
-<li>Character (ou string): São caracteres textuais que podem assumir qualquer valor. Na tabela é a coluna relaciona ao Nome;</li>
+<li>Character (ou string): São caracteres textuais que podem assumir qualquer valor. Na tabela é a coluna relaciona ao Nome. Os elementos dos vetores de caracteres devem estar entre aspas <code>&quot;elemento&quot;</code>;</li>
 <li>Integer: São números inteiros, neste caso relacionado com a coluna idade;</li>
 <li>Double: São números decimais, neste caso relacionado à coluna de peso;</li>
 <li>Factor: São caracteres textuais mais podem assumir somente um determinado tipo de valor. Neste caso seria a coluna que traz o setor no qual o empregado trabalha. Outro exemplo de factor seria o tipo sanguíneo em um banco de dados de pacientes;</li>
@@ -241,12 +243,12 @@ code > span.in { color: #008000; } /* Information */
 <p>A função <code>str()</code> permite verificar a estrutura dos nossos objetos, o chunk abaixo mostra a utilização da função na nossa base de dados de empregados</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">str</span>(empregados)
 <span class="co"># &#39;data.frame&#39;: 10 obs. of  6 variables:</span>
-<span class="co">#  $ Nome      : chr  &quot;Jordan&quot; &quot;Peonie&quot; &quot;Jacob&quot; &quot;Brittney&quot; ...</span>
-<span class="co">#  $ Idade     : int  30 31 32 33 34 35 36 37 38 39</span>
-<span class="co">#  $ Setor     : Factor w/ 3 levels &quot;Estrutura&quot;,&quot;Financeiro&quot;,..: 3 3 3 1 3 1 1 1 1 2</span>
-<span class="co">#  $ Peso      : num  37.8 36.5 34 42.5 40.9 ...</span>
-<span class="co">#  $ Nascimento: Date, format: &quot;1999-09-28&quot; &quot;1999-10-22&quot; ...</span>
-<span class="co">#  $ Casado    : logi  FALSE TRUE FALSE TRUE TRUE FALSE ...</span></code></pre></div>
+<span class="co">#  $ Nome         : chr  &quot;Leon&quot; &quot;Thomas&quot; &quot;Christina&quot; &quot;Briana&quot; ...</span>
+<span class="co">#  $ Tempo_emprego: int  1 2 3 4 5 6 7 8 9 10</span>
+<span class="co">#  $ Setor        : Factor w/ 3 levels &quot;Estrutura&quot;,&quot;Financeiro&quot;,..: 1 3 3 2 1 3 3 1 3 2</span>
+<span class="co">#  $ Peso         : num  46.3 43.4 42.3 37.3 43.6 ...</span>
+<span class="co">#  $ Nascimento   : Date, format: &quot;1999-03-21&quot; &quot;1999-09-12&quot; ...</span>
+<span class="co">#  $ Casado       : logi  TRUE FALSE TRUE TRUE TRUE FALSE ...</span></code></pre></div>
 <p>Seguindo na nossa analogia da mudança as estruturas de dados seriam os meios através dos quais podemos transportar os objetos de uma casa para outro, como carros, caminhões etc. Deste modo, nesta seção vamos apresenta ao leitor o que são e exemplos de como construir: (i) Vetores, (ii) Matrizes, (iii) Data frames e (iv) Listas</p>
 </div>
 <div id="vetores" class="section level2">
@@ -265,9 +267,9 @@ code > span.in { color: #008000; } /* Information */
 <span class="co">#  [1]  1  2  3  4  5  6  7  8  9 10</span></code></pre></div>
 <p>Quando quisermos salvar um determinado vetor em um objeto <code>x</code>, basta utilizarmos o operador de atribuição <code>&lt;-</code> da seguinte maneira <code>x &lt;- c(1:10)</code>.</p>
 <p>A lógica é a mesma para criar vetores com outros tipos de dados, como por exemplo criar um vetor contendo as primeiras letras do alfabeto e outro com os primeiros dias de 2017.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>letras &lt;-<span class="st"> </span>letters[<span class="dv">1</span>:<span class="dv">5</span>]
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>letras &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;d&quot;</span>)
 &gt;<span class="st"> </span>letras
-<span class="co"># [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot;</span>
+<span class="co"># [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot;</span>
 &gt;<span class="st"> </span>dias &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="kw">as.Date</span>(<span class="st">&quot;01/01/2017&quot;</span>,<span class="dt">format=</span><span class="st">&quot;%d/%m/%Y&quot;</span>),<span class="dt">length.out =</span> <span class="dv">5</span>,<span class="dt">by =</span> <span class="st">&quot;day&quot;</span>)
 &gt;<span class="st"> </span>dias
 <span class="co"># [1] &quot;2017-01-01&quot; &quot;2017-01-02&quot; &quot;2017-01-03&quot; &quot;2017-01-04&quot; &quot;2017-01-05&quot;</span></code></pre></div>
@@ -326,8 +328,8 @@ Mais adiante no livro<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup>
 <span class="co"># [5,]   21   22   23   24   25</span></code></pre></div>
 <p>O terceiro argumento <code>byrow</code> recebe um valor lógico, e tem como default <code>FALSE</code> e como o nome diz ele indica se a matriz deve ser preenchida por linhas, <code>byrow=TRUE</code> ou por colunas. Perceba que na primeira matriz apresentada nesta seção não tem o esse argumento e por consequência a matriz foi preenchida por colunas.</p>
 </div>
-<div id="acessando-elemntos" class="section level3 unnumbered">
-<h3>Acessando Elemntos</h3>
+<div id="acessando-elementos-1" class="section level3 unnumbered">
+<h3>Acessando Elementos</h3>
 <p>Como a matriz é uma extensão dos vetores a ideia é a mesma, com a única diferença que é necessário diferenciar o indexador de linha e de coluna. E isso é feito de maneira muito simples e direta com o operador <code>[]</code>, da seguinte maneira: <code>matriz[i,j]</code> onde <code>i</code> denota as linhas e <code>j</code> denota as colunas. Caso quiséssemos pegar somente os elementos das duas primeiras linhas e das duas últimas colunas da <code>matriz_simples</code> uma maneira seria</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>matriz_simples[-<span class="kw">c</span>(<span class="dv">3</span>:<span class="dv">5</span>),<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">5</span>)]
 <span class="co">#      [,1] [,2]</span>
@@ -344,11 +346,103 @@ Mais adiante no livro<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup>
 <span class="co"># [3,]   13</span>
 <span class="co"># [4,]   18</span>
 <span class="co"># [5,]   23</span></code></pre></div>
-<p>Por fim, note que o resultado de não selecionar nenhuma coluna é selecionar todas as colunas, e o mesmo se aplica para colunas.</p>
+<p>Por fim, note que o resultado de não selecionar nenhuma coluna é selecionar todas as colunas, e o mesmo se aplica para colunas. E neste caso as operações que efetuarmos nas matrizes coluna ou linha serão automaticamente vetorizadas.</p>
+</div>
+<div id="operacoes-com-matrizes" class="section level3 unnumbered">
+<h3>Operações com matrizes</h3>
+<p>Vamos aqui mostrar a título de informação algumas operações matemáticas com matrizes. Digo a título de informação, pois constatei na minha experiência que a utilização dessas operações é rara, porém acredito que seja importante saber da existência.</p>
+<p>Antes de mostarmos os procedimentos vamos criar duas matrizes para trabalharmos com elas, vamos criativamente chama-las matrix_1 e matrix_2.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>matrix_1 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data =</span> <span class="dv">1</span>:<span class="dv">6</span>,<span class="dt">ncol =</span> <span class="dv">3</span>)
+&gt;<span class="st"> </span>matrix_2 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data =</span> <span class="dv">1</span>:<span class="dv">6</span>, <span class="dt">ncol =</span> <span class="dv">2</span>)</code></pre></div>
+<div id="multiplicacao-e-soma" class="section level4 unnumbered">
+<h4>Multiplicação e Soma</h4>
+<p>De maneira geral podemos nos deparar com dois casos: (i) queremos somar/multiplicar um número com/por uma matriz ou (ii) queremos multiplicar duas matrizes.</p>
+<p>Quando nos encontramos no primeiro (somar/multiplicar um número por um matriz) caso basta usar os operadores apresentados na seção <strong>colocar aqui a referencia para a seção R como calculadora</strong> e a operação é aplicada em cada elemento da matrix, como feito no chunk que segue</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="dv">3</span>+matrix_1
+<span class="co">#      [,1] [,2] [,3]</span>
+<span class="co"># [1,]    4    6    8</span>
+<span class="co"># [2,]    5    7    9</span>
+&gt;<span class="st"> </span><span class="dv">3</span>*matrix_2
+<span class="co">#      [,1] [,2]</span>
+<span class="co"># [1,]    3   12</span>
+<span class="co"># [2,]    6   15</span>
+<span class="co"># [3,]    9   18</span>
+&gt;<span class="st"> </span><span class="kw">sqrt</span>(matrix_1)
+<span class="co">#          [,1]     [,2]     [,3]</span>
+<span class="co"># [1,] 1.000000 1.732051 2.236068</span>
+<span class="co"># [2,] 1.414214 2.000000 2.449490</span></code></pre></div>
+<p>Já no segundo caso (multiplicar matrizes) temos que colocar o operador <code>*</code> entre <code>%</code>s para que o R entenda que queremos efetuar operações matriciais</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>matrix_1 %*%<span class="st"> </span>matrix_2
+<span class="co">#      [,1] [,2]</span>
+<span class="co"># [1,]   22   49</span>
+<span class="co"># [2,]   28   64</span></code></pre></div>
+<p>É claro que as matrizes devem ter dimensões vpalidas para que a multiplicação seja efetuada.</p>
+</div>
+<div id="determinante-transposta-e-inversa" class="section level4 unnumbered">
+<h4>Determinante, Transposta e Inversa</h4>
+<p>Brevemente vamos apresentar as funções para obtermos o determinante, a transposta e a inversa de uma matriz. Começamos com o determinante que é calculado através da função <code>det()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>matriz &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>:<span class="dv">4</span>),<span class="dt">ncol=</span><span class="dv">2</span>,<span class="dt">byrow =</span> T)
+&gt;<span class="st"> </span><span class="kw">det</span>(matriz)
+<span class="co"># [1] -2</span></code></pre></div>
+<p>A transposta por sua vez é calculada através da função <code>t()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">t</span>(matriz)
+<span class="co">#      [,1] [,2]</span>
+<span class="co"># [1,]    1    3</span>
+<span class="co"># [2,]    2    4</span></code></pre></div>
+<p>E por fim a inversa é obtida através da função <code>solve()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">solve</span>(matriz)
+<span class="co">#      [,1] [,2]</span>
+<span class="co"># [1,] -2.0  1.0</span>
+<span class="co"># [2,]  1.5 -0.5</span></code></pre></div>
+<p>Passamos agora para a estrutura chamda de <em>data frame</em>, que funciona com os principios de vetores e matrizes, porém com algumas modificações que a tornam muito útil na prática.</p>
+</div>
+</div>
+</div>
+<div id="data-frames" class="section level2">
+<h2><span class="header-section-number">1.4</span> Data Frames</h2>
+<p>Os data frames possuem a mesma estrutura que uma matriz, isto é, colunas com o mesmo número de linhas. Porém, há duas vantagens de se trabalhar com data frames<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>: (i) Cada coluna pode contar tipos de informações diferentes e (ii) nomeando as colunas podemos acessar colunas específicas sem precisar saber exatamente a indexação da coluna. Essas duas diferenças tornam os data frames o jeito mais comum de se trabalhar com bases de dados no R. Pois podemos ter diversas variáveis, relacionadas a mesma observação, com tipos de informação diferente em uma mesma estrutura! O leitor atento percebeu que a tabela <a href="estruturas-de-dados.html#tab:empregados">1.1</a> é na verdade um exemplo de data frame, onde cada coluna representa uma variável com tipo diferente de informação.</p>
+<p>Para acessar colunas pelo nome utiliza-se o <code>$</code> logo em seguida do nome do data frame. Caso quissésemos acessar só os nomes do nosso data frame de empregados poderíamos fazer da seguinte maneira:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>empregados$Nome
+<span class="co">#  [1] &quot;Leon&quot;      &quot;Thomas&quot;    &quot;Christina&quot; &quot;Briana&quot;    &quot;Hayley&quot;   </span>
+<span class="co">#  [6] &quot;Cyra&quot;      &quot;Ty&quot;        &quot;Justin&quot;    &quot;Jaquelyn&quot;  &quot;Holly&quot;</span></code></pre></div>
+<p>O RStudio possui uma ferramenta conveniente para nos ajudar, ao digitar <code>empregados$</code> e em seguida pressionar <code>TAB</code> o RStudio mostrará um menu <em>dropdown</em> com os nomes das colunas do data frame, como mostra a figura <a href="estruturas-de-dados.html#fig:rstudio-dropdown-menu">1.1</a>, de modo que não é necessário sabermos qual o número da coluna em que se encontra a variável de interesse e nem ter que saber de cabeça o nome de todas as variáveis disponíveis no data frame.</p>
+<div class="figure" style="text-align: center"><span id="fig:rstudio-dropdown-menu"></span>
+<img src="images/_empregados_colunas.png" alt="Menu Dropdown do RStudio" width="682" />
+<p class="caption">
+Figure 1.1: Menu Dropdown do RStudio
+</p>
+</div>
+<p>Outra utilidade do <code>$</code> quando se tratando de data frames é adicionar novas variáveis ao data frame. Ainda no nosso exemplo do data frame com informações sobre os empregados, poderíamos pensar que foi oferecido aos empregados um treinamento no qual a participação é optativa e depois que o treinamento foi realizado gostaríamos de adicionar uma coluna indicando quais empregados optaram por participar do treinamento. Para facilitar o entendimento vamos supor que os 5 primeiros empregados () optaram por participar do treinamento e os últimos 5 por não participar. Desse modo queremos adicionar uma coluna com o nome de <code>Treinamento</code> que receberá o valor <code>sim</code> caso o empregado tenha participado do treinamento e <code>não</code> caso ele não tenha participado. Isso é feito da seguinte maneira:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>empregados$Treinamento &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;sim&quot;</span>,<span class="dv">5</span>),<span class="kw">rep</span>(<span class="st">&quot;não&quot;</span>,<span class="dv">5</span>))</code></pre></div>
+<p>A sintaxe <code>c(rep(&quot;sim&quot;,5),rep(&quot;não&quot;,5))</code> cria um vetor repetindo o termo <code>sim</code> cinco vezes e depois repetindo o termo <code>não</code> também cinco vezes. Agora se verificarmos nosso data frame veremos que a coluna <code>Treinamento</code> adicionada com sucesso.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>empregados
+<span class="co">#         Nome Tempo_emprego      Setor     Peso Nascimento Casado</span>
+<span class="co"># 1       Leon             1  Estrutura 46.25402 1999-03-21   TRUE</span>
+<span class="co"># 2     Thomas             2  Marketing 43.37910 1999-09-12  FALSE</span>
+<span class="co"># 3  Christina             3  Marketing 42.30094 1999-03-24   TRUE</span>
+<span class="co"># 4     Briana             4 Financeiro 37.31686 1999-02-23   TRUE</span>
+<span class="co"># 5     Hayley             5  Estrutura 43.56367 1999-12-01   TRUE</span>
+<span class="co"># 6       Cyra             6  Marketing 37.89354 1999-10-10  FALSE</span>
+<span class="co"># 7         Ty             7  Marketing 35.87515 1999-10-30   TRUE</span>
+<span class="co"># 8     Justin             8  Estrutura 43.65624 1999-11-16   TRUE</span>
+<span class="co"># 9   Jaquelyn             9  Marketing 38.73981 1999-07-03  FALSE</span>
+<span class="co"># 10     Holly            10 Financeiro 43.41862 1999-05-28   TRUE</span>
+<span class="co">#    Treinamento</span>
+<span class="co"># 1          sim</span>
+<span class="co"># 2          sim</span>
+<span class="co"># 3          sim</span>
+<span class="co"># 4          sim</span>
+<span class="co"># 5          sim</span>
+<span class="co"># 6          não</span>
+<span class="co"># 7          não</span>
+<span class="co"># 8          não</span>
+<span class="co"># 9          não</span>
+<span class="co"># 10         não</span></code></pre></div>
+<p>Destaco aqui que não mostro como criar data frame do zero, pois como mencianado no início desta seção, os data frames são muito utilizados para armazenar dados que serão importados para dentro do R <strong>(colocar aqui o capitulo que falará sobre importar dados para o R)</strong> e não digitados no console ou script.</p>
 
 </div>
 </div>
-</div>
+
 
 
 
@@ -365,6 +459,7 @@ Mais adiante no livro<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup>
 <li id="fn2"><p><strong>colocar aqui depois a seção na qual isso é discutido</strong><a href="estruturas-de-dados.html#fnref2">↩</a></p></li>
 <li id="fn3"><p>Ressaltamos para aqueles que são familiares com outro linguagem de programação, como C, a indexação dos vetores no R começa em 1 e não em 0.<a href="estruturas-de-dados.html#fnref3">↩</a></p></li>
 <li id="fn4"><p><strong>colocar aqui no final as seções corretas</strong><a href="estruturas-de-dados.html#fnref4">↩</a></p></li>
+<li id="fn5"><p>Para aqueles que conhecem um pouco de computação a única desvantagem do data frame em relação a matriz é que as operação feitas com data frames são significativamente mais lentas do que quando feitas com matrizes, isso ocorre devido ao jeti de como as informações são salvas na mémoria do computador<a href="estruturas-de-dados.html#fnref5">↩</a></p></li>
 </ol>
 </div>
             </section>
