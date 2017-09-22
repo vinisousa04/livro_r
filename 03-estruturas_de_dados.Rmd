@@ -1,9 +1,6 @@
 # Estruturas de Dados {#estruturas_de_dados}
 
-
-
-Neste capítulo vamos apresentar ao leitor os tipos de dados e estruturas de dados fundamentais do R. Nota-se que não são apresentados todos os tipos e estruturas de dados, entretanto garantimos que os aqui apresentados serão o suficiente para resolver quase todos (se não todos) os problemas e aplicações que o leitor se deparar com. Também ressalvamos que talvez esse capítulo seja o mais importante desta parte do livro, pois um bom entendimento sobre os tipos de informações e como elas são armazenadas (dentro do R) é essencial para o desenvolvimento de habilidades para lidar com dados.  
-
+Neste capítulo vamos apresentar ao leitor os tipos de dados e estruturas de dados fundamentais do R. Nota-se que não são apresentados todos os tipos e estruturas de dados, entretanto garantimos que os aqui apresentados serão o suficiente para resolver quase todos (se não todos) os problemas e aplicações que o leitor se deparar com. Também ressalvamos que talvez esse capítulo seja o mais importante desta parte do livro, pois um bom entendimento sobre os tipos de informações e como elas são armazenadas (dentro do R) é essencial para o desenvolvimento de habilidades para lidar com dados. Ressaltamos que o objetivo deste capítulo é fazer com o que leitor saiba "quais são e como são"" as estruturas de dados, pois as ferramentas de "como trabalhar" com as estruturas de dados serão apresentadas ao longo do livro.  
 
 Sem mais delongas os tipo de dados são como uma determinada informação pode ser registrada e já as estruturas de dados são como as informações são armazenadas de modo que possam ser utilizadas, um pouco abstrata essa explicação até agora não acham? Bem, uma analogia que pode ajudar a compreender a **diferença entre tipos de dados e estruturas de dados** é a seguinte: Acredito que seja familiar a todos o final do filme Toy Story (o primeiro da trilogia), quando o Woody e o Buzz perdem o caminhão da mudança contratado pela Mãe do Andy (digo mãe e não família pois o Pai do Andy é um mistério). Bem se recordarmos bem alguns brinquedos o Andy trouxe com ele dentro do carro (em especial teria trazido o Woody e o Buzz) e ao mesmo tempo outro brinquedos estavam sendo transportados no caminhão. Onde eu quero chegar com isso? Os brinquedos seriam um tipo de informação (no caso de uma mudança poderíamos pensar que as roupas seriam outro tipo de informação) e o caminhão da transportadora e o carro da mão do Andy seriam as diferentes estruturas nas quais é possível carregar os dados. 
 
@@ -25,7 +22,7 @@ empregados$Nome <- as.character(empregados$Nome)
 Para apresentar os diferentes tipos de como as informações podem ser armazenadas vamos utilizar uma base fictícia de empregados apresentada na tabela \@ref(tab:empregados). Nela temos 6 colunas representando diferentes variáveis.  
 
 ```{r empregados, echo=FALSE}
-knitr::kable(empregados,digits = 2,caption = "Empregados")
+kable(empregados,digits = 2,caption = "Empregados")
 ```
 
 Cada coluna possui um tipo diferente de informação e cada informação é armazenada de um jeito diferente.  A lista abaixo sintetiza os tipos de dados e a coluna da tabela com a qual ela está relacionada^[Na estatística existem basicamente dois tipos de variáveis cada uma delas com dois subtipos. A primeira é chamada de variáveis qualitativas, que podem assumir valores nominais, por exemplo Nomes, ou assumir valores ordinais, por exemplo dividir peso pena, peso médio etc. O segundo tipo de variável é chamado de variáveis quantitativas, que podem ser intervalos, por exemplo a previsão do tempo quando nos traz temperatura miníma e máxima, ou assumir valore pontuais, como por exemplo a medição do pesos das pessoas]. 
@@ -222,12 +219,81 @@ Destaco aqui que não mostro como criar data frame do zero, pois como mencionado
 
 ## Listas {#listas}
 
-A última estrutura de dados é chamada de lista (ou vetor recursivo). De maneira objetiva a lista é um vetor no qual seus elementos podem ser qualquer outro tipo de estrutura, isto quer dizer que podemos ter uma lista que contém vetor, matrizes, data frames e etc. Perceba que ao passo que data frame tem colunas com o mesmo número de linhas as listas tem elementos que não só podem ter número de linhas diferentes como estruturas de dados diferentes! Se a explicação até agora está um pouco abstrata, não se preocupe pois está será a estrutura que gastaremos mais tempo discutindo, devido a sua grande versatilidade. Antes de entrarmos na discussão mesmo sobre listas vamos apresentar um exemplo de como as listas são realmente úteis e versáteis quando utilizamos o R.
+A última estrutura de dados é chamada de lista (ou vetor recursivo). De maneira objetiva a lista é um vetor no qual seus elementos podem ser qualquer outro tipo de estrutura, isto quer dizer que podemos ter uma lista que contém vetor, matrizes, data frames, listas e etc. Perceba que ao passo que o data frame tem colunas com o mesmo número de linhas as listas tem elementos que não só podem ter número de linhas diferentes como estruturas de dados diferentes! Caso a explicação até agora esteja um pouco abstrata, não se preocupe pois antes de entrarmos na discussão mesmo sobre listas vamos apresentar um exemplo de como as listas são realmente úteis e versáteis quando utilizamos o R.
 
-```{example, name="Versatilidade da Estrututa Lista"}
-O objetivo desse exemplo é mostrar uma aplicação de como as listas são usadas dentro R, faremos isso mostrando que ao efetuar uma regressão no R os resultados são armazenados em uma lista. Para tal vamos utilizar o dataset *gapminder* (disponível no pacote gapminder) que é um excerto sobre dados de expectativa de vida, PIB per capita e população por país. Vamos construir um modelo onde a expectativa de vida depende do PIB percapita e do tamanho da população. A figura \@ref(fig:exemplo-versatilidade-lista) o resultado da estimação da regressão. Perceba que o objetdo salvo com o nome de `reg` é uma lista com 12 elementos e ao executar o código da terceira linha vemos individualmente cada um dos elementos da lista. (Obs: não se preocupe em entender o código da figura, mais para frente **colocar aqui a seção de sregressão** iremos discutir em detalhes como fazer regressão no R).
+```{r estimando-a-reg-do-exemplo,include=FALSE,cache=TRUE}
+gapminder <- data.frame(gapminder::gapminder)
+reg <- lm(log(lifeExp)~log(gdpPercap)+log(pop),data = gapminder)
+coefs <- round(coef(reg),2) 
+sumario_reg <- summary(reg)
+```
+
+
+
+```{example,name="Versatilidade da Estrututa Lista"}
+O objetivo desse exemplo é mostrar uma aplicação de como as listas são usadas dentro R, faremos isso mostrando que ao efetuar uma regressão no R os resultados são armazenados em uma lista. Para tal vamos utilizar o dataset *gapminder* (disponível no pacote gapminder) que é um excerto sobre dados de expectativa de vida, PIB per capita e população por país. Vamos construir um modelo do tipo log-log, para avaliar os efeitos em termos percentuais, onde a expectativa de vida depende do PIB percapita e do tamanho da população.
+
+A figura \@ref(fig:exemplo-versatilidade-lista) traz o resultado da estimação da regressão. Perceba que a regressão, salva com o nome de `reg`, e o sumário da regressão, salvo como `sumario_reg`, são listas com 12 e 11 elementos respectivamente. E ao executar o sumário da regressão (linha 4) temos o resultado completo do sumário armazenado na lista. (Obs: não se preocupe em entender o código da figura, mais para frente **colocar aqui a seção de sregressão** iremos discutir em detalhes como fazer regressão no R).
 ```
 ```{r exemplo-versatilidade-lista, echo=FALSE,fig.cap="Ambiente com objeto regressão"}
 include_graphics("images/_exemplo_versatilidade_lista.png")
 ```
+
+Espero que esse exemplo tenha ilustrado como as listas são versáteis e tenha facilitado o entendimento das mesmas, pois tenho certeza que o leitor irá se deparar em diversas situações com listas.
+
+### Criando listas {-}
+
+Para criar uma lista utiliza-se função `list()` onde os argumentos são os nomes dos elementos e os elementos em si. Uma lista simples pode ser criada da seguinte maneira:
+```{r}
+lista <- list(nomes = empregados$Nome,
+              data_frame = empregados[1:4,-1],
+              lista = list(numeros=1:10,aleatorio=rnorm(4)))
+```
+Veja que é possível ter listas como elementos de uma lista (por isso listas são também chamadas de vetores recursivos). Para visualizar a lista no console podemos executar o nome da listano conseole, neste caso `lista`, nos dando o seguinte resultado: 
+```{r}
+lista
+```
+
+De modo que conseguimos visualizar e entender o que está dentro da nossa lista, porém em casos reais as listas são maiores e com objetos mais complexos e a melhor opção para entender a lista em questão é utilizar a função `str()`, que nos da o seguinte resultado
+
+```{r}
+str(lista)
+```
+
+O output retornado no console da função `str()` nos mostra que o nosso objeto `lista` é uma lista de 3 elementos. Onde o primeiro elemento é o vetor `nomes`, o segundo elemento é um data frame com nome de `data_frame`e o terceiro elemento é uma lista com dois elementos chamada de `lista`.
+
+### Acessando elementos das listas {-}
+
+De maneira geral há duas maneiras de acessar os elemtos de uma lista: (i) pelo nome dos elementos; e (ii) através da indexação. Para acessar pelo nome basta utilizar o `$` como feito com data frames, note que o menu dropdown funciona aqui da mesma forma.
+
+A outra maneira de acessar elementos de uma lista á através da indexação, que neste caso devemos ter atenção a um sútil detalhe. De maneira similar as outras estruturas de dados usamos o `nome_da_lista[i]` para acessar o i-ésimo elemento da lista, mas também podemos acessar o mesmo elemento utilizando `[[]]`, isso mesmo chaves duplas.
+```{r}
+x <- lista[1]
+y <- lista[[1]]
+```
+Essa diferença pode parecer inofensiva de início, porém ao observar qual é a estrutura de `x` e de `y` nos revela a diferença.
+
+```{r}
+str(x)
+str(y)
+```
+
+Vemos que `x` é uma lista com o vetor `nomes` sendo o único elemnto e que `y` é o vetor `nomes`. Ou seja, utilizar `[]` (chaves simples) retorna uma lista ao passo que utilizar `[[]]` (chaves duplas) retorna a estrutura de dados no elemento que está sendo acessado!
+
+## resumo (melhorar nome) 
+
+Para sintetizar o que foi apresentado neste capítulo a lista abaixo mostra uma ideia geral de para que são utilizadas na maior parte das vezes cada uma das estruturas de dados no R:
+
+- `vetor`  = usados salvar uma variável com elementos do mesmo tipo de dado;
+- `matriz` = usadadas para armazenar mais de uma variável do mesmo tipo de dado;
+- `data frame` = usados para armazenar mais de uma variável, podendo serem de tipos de dados diferentes (banco de dados); 
+- `listas` = usadas para salvar resultador de estimações valores retornados de função etc.
+
+
+
+
+
+
+
+
 
