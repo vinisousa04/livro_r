@@ -1,5 +1,5 @@
 ---
-title: "Título aqui"
+title: "Guia definitivo do R para estudantes de sociais"
 output:
   bookdown::gitbook:
     highlight: haddock
@@ -18,8 +18,6 @@ opts_chunk$set(echo = TRUE,
                       prompt = TRUE, comment = '#',
                       fig.align = "center",
                       collapse = TRUE)
-
-
 ```
 
 

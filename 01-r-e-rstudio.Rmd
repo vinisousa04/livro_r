@@ -1,0 +1,18 @@
+# Prefácio {#R e RStudio}
+
+Antes de introduzir o leitor ao mundo do R gostaria de parabenizá-lo por aceitar o desafio de aprender um linguagem de programação que o ajudará a realizar seus trabalhos. Então, parabéns! 
+
+## O que são {#o_que_sao}
+
+R é uma liguagem de programação estatística baseada em comandos de linha, de modo que é dado ao usuário uma liberdade e flexilibidade na hora de fazer as análises. O RStudio é um ambiente de programação que torna mais fácil e eficiente a utilização do R. Para baixar e instalar o R acesse o site do R Project ([https://www.r-project.org/](https://www.r-project.org/)), clique em *download R* e em seguida escolha um dos *mirrors* brasileiros, a figura \@ref(fig:baixar-r) sintetizaos passos. O próximo passo é apenas executar o arquivo baixado. 
+
+```{r baixar-r,fig.cap="Baixando o R", echo=FALSE}
+include_graphics(c("images/_baixar_r_1.png","images/_baixar_r_2.png"))
+```
+
+Já o RStudio é um ambiente que torna a utilização da linguagem R mais agradavél e possibilita uma organização muito boa da análise que está sendo feita. Para baixar o RStudio acesse o site do RStudio ([https://www.rstudio.com/](https://www.rstudio.com/)), clique no icone *Download RSstudio*, em seguida clique em *Desktop Open Source License* e por fim basta executar o arquivo baixado, a figura \ref@(fig:baixar-rstudio) sintetiza os passos.
+```{r baixar-rstudio, fig.cap="Baixando o RStudio",echo=FALSE}
+include_graphics(c("images/_baixar_rstudio_1.png","images/_baixar_rstudio_2.png"))
+```
+
+É importante destacar que **a ordem de instalação deve ser respeitada,isto é, primeiro instalr o R e depois o RStudio**
