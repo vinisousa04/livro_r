@@ -96,8 +96,9 @@ code > span.in { color: #008000; } /* Information */
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#para-quem-e-este-livro"><i class="fa fa-check"></i>Para quem é este livro?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#o-que-voce-vai-aprender-com-este-livro"><i class="fa fa-check"></i>O que você vai aprender com este livro?</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="prefacio-r-e-rstudio.html"><a href="prefacio-r-e-rstudio.html"><i class="fa fa-check"></i><b>1</b> Prefácio {#R e RStudio}</a><ul>
-<li class="chapter" data-level="1.1" data-path="prefacio-r-e-rstudio.html"><a href="prefacio-r-e-rstudio.html#o_que_sao"><i class="fa fa-check"></i><b>1.1</b> O que são</a></li>
+<li class="chapter" data-level="1" data-path="R-e-RStudio.html"><a href="R-e-RStudio.html"><i class="fa fa-check"></i><b>1</b> R e RStudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="R-e-RStudio.html"><a href="R-e-RStudio.html#o_que_sao"><i class="fa fa-check"></i><b>1.1</b> O que são</a></li>
+<li class="chapter" data-level="1.2" data-path="R-e-RStudio.html"><a href="R-e-RStudio.html#layout_rstudio"><i class="fa fa-check"></i><b>1.2</b> <em>Layout</em> do RStudio</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html"><i class="fa fa-check"></i><b>2</b> Estruturas de Dados</a><ul>
 <li class="chapter" data-level="2.1" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#modes"><i class="fa fa-check"></i><b>2.1</b> Tipos de dados</a></li>
@@ -136,12 +137,13 @@ code > span.in { color: #008000; } /* Information */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="prefacio-r-e-rstudio" class="section level1">
-<h1><span class="header-section-number">1</span> Prefácio {#R e RStudio}</h1>
+<div id="R_e_RStudio" class="section level1">
+<h1><span class="header-section-number">1</span> R e RStudio</h1>
 <p>Antes de introduzir o leitor ao mundo do R gostaria de parabenizá-lo por aceitar o desafio de aprender um linguagem de programação que o ajudará a realizar seus trabalhos. Então, parabéns!</p>
 <div id="o_que_sao" class="section level2">
 <h2><span class="header-section-number">1.1</span> O que são</h2>
-<p>R é uma liguagem de programação estatística baseada em comandos de linha, de modo que é dado ao usuário uma liberdade e flexilibidade na hora de fazer as análises. O RStudio é um ambiente de programação que torna mais fácil e eficiente a utilização do R. Para baixar e instalar o R acesse o site do R Project (<a href="https://www.r-project.org/" class="uri">https://www.r-project.org/</a>), clique em <em>download R</em> e em seguida escolha um dos <em>mirrors</em> brasileiros, a figura <a href="prefacio-r-e-rstudio.html#fig:baixar-r">1.1</a> sintetizaos passos. O próximo passo é apenas executar o arquivo baixado.</p>
+<p>R é uma liguagem de programação estatística baseada em comandos de linha, de modo que é dado ao usuário uma liberdade e flexilibidade na hora de fazer as análises. O RStudio é um ambiente de programação que torna mais fácil e eficiente a utilização do R. De maneira simples podemos descrever o funcionamento do R como</p>
+<p>Para baixar e instalar o R acesse o site do R Project (<a href="https://www.r-project.org/" class="uri">https://www.r-project.org/</a>), clique em <em>download R</em> e em seguida escolha um dos <em>mirrors</em> brasileiros, a figura <a href="R-e-RStudio.html#fig:baixar-r">1.1</a> sintetizaos passos. O próximo passo é apenas executar o arquivo baixado.</p>
 <div class="figure" style="text-align: center"><span id="fig:baixar-r"></span>
 <img src="images/_baixar_r_1.png" alt="Baixando o R" width="683" />
 <p class="caption">
@@ -167,7 +169,23 @@ Figure 1.2: Baixando o RStudio
 Figure 1.2: Baixando o RStudio
 </p>
 </div>
-<p>É importante destacar que <strong>a ordem de instalação deve ser respeitada,isto é, primeiro instalr o R e depois o RStudio</strong></p>
+<p>É importante destacar que <strong>a ordem de instalação deve ser respeitada,isto é, primeiro instalr o R e depois o RStudio</strong>.</p>
+</div>
+<div id="layout_rstudio" class="section level2">
+<h2><span class="header-section-number">1.2</span> <em>Layout</em> do RStudio</h2>
+<p>Depois de instalar o R e RStudio abra o RStudio, pois como comentado anteriorment o RStudio é um ambiente que torna mais eficiente a programação em R, e desse modo utilizaremos ele como interface para usar o R. Ao abrir o RStudio você deve se deparar com o <em>layout</em> apresentado na figura <a href="R-e-RStudio.html#fig:layout-rstudio">1.3</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">include_graphics</span>(<span class="st">&quot;images/_layout_rstudio.png&quot;</span>)</code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:layout-rstudio"></span>
+<img src="images/_layout_rstudio.png" alt="Layout do RStudio" width="683" />
+<p class="caption">
+Figure 1.3: Layout do RStudio
+</p>
+</div>
+<p>Nesse <em>layout</em> apresenta 4 janelas principais para se usar o R no RStudio. De maneira sucinta:</p>
+<ol style="list-style-type: decimal">
+<li>A janela superior esquerda é o <em>script</em> que, como veremos em seguida, é onde nós escrevemos o código para ser executado;</li>
+<li>A janela superior direita, chamada de <em>environment</em>, é onde estão</li>
+</ol>
 
 </div>
 </div>
