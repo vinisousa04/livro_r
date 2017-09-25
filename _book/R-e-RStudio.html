@@ -96,9 +96,10 @@ code > span.in { color: #008000; } /* Information */
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#para-quem-e-este-livro"><i class="fa fa-check"></i>Para quem é este livro?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#o-que-voce-vai-aprender-com-este-livro"><i class="fa fa-check"></i>O que você vai aprender com este livro?</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="R-e-RStudio.html"><a href="R-e-RStudio.html"><i class="fa fa-check"></i><b>1</b> R e RStudio</a><ul>
-<li class="chapter" data-level="1.1" data-path="R-e-RStudio.html"><a href="R-e-RStudio.html#o_que_sao"><i class="fa fa-check"></i><b>1.1</b> O que são</a></li>
-<li class="chapter" data-level="1.2" data-path="R-e-RStudio.html"><a href="R-e-RStudio.html#layout_rstudio"><i class="fa fa-check"></i><b>1.2</b> <em>Layout</em> do RStudio</a></li>
+<li class="chapter" data-level="1" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html"><i class="fa fa-check"></i><b>1</b> R e RStudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#o_que_sao"><i class="fa fa-check"></i><b>1.1</b> O que são</a></li>
+<li class="chapter" data-level="1.2" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#layout_rstudio"><i class="fa fa-check"></i><b>1.2</b> <em>Layout</em> do RStudio</a></li>
+<li class="chapter" data-level="1.3" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#scripts"><i class="fa fa-check"></i><b>1.3</b> <em>Scripts</em></a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html"><i class="fa fa-check"></i><b>2</b> Estruturas de Dados</a><ul>
 <li class="chapter" data-level="2.1" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#modes"><i class="fa fa-check"></i><b>2.1</b> Tipos de dados</a></li>
@@ -137,13 +138,14 @@ code > span.in { color: #008000; } /* Information */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="R_e_RStudio" class="section level1">
+<div id="r_e_rStudio" class="section level1">
 <h1><span class="header-section-number">1</span> R e RStudio</h1>
 <p>Antes de introduzir o leitor ao mundo do R gostaria de parabenizá-lo por aceitar o desafio de aprender um linguagem de programação que o ajudará a realizar seus trabalhos. Então, parabéns!</p>
 <div id="o_que_sao" class="section level2">
 <h2><span class="header-section-number">1.1</span> O que são</h2>
-<p>R é uma liguagem de programação estatística baseada em comandos de linha, de modo que é dado ao usuário uma liberdade e flexilibidade na hora de fazer as análises. O RStudio é um ambiente de programação que torna mais fácil e eficiente a utilização do R. De maneira simples podemos descrever o funcionamento do R como</p>
-<p>Para baixar e instalar o R acesse o site do R Project (<a href="https://www.r-project.org/" class="uri">https://www.r-project.org/</a>), clique em <em>download R</em> e em seguida escolha um dos <em>mirrors</em> brasileiros, a figura <a href="R-e-RStudio.html#fig:baixar-r">1.1</a> sintetizaos passos. O próximo passo é apenas executar o arquivo baixado.</p>
+<p>R é uma linguagem de programação estatística baseada em comandos de linha, de modo que é dado ao usuário uma liberdade e flexilibidade na hora de fazer as análises. O RStudio é um ambiente de programação que torna mais fácil e eficiente a utilização do R. <span class="citation">Matloff (<a href="#ref-matloff2011">2011</a>)</span> apresenta a analogia de Greg Snow para exemplificar a lógica do R. Podemos pensar no mundo de análise dados como sendo uma cidade e as possíveis análises são diferentes locais nesta nossa cidade hipotética. Os principais meios de locomoção que pensamos são transporte público (ônibus, metrô, bondinho etc.) e transporte privado (em especial carros). Analisando as possilidades sabemos que andar de ônibus é mais fácil, basta pagar a passagem saber em qual ponto subir e em qual ponto descer. Já para poder utilizar o carro há um custo de aprender a dirigir o carro, ter um conhecimento de leis, e significados de placas, ter uma espécie de mapa mental para saber onde está indo (além do financeiro hehe) e etc. Mas e afinal de contas qual é a vantagem de se utilizar o transporte privado no lugar do público? É o simples fato de ser mais confortável e possibilitar você conseguir chegar em locais que o transporte público não te levaria sem uma boa caminhada. Destaco que a analogia foi feita antes de surgir aplicativos como UBER, e na minha interpretação andar de UBER seria como pagar alguém para fazer a análise por você.</p>
+<p>O ponto é que utilizar pacotes estatíscos de botões (como SPSS, Gretl, Stata e afins) é como se você estivesse utilizando o transporte público, ao passo que ao introduzir ferramentas de programação (como o R e Python fazem, por exemplo) abre inúmeras possibilidades que são limitadas apenas pelo conhecimento do usuário. Deste modo você consegue chegar em lugares novos e chegar mais rápido em lugares que de outra maneira seria mais demorado.</p>
+<p>Dito isso, o primeiro passo para entrarmos no mundo é baixar e instalar p O eo RStudio. Para baixar o R acesse o site do R Project (<a href="https://www.r-project.org/" class="uri">https://www.r-project.org/</a>), clique em <em>download R</em> e em seguida escolha um dos <em>mirrors</em> brasileiros, a figura <a href="r-e-rStudio.html#fig:baixar-r">1.1</a> sintetizaos passos. O próximo passo é apenas executar o arquivo baixado.</p>
 <div class="figure" style="text-align: center"><span id="fig:baixar-r"></span>
 <img src="images/_baixar_r_1.png" alt="Baixando o R" width="683" />
 <p class="caption">
@@ -156,7 +158,7 @@ Figure 1.1: Baixando o R
 Figure 1.1: Baixando o R
 </p>
 </div>
-Já o RStudio é um ambiente que torna a utilização da linguagem R mais agradavél e possibilita uma organização muito boa da análise que está sendo feita. Para baixar o RStudio acesse o site do RStudio (<a href="https://www.rstudio.com/" class="uri">https://www.rstudio.com/</a>), clique no icone <em>Download RSstudio</em>, em seguida clique em <em>Desktop Open Source License</em> e por fim basta executar o arquivo baixado, a figura @(fig:baixar-rstudio) sintetiza os passos.
+<p>Já o RStudio, como dito anteriormente, é um ambiente que torna a utilização da linguagem R mais agradavél e possibilita uma organização muito boa da análise que está sendo feita. Para baixar o RStudio acesse o site do RStudio (<a href="https://www.rstudio.com/" class="uri">https://www.rstudio.com/</a>), clique no icone <em>Download RSstudio</em>, em seguida clique em <em>Desktop Open Source License</em> e por fim basta executar o arquivo baixado, a figura <a href="r-e-rStudio.html#fig:baixar-rstudio">1.2</a> sintetiza os passos.</p>
 <div class="figure" style="text-align: center"><span id="fig:baixar-rstudio"></span>
 <img src="images/_baixar_rstudio_1.png" alt="Baixando o RStudio" width="683" />
 <p class="caption">
@@ -173,20 +175,39 @@ Figure 1.2: Baixando o RStudio
 </div>
 <div id="layout_rstudio" class="section level2">
 <h2><span class="header-section-number">1.2</span> <em>Layout</em> do RStudio</h2>
-<p>Depois de instalar o R e RStudio abra o RStudio, pois como comentado anteriorment o RStudio é um ambiente que torna mais eficiente a programação em R, e desse modo utilizaremos ele como interface para usar o R. Ao abrir o RStudio você deve se deparar com o <em>layout</em> apresentado na figura <a href="R-e-RStudio.html#fig:layout-rstudio">1.3</a>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">include_graphics</span>(<span class="st">&quot;images/_layout_rstudio.png&quot;</span>)</code></pre></div>
+Depois de instalar o R e RStudio abra o RStudio, pois como comentado anteriorment o RStudio é um ambiente que torna mais eficiente a programação em R, e desse modo utilizaremos ele como interface para usar o R. Ao abrir o RStudio você deve se deparar com o <em>layout</em> apresentado na figura <a href="r-e-rStudio.html#fig:layout-rstudio">1.3</a>.
 <div class="figure" style="text-align: center"><span id="fig:layout-rstudio"></span>
 <img src="images/_layout_rstudio.png" alt="Layout do RStudio" width="683" />
 <p class="caption">
 Figure 1.3: Layout do RStudio
 </p>
 </div>
-<p>Nesse <em>layout</em> apresenta 4 janelas principais para se usar o R no RStudio. De maneira sucinta:</p>
+<p>Esse <em>layout</em> apresenta 4 janelas principais para se usar o R no RStudio. De maneira sucinta:</p>
 <ol style="list-style-type: decimal">
-<li>A janela superior esquerda é o <em>script</em> que, como veremos em seguida, é onde nós escrevemos o código para ser executado;</li>
-<li>A janela superior direita, chamada de <em>environment</em>, é onde estão</li>
+<li>A janela superior esquerda é o <em>script</em> que, como veremos em seguida, é onde o código é escrito para ser executado;</li>
+<li>A janela superior direita, chamada de <em>environment</em>, e é onde encontram-se as variáveis, dados, e objetos;</li>
+<li>A janela inferior esquerda é o <em>console</em> onde são exibidos os resultados que não são figuras, como tabelas, regressões, contas etc;</li>
+<li>E por fim, a janela do canto inferior direito é onde são exibidos os plots produzidos.</li>
 </ol>
+</div>
+<div id="scripts" class="section level2">
+<h2><span class="header-section-number">1.3</span> <em>Scripts</em></h2>
+<p>Outra grande vantagem de se utilizar linguagens baseadas em comandos de linha são os <em>scripts</em> que são onde ficam armazenados os comandos que devem ser executados, no caso do R os <em>scripts</em> são salvos na extensão <strong>.R</strong>. Os <em>scripts</em>, junto com variáveis e funções, possibilitam evitar a repetição mecânica dos comandos, um exemplo trivial para ilustrar o ponto é o cálculo da índice de massa corporal (IMC), podemos calcular comuma calculadora através da fórmula <span class="math display">\[IMC =\frac{peso(kg)}{altura(metros)^2}\]</span>. Para calcular o IMC dos membros de sua família você pode anotar o peso e altura de cada um e calcular individualmente, ou então você pode escrever o seguinte código:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>peso &lt;-<span class="st"> </span><span class="dv">65</span>
+&gt;<span class="st"> </span>altura &lt;-<span class="st"> </span><span class="fl">1.75</span>
+&gt;<span class="st"> </span>
+<span class="er">&gt;</span><span class="st"> </span>IMC &lt;-<span class="st"> </span>peso/altura^<span class="dv">2</span>
+&gt;<span class="st"> </span>IMC
+<span class="co"># [1] 21.22449</span></code></pre></div>
+<p>De modo que o que você precisa fazer é apenas mudar os valores do <code>peso</code> <code>altura</code> e executar o código novamente. Ou seja, os scripts substituiem os mouse e os botões por uma telaonde você pode pintar que os comandos que você quiser.</p>
+<p>Dois comandos são importantes você ter em mente sobre <em>scripts</em>: (i) Para abrir um novo <em>script</em> tem se usar o atalho <code>ctrl+shift+n</code>; e (ii) para salvar um <em>script</em> baste clicar no icone de disquete que aparece na aba embaixo de <em>untitled1</em> na figura <a href="r-e-rStudio.html#fig:layout-rstudio">1.3</a>.</p>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-matloff2011">
+<p>Matloff, Norman. 2011. <em>The Art of R Programming: A Tour of Statistical Software Design</em>. No Starch Press.</p>
 </div>
 </div>
             </section>
@@ -235,6 +256,17 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

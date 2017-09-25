@@ -13,6 +13,7 @@ date: "`r Sys.Date()`"
     - Para quem é este livro?
     - O que você vai aprender
 2. Estrutura 
+    - convenções de notação
     - do livro
     - de cada capítulo
 3. Sobre o autor
@@ -108,3 +109,13 @@ Assunto de econometria II
 - testes e etc..
 
 # modelos em painel (?)
+
+
+# Parte IV: tópicos avançados
+
+# trabalhos para entregar (r markdowmn)
+
+# boas práticas no script
+
+- colocar no inicio da seção o setwd() e não mudar durante a seção
+- comentar os passos como `ctr+alt+r`

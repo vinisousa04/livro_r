@@ -1,19 +1,21 @@
-# R e RStudio {#R_e_RStudio}
+# R e RStudio {#r_e_rStudio}
 
 Antes de introduzir o leitor ao mundo do R gostaria de parabenizá-lo por aceitar o desafio de aprender um linguagem de programação que o ajudará a realizar seus trabalhos. Então, parabéns! 
 
 ## O que são {#o_que_sao}
 
-R é uma liguagem de programação estatística baseada em comandos de linha, de modo que é dado ao usuário uma liberdade e flexilibidade na hora de fazer as análises. O RStudio é um ambiente de programação que torna mais fácil e eficiente a utilização do R. De maneira simples podemos descrever o funcionamento do R como   
+R é uma linguagem de programação estatística baseada em comandos de linha, de modo que é dado ao usuário uma liberdade e flexilibidade na hora de fazer as análises. O RStudio é um ambiente de programação que torna mais fácil e eficiente a utilização do R. @matloff2011 apresenta a analogia de Greg Snow para exemplificar a lógica do R. Podemos pensar no mundo de análise dados como sendo uma cidade e as possíveis análises são diferentes locais nesta nossa cidade hipotética. Os principais meios de locomoção que pensamos são transporte público (ônibus, metrô, bondinho etc.) e transporte privado (em especial carros). Analisando as possilidades sabemos que andar de ônibus é mais fácil, basta pagar a passagem saber em qual ponto subir e em qual ponto descer. Já para poder utilizar o carro há um custo de aprender a dirigir o carro, ter um conhecimento de leis, e significados de placas, ter uma espécie de mapa mental para saber onde está indo (além do financeiro hehe) e etc. Mas e afinal de contas qual é a vantagem de se utilizar o transporte privado no lugar do público? É o simples fato de ser mais confortável e possibilitar você conseguir chegar em locais que o transporte público não te levaria sem uma boa caminhada. Destaco que a analogia foi feita antes de surgir aplicativos como UBER, e na minha interpretação andar de UBER seria como pagar alguém para fazer a análise por você.
 
+O ponto é que utilizar pacotes estatíscos de botões (como SPSS, Gretl, Stata e afins) é como se você estivesse utilizando o transporte público, ao passo que ao introduzir ferramentas de programação (como o R e Python fazem, por exemplo) abre inúmeras possibilidades que são limitadas apenas pelo conhecimento do usuário. Deste modo você consegue chegar em lugares novos e chegar mais rápido em lugares que de outra maneira seria mais demorado. 
 
-Para baixar e instalar o R acesse o site do R Project ([https://www.r-project.org/](https://www.r-project.org/)), clique em *download R* e em seguida escolha um dos *mirrors* brasileiros, a figura \@ref(fig:baixar-r) sintetizaos passos. O próximo passo é apenas executar o arquivo baixado. 
+Dito isso, o primeiro passo para entrarmos no mundo é baixar e instalar p O eo RStudio. Para baixar o R acesse o site do R Project ([https://www.r-project.org/](https://www.r-project.org/)), clique em *download R* e em seguida escolha um dos *mirrors* brasileiros, a figura \@ref(fig:baixar-r) sintetizaos passos. O próximo passo é apenas executar o arquivo baixado. 
 
 ```{r baixar-r,fig.cap="Baixando o R", echo=FALSE}
 include_graphics(c("images/_baixar_r_1.png","images/_baixar_r_2.png"))
 ```
 
-Já o RStudio é um ambiente que torna a utilização da linguagem R mais agradavél e possibilita uma organização muito boa da análise que está sendo feita. Para baixar o RStudio acesse o site do RStudio ([https://www.rstudio.com/](https://www.rstudio.com/)), clique no icone *Download RSstudio*, em seguida clique em *Desktop Open Source License* e por fim basta executar o arquivo baixado, a figura \ref@(fig:baixar-rstudio) sintetiza os passos.
+Já o RStudio, como dito anteriormente, é um ambiente que torna a utilização da linguagem R mais agradavél e possibilita uma organização muito boa da análise que está sendo feita. Para baixar o RStudio acesse o site do RStudio ([https://www.rstudio.com/](https://www.rstudio.com/)), clique no icone *Download RSstudio*, em seguida clique em *Desktop Open Source License* e por fim basta executar o arquivo baixado, a figura \@ref(fig:baixar-rstudio) sintetiza os passos.
+
 ```{r baixar-rstudio, fig.cap="Baixando o RStudio",echo=FALSE}
 include_graphics(c("images/_baixar_rstudio_1.png","images/_baixar_rstudio_2.png"))
 ```
@@ -23,11 +25,50 @@ include_graphics(c("images/_baixar_rstudio_1.png","images/_baixar_rstudio_2.png"
 ## *Layout* do RStudio {#layout_rstudio}
 
 Depois de instalar o R e RStudio abra o RStudio, pois como comentado anteriorment o RStudio é um ambiente que torna mais eficiente a programação em R, e desse modo utilizaremos ele como interface para usar o R. Ao abrir o RStudio você deve se deparar com o *layout* apresentado na figura \@ref(fig:layout-rstudio).
-```{r layout-rstudio, echo=TRUE,fig.cap="Layout do RStudio"}
+```{r layout-rstudio, echo=TRUE,fig.cap="Layout do RStudio",echo=FALSE}
 include_graphics("images/_layout_rstudio.png")
 ```
 
 Esse *layout* apresenta 4 janelas principais para se usar o R no RStudio. De maneira sucinta: 
 
-1. A janela superior esquerda é o *script* que, como veremos em seguida, é onde nós escrevemos o código para ser executado; 
-2. A janela superior direita, chamada de *environment*, é onde estão      
+1. A janela superior esquerda é o *script* que, como veremos em seguida, é onde o código é escrito para ser executado; 
+2. A janela superior direita, chamada de *environment*, e é onde encontram-se as variáveis, dados, e objetos;
+3. A janela inferior esquerda é o *console* onde são exibidos os resultados que não são figuras, como tabelas, regressões, contas etc;
+4. E por fim, a janela do canto inferior direito é onde são exibidos os plots produzidos.
+
+## *Scripts* {#scripts}
+
+Outra grande vantagem de se utilizar linguagens baseadas em comandos de linha são os *scripts* que são onde ficam armazenados os comandos que devem ser executados, no caso do R os *scripts* são salvos na extensão **.R**. Os *scripts*, junto com variáveis e funções, possibilitam evitar a repetição mecânica dos comandos, um exemplo trivial para ilustrar o ponto é o cálculo da índice de massa corporal (IMC), podemos calcular comuma calculadora através da fórmula $$IMC =\frac{peso(kg)}{altura(metros)^2}$$. Para calcular o IMC dos membros de sua família você pode anotar o peso e altura de cada um e calcular individualmente, ou então você pode escrever o seguinte código:
+
+```{r}
+peso <- 65
+altura <- 1.75
+
+IMC <- peso/altura^2
+IMC
+```
+
+De modo que o que você precisa fazer é apenas mudar os valores do `peso` `altura` e executar o código novamente. Dois comandos são importantes você ter em mente sobre *scripts*: (i) Para abrir um novo *script* tem se usar o atalho `ctrl+shift+n`; e (ii) para salvar um *script* baste clicar no icone de disquete que aparece na aba embaixo de *untitled1* na figura \@ref(fig:layout-rstudio).
+
+Podemos dizer que os scripts substituiem os mouse e os botões por uma tela onde o usuário através dos comandos realiza suas análises da maneira mais livre possível. 
+
+### Detalhes sobre o código {-}
+
+colocar aqui que tem que usar ctrl+enter para executar o código e mostrar o lance the executar todas os argumentos do statement de uma vez.
+
+## *Working Directory* (ou pasta de trabalho) {#working_directory}
+
+O *working directory* ou pasta de trabalho é um endereço (pasta) no computador onde o o R "vive", isto quer dizer que quando formos importar uma planilha ou salvar um plot será nessa pasta que o R procurará a planilha e salvará o plot. Há duas funções que você precisa conhecer no que tange à pasta de trabalho. A primeira é para definir a pasta de trabalho e chama-se `setwd()`, onde `wd` é abreviação de *working directory* o único argumento que essa função leva é o caminho da pasta entre aspas, como o exemplo abaixo:
+
+```{r, eval=FALSE}
+setwd("C:/Users/Vinicius/Desktop/working directory")
+```
+
+É importante notar que as barras são inclinadas para a direita e que o endereço começa no disco em que se encontra a página, pode parecer bobeiras, mas são erros comuns nos primeiros contato com o R. Para copiar o endereço de uma pasta basta clicar com o botão direito e selecionar a opção copiar, como se fosse qualquer outro arquivo, e depois colar denteo da função `setwd()`. 
+
+A segunda função importante para se saber é a `getwd()`, você consegue adivinhar o que ela faz? Isso mesmo, a função mostra para você qual é a pasta na qual o R está "vivendo" atualmente. Por exemplo, este livro foi escrito dentro do RStudio e no momento os arquivos estão na pasta:
+```{r}
+getwd()
+```
+
+Veja que essa função não leva nenhum argumento.
