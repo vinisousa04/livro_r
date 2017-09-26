@@ -1,0 +1,3 @@
+- Falar de command e ctrl: no prefácio quando estiver explicando sobre o livro
+
+usar a palavras colocar aqui para se referir a lugares onde devem serreferenciados depois

@@ -6,7 +6,7 @@ Sem mais delongas os tipo de dados são como uma determinada informação pode s
 
 Com a diferença entre tipos e estruturas de dados explicada vamos agora apresentar ao leitor explicitamente o funcionamento de tais coisas no R. Começamos apresentando os tipos de dados e em seguida as estrutura.
 
-## Tipos de dados {#modes}
+## Tipos de dados {#tipos_de_dados}
 
 ```{r dados exemplo de tipos de dados,echo=FALSE}
 empregados <- data.frame(Nome = randomNames::randomNames(n = 10,which.names = "first",return.complete.data = F),

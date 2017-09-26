@@ -16,6 +16,7 @@ date: "`r Sys.Date()`"
     - convenções de notação
     - do livro
     - de cada capítulo
+    - conveções sobre notação
 3. Sobre o autor
 4. Agradecimentos
 
