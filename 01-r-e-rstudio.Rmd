@@ -1,3 +1,5 @@
+# (PART) Parte I {-}
+
 # R e RStudio {#r_e_rStudio}
 
 Antes de introduzir o leitor ao mundo do R gostaria de parabenizá-lo por aceitar o desafio de aprender um linguagem de programação que o ajudará a realizar seus trabalhos. Então, parabéns! 
@@ -52,13 +54,51 @@ De modo que o que você precisa fazer é apenas mudar os valores do `peso` `altu
 
 Podemos dizer que os scripts substituiem os mouse e os botões por uma tela onde o usuário através dos comandos realiza suas análises da maneira mais livre possível. 
 
-### Detalhes sobre o código {-}
+## Funcionamento do Código {#funcionamento_do_codigo}
 
-colocar aqui que tem que usar ctrl+enter para executar o código e mostrar o lance the executar todas os argumentos do statement de uma vez.
+É importante entender o funcionamento da execução do código do R. Chamamos de código o conjunto de comandos que estão salvos em um script, onde cada comando representa uma ação que pedimos para a linguagem executar. Comandos podem ser simples como calcular a média de uma vetor ou podem ser mais complexos como retornar uma mensagem caso no número seja par e outra caso o número seja impar. 
+
+O *chunk* abaixo mostra como seriam escritos os exemplos citados anteriror mente:
+
+```{r, eval=FALSE}
+## Calculando média de um vetor
+vetor <- rnorm(10)
+mean(vetor) 
+
+## Vendo se um número é impar ou par
+x <- 13
+if(x %% 2 == 0){
+  print("x é par")
+} else {
+  print("x é ímpar")
+}
+```
+
+O *chunk* possui ao todo 4 comandos, pois as linhas que começam com `#` são chamadas de comentários elas são executadas apenas como texto. O primeiro comando, `vetor <- rnorm(10)`, cria um vetor com 10 números aleatório, o segundo, `mean(vetor)`, calcula a média dos elementos do vetor, o terceiro, `x <- 3`, atribui à variável `x`o valor 3 e, por fim, o quarto comando, que começa no `if(x %% 2 == 0)`, testa de `x` é par e retorna uma mensagem caso ele seja par e outra caso `x` seja ímpar. 
+
+Para executar um comando utiliza-se o atalho no teclado `ctrl+Enter` e a linha em que você se encontra será executada, no caso dos três primeiros comandos é direto a execução com o atalho. Porém, se prestarmos atenção o quarto comando encontra-se "espalhado" em 5 linhas e aí reside um detalhe, note que sabemos que o comando tem mais de uma linha através do `+` que aparece nas três linhas subsequentes à primeira. O RStudio permite que você escolha entre duas opções de execução de comandos com mais de uma linha. A primeira opção é executar uma linha de cada vez, no nosso exemplo seria necessário utilizar o `ctrl+Enter` quatro vezes para executar o quarto comando. A segundo opção é fazer com que comandos com mais de uma linha sejam executados de uma só vez, neste caso para executar o quarto comando seria necessário utilizar p `ctrl+Enter` apenas na linha `if(x %% 2 ==0)` para executar o quarto comando. Independente de qual das opções foi utilizada para executar o código o resultado apóes executar os quatro comandos acima é apresentado na figura \@ref(fig:resultados-4-comandos)
+
+```{r resultados-4-comandos, echo=FALSE, fig.cap="Resultado"}
+include_graphics("images/_all_lines_one_statement_result.png")
+```
+
+Vemos que no console aparece o comando que foi executado, linhas que começam com `>`, seguido pelo resultado do comando, linhas que começam com `[1]`, o que acontece nos bastidores é que ao executar um comando no *script* esse comando é "jogado" para o console onde ele é executado. Por fim, vemos que no *Environment* estão salvos o `vetor` e a variável `x`.
+
+A escolha entre as duas maneiras de executar o código é uma escolha do usuário, pois o resultado final do código será o mesmo. Para optar pela execução de todas as linhas do comando de uma só vez acesse a aba $Tools\Rightarrow Global\ Options\Rightarrow Code$ e então marque a opção *Execute all lines in a statement*^[Tradução livre: Execute todas a linhas em um comando], a figura \@ref(fig:all-lines-one-statement) mostra o caminho completo.
+
+```{r all-lines-one-statement, echo=FALSE, fig.cap="Opções de execução do código RStudio"}
+include_graphics("images/_all_lines_one_statement.png")
+```
+
+Um último detalhe para ae comentar sobre a execução dos códigos é que em boa parte dos comandos a execução do código é quase que instantanea, porém há situações em que o computador pode demorar para executar o código. Nessas situações é importante que você não execute nenhum outro comando enquanto o R não terminou de executar o comando anterior. Enquanto o R está executando um commando aparece uma "placa" no canto superior direito do console escrito `stop`, destacado na figura \@ref(fig:installing-packages). Ao terminar de executar o código essa "placa" sumirá.  
+
+Passamos agora a discussão para entender onde o R "vive", isto é, qual a maneira como o R interaje com o computador, no sentido de buscar arquivos para serem trabalhados dentro do R ou salvar resultados que foram obtidos no R.
 
 ## *Working Directory* (ou pasta de trabalho) {#working_directory}
 
-O *working directory* ou pasta de trabalho é um endereço (pasta) no computador onde o o R "vive", isto quer dizer que quando formos importar uma planilha ou salvar um plot será nessa pasta que o R procurará a planilha e salvará o plot. Há duas funções que você precisa conhecer no que tange à pasta de trabalho. A primeira é para definir a pasta de trabalho e chama-se `setwd()`, onde `wd` é abreviação de *working directory* o único argumento que essa função leva é o caminho da pasta entre aspas, como o exemplo abaixo:
+O jeito mais comum de se organizar um trabalho que envolva análise dados (seja projeto de pesquisa, trabalho da universidade etc.) é através de pastas no computador. É comum que os dados que serão analisados tenham de ser importados para dentro do R (**colocar aqui referencia da seção**), ou então que você queira salvar um plot que foi gerado dentro do R, o *working directory* nada mais é do que a pasta no seu computador onde o R vai buscar os arquivos para serem importados e salvar os resultados que serão exportados.  
+
+Há duas funções que você precisa conhecer no que tange à pasta de trabalho. A primeira é para definir a pasta de trabalho e chama-se `setwd()`, onde `wd` é abreviação de *working directory* o único argumento que essa função leva é o caminho da pasta entre aspas, como o exemplo abaixo:
 
 ```{r, eval=FALSE}
 setwd("C:/Users/Vinicius/Desktop/working directory")
@@ -66,9 +106,24 @@ setwd("C:/Users/Vinicius/Desktop/working directory")
 
 É importante notar que as barras são inclinadas para a direita e que o endereço começa no disco em que se encontra a página, pode parecer bobeiras, mas são erros comuns nos primeiros contato com o R. Para copiar o endereço de uma pasta basta clicar com o botão direito e selecionar a opção copiar, como se fosse qualquer outro arquivo, e depois colar denteo da função `setwd()`. 
 
-A segunda função importante para se saber é a `getwd()`, você consegue adivinhar o que ela faz? Isso mesmo, a função mostra para você qual é a pasta na qual o R está "vivendo" atualmente. Por exemplo, este livro foi escrito dentro do RStudio e no momento os arquivos estão na pasta:
+A segunda função importante para se saber é a `getwd()`, você consegue adivinhar o que ela faz? Isso mesmo, a função mostra para você qual é a pasta na qual o R está "vivendo" atualmente e ela não possui nenhum argumento. Por exemplo, este livro foi escrito dentro do RStudio e no momento o *working directory* é a pasta:
 ```{r}
 getwd()
 ```
 
-Veja que essa função não leva nenhum argumento.
+Na seção (**colocar aqui seção de boas praticas script**) iremos discutir boas práticas em relação ao *script* e *working directory*, mas vale a pena destacar adiantar uma boa prática. Como dito anteriormente é comum organizarmos nossos trabalhos acadêmicas em pastas, então suponhamos que estejamos fazendo um trabalho de econometria sobre o clássico exemplo de renda e consumo, estou assumindo que no nosso computador há uma pasta onde encontram-se os dados que o professor passou (ou você obteve), possíveis arquivos de texto e etc. É uma boa prática você criar dentro dessa pasta uma outra pasta e usá-la como *working directory*.  
+
+## Pacotes (ou *libraries*) {#pacotes}
+
+Em todas as esferas da análise de dados (importar dados, manipular dados, estimar modelos/testes estatísticos e reportar resultados) no R trabalha-se com funções que nos auxiliam, `setwd()` e `mean()` são duas funções já apresentadas. O R possui várias funções *built in*, isto é, que ao instalar o programa as funções já estão disponíveis. Um pacote neste contexto nada mais é do que um conjunto de funções sobre um tema parecido que não são carregadas autimaticamento ao abrir o RStudio. Por exemplo, no capítulo \@ref(intrpducao_ao_ggplott2) vamos mostrar o básico do pacote ggplot2 que é um pacote desenvolvido para viasualização de dados e contém funções para histogramas, boxplots, gráficos de densidade 2d etc.  
+
+Para instalar um novo pacote utiliza-se a função `install.packages("nome do pacote")`, isso instala no seu computador as funções que estão no pacote, mas não as deixa disponíveis para utilização. Para fazer isso é necessário que você carrege as funções para o R através do comando `library(nome do pacote)`. Duas observações: (i) note que ao instalar o pacote o nome do pacote deve estar entre aspas e ao carregar o nome do pacote está sem aspas; (ii) **só é necessário instalar o pacote uma vez no seu computador (a primeira vez que você for utilizá-lo), mas é necessário que você carrege o pacote sempre que vocÊ abrir o R. 
+
+Ao instalar um pacote uma aba com o progresso abrirá mostrando qual o status da instalação, como mostrado na figura \@ref(fig:installing-packages).
+
+```{r installing-packages, echo=FALSE,fig.cap="Status de instalação de pacote"}
+include_graphics("images/_install_packages.png")
+```
+
+
+

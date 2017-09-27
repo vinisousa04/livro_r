@@ -120,3 +120,4 @@ Assunto de econometria II
 
 - colocar no inicio da seção o setwd() e não mudar durante a seção
 - comentar os passos como `ctr+alt+r`
+- carregar pacotes no inicio do script
