@@ -90,7 +90,7 @@ A escolha entre as duas maneiras de executar o código é uma escolha do usuári
 include_graphics("images/_all_lines_one_statement.png")
 ```
 
-Um último detalhe para ae comentar sobre a execução dos códigos é que em boa parte dos comandos a execução do código é quase que instantanea, porém há situações em que o computador pode demorar para executar o código. Nessas situações é importante que você não execute nenhum outro comando enquanto o R não terminou de executar o comando anterior. Enquanto o R está executando um commando aparece uma "placa" no canto superior direito do console escrito `stop`, destacado na figura \@ref(fig:installing-packages). Ao terminar de executar o código essa "placa" sumirá.  
+Um último detalhe para ae comentar sobre a execução dos códigos é que em boa parte dos comandos a execução do código é quase que instantanea, porém há situações em que o computador pode demorar para executar o código. Nessas situações é importante que você não execute nenhum outro comando enquanto o R não terminou de executar o comando anterior. Enquanto o R está executando um commando aparece uma "placa" no canto superior direito do console escrito `stop`, destacado na figura \@ref(fig:installing-packages). Ao terminar de executar o código essa "placa" sumirá. Um exemplo de comando tende a demorar (relativamente) a ser executado é a estimação dos modelos de controle sintético apresentados por @abadie2010synthetic.
 
 Passamos agora a discussão para entender onde o R "vive", isto é, qual a maneira como o R interaje com o computador, no sentido de buscar arquivos para serem trabalhados dentro do R ou salvar resultados que foram obtidos no R.
 
