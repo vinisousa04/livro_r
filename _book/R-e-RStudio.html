@@ -93,8 +93,10 @@ code > span.in { color: #008000; } /* Information */
 
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#para-quem-e-este-livro"><i class="fa fa-check"></i>Para quem é este livro?</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#o-que-voce-vai-aprender-com-este-livro"><i class="fa fa-check"></i>O que você vai aprender com este livro?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#motivacao"><i class="fa fa-check"></i>Motivação</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#organizacao"><i class="fa fa-check"></i>Organização</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#sobre-o-autor"><i class="fa fa-check"></i>Sobre o autor</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimentos"><i class="fa fa-check"></i>Agradecimentos</a></li>
 </ul></li>
 <li class="part"><span><b>I Parte I</b></span></li>
 <li class="chapter" data-level="1" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html"><i class="fa fa-check"></i><b>1</b> R e RStudio</a><ul>
@@ -254,14 +256,14 @@ Figure 1.5: Opções de execução do código RStudio
 <div id="pacotes" class="section level2">
 <h2><span class="header-section-number">1.6</span> Pacotes (ou <em>libraries</em>)</h2>
 <p>Em todas as esferas da análise de dados (importar dados, manipular dados, estimar modelos/testes estatísticos e reportar resultados) no R trabalha-se com funções que nos auxiliam, <code>setwd()</code> e <code>mean()</code> são duas funções já apresentadas. O R possui várias funções <em>built in</em>, isto é, que ao instalar o programa as funções já estão disponíveis. Um pacote neste contexto nada mais é do que um conjunto de funções sobre um tema parecido que não são carregadas autimaticamento ao abrir o RStudio. Por exemplo, no capítulo @ref(intrpducao_ao_ggplott2) vamos mostrar o básico do pacote ggplot2 que é um pacote desenvolvido para viasualização de dados e contém funções para histogramas, boxplots, gráficos de densidade 2d etc.</p>
-<p>Para instalar um novo pacote utiliza-se a função <code>install.packages(&quot;nome do pacote&quot;)</code>, isso instala no seu computador as funções que estão no pacote, mas não as deixa disponíveis para utilização. Para fazer isso é necessário que você carrege as funções para o R através do comando <code>library(nome do pacote)</code>. Duas observações: (i) note que ao instalar o pacote o nome do pacote deve estar entre aspas e ao carregar o nome do pacote está sem aspas; (ii) **só é necessário instalar o pacote uma vez no seu computador (a primeira vez que você for utilizá-lo), mas é necessário que você carrege o pacote sempre que vocÊ abrir o R.</p>
-<p>Ao instalar um pacote uma aba com o progresso abrirá mostrando qual o status da instalação, como mostrado na figura <a href="r-e-rStudio.html#fig:installing-packages">1.6</a>.</p>
+<p>Para instalar um novo pacote utiliza-se a função <code>install.packages(&quot;nome do pacote&quot;)</code>, isso instala no seu computador as funções que estão no pacote, mas não as deixa disponíveis para utilização. Para fazer isso é necessário que você carrege as funções para o R através do comando <code>library(nome do pacote)</code>. Ao instalar um pacote uma aba com o progresso abrirá mostrando qual o status da instalação, como mostrado na figura <a href="r-e-rStudio.html#fig:installing-packages">1.6</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:installing-packages"></span>
 <img src="images/_install_packages.png" alt="Status de instalação de pacote" width="684" />
 <p class="caption">
 Figure 1.6: Status de instalação de pacote
 </p>
 </div>
+<p>Duas observações: (i) note que ao instalar o pacote o nome do pacote deve estar entre aspas e ao carregar o nome do pacote está sem aspas; (ii) **só é necessário instalar o pacote uma vez no seu computador (a primeira vez que você for utilizá-lo), mas é necessário que você carrege o pacote sempre que vocÊ abrir o R.</p>
 
 </div>
 </div>

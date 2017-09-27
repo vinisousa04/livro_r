@@ -16,7 +16,6 @@ date: "`r Sys.Date()`"
     - convenções de notação
     - do livro
     - de cada capítulo
-    - conveções sobre notação
 3. Sobre o autor
 4. Agradecimentos
 
@@ -121,3 +120,5 @@ Assunto de econometria II
 - colocar no inicio da seção o setwd() e não mudar durante a seção
 - comentar os passos como `ctr+alt+r`
 - carregar pacotes no inicio do script
+- mostrar como programar facilita quando as atividades são mais complexas e evita repetições
+- ensinar a fazer trabalhos para entregar no RMarkdown

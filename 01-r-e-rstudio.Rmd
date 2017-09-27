@@ -117,13 +117,10 @@ Na seção (**colocar aqui seção de boas praticas script**) iremos discutir bo
 
 Em todas as esferas da análise de dados (importar dados, manipular dados, estimar modelos/testes estatísticos e reportar resultados) no R trabalha-se com funções que nos auxiliam, `setwd()` e `mean()` são duas funções já apresentadas. O R possui várias funções *built in*, isto é, que ao instalar o programa as funções já estão disponíveis. Um pacote neste contexto nada mais é do que um conjunto de funções sobre um tema parecido que não são carregadas autimaticamento ao abrir o RStudio. Por exemplo, no capítulo \@ref(intrpducao_ao_ggplott2) vamos mostrar o básico do pacote ggplot2 que é um pacote desenvolvido para viasualização de dados e contém funções para histogramas, boxplots, gráficos de densidade 2d etc.  
 
-Para instalar um novo pacote utiliza-se a função `install.packages("nome do pacote")`, isso instala no seu computador as funções que estão no pacote, mas não as deixa disponíveis para utilização. Para fazer isso é necessário que você carrege as funções para o R através do comando `library(nome do pacote)`. Duas observações: (i) note que ao instalar o pacote o nome do pacote deve estar entre aspas e ao carregar o nome do pacote está sem aspas; (ii) **só é necessário instalar o pacote uma vez no seu computador (a primeira vez que você for utilizá-lo), mas é necessário que você carrege o pacote sempre que vocÊ abrir o R. 
-
-Ao instalar um pacote uma aba com o progresso abrirá mostrando qual o status da instalação, como mostrado na figura \@ref(fig:installing-packages).
+Para instalar um novo pacote utiliza-se a função `install.packages("nome do pacote")`, isso instala no seu computador as funções que estão no pacote, mas não as deixa disponíveis para utilização. Para fazer isso é necessário que você carrege as funções para o R através do comando `library(nome do pacote)`. Ao instalar um pacote uma aba com o progresso abrirá mostrando qual o status da instalação, como mostrado na figura \@ref(fig:installing-packages).
 
 ```{r installing-packages, echo=FALSE,fig.cap="Status de instalação de pacote"}
 include_graphics("images/_install_packages.png")
 ```
 
-
-
+Duas observações: (i) note que ao instalar o pacote o nome do pacote deve estar entre aspas e ao carregar o nome do pacote está sem aspas; (ii) **só é necessário instalar o pacote uma vez no seu computador (a primeira vez que você for utilizá-lo), mas é necessário que você carrege o pacote sempre que vocÊ abrir o R. 
