@@ -37,6 +37,7 @@ opts_chunk$set(echo = TRUE,
 
 - Alunos de graduação que usam estatística para fazer trabalhos, em especial (mas não exclusivamente) para os do campo de ciências sociais. 
 - falar que esse livro é feito sob a premissa de **facilitar a implementação/execução de trabalhos relacionados a análise de dados.**
+- falar que eu não pretendo ensinar a parte teórica é um livro de aplicação! Então é uma base de estatística/econometria ajuda muito a entender o livro
 
 #### O que você vai aprender neste livro {-}
 
@@ -44,21 +45,24 @@ opts_chunk$set(echo = TRUE,
 - O que são o R e o RStudio **(colocar aqui que não vou ensinar a instalar os programas pois há muito material sobre isso na internet)**
 - Mostrar os processos tradicionais de trabalhos relacionados a analise dados e mostrar como o R facilita o processo de analise dados em cada um dos processos tradicionais 
 - mostrar como juntar todas esses processos podem ser todos executados no mesmo local.
+- que em atividades simples pode ser mais demorado fazer coisas no r, mas que com o aumento da complexidade da tarefa o r fica muito mais rapido de se fazer
 
 ## Organização {-}
 
 Esta parte mostra como o livro e os capítulos estão organizados
 
-#### Convenções de notação {-}
+#### Convenções do livro {-}
 
 descrever aqui os padrões utilizados no livro, por enquanto são:
 
 - Nos chunks: **>** indicam o código que foi executado e **#** resultado (*output*) do código executado.
 - No texto: palavras em outros idiomas estarão em *itálico*, coisas que estiverem relacionamdas ao R (funções,  variaveis, comandos etc) estão destacados como `codigo`.
+- Os exemplos do livro trarão em si todo o código necessário para que o leitor possa reproduzi-los, salvo dito explicitamente o contrário. Vai ser comum, especialmente no começo, o leitor não entender por completo os códigos dos exemplos, **mas o importante é que o leitor compreenda as partes do código referentes especificamente ao exemplo**. Faço isso por dois motivos:(i) para que o leitor vá se acostumando aos poucos sem perceber com a sintaxe do R; e (ii) uma das coisas que me incomodou ao aprender é que é comum que sejam apresentados apenas pedaços de código e isso dificulta o entendimento de o que está sendo feito no geral.Será comentado todo o código apresentado para que o leitor entenda o que está sendo feito, mas com o foco sempre na parte referente ao exemplo. Pois, acredito que entendendo a "figura como um todo" é mais natutal compreender os detalhes
 
 #### Organização do livro {-}
 
-Descrever aqui a lógica da organização do livro e um resumo de o que cada capítulo ensina.
+- Descrever aqui a lógica da organização do livro e um resumo de o que cada capítulo ensina.
+- falar que a primeira parte busca apresentar as peças fundamentais para as outras partes, e por isso talvez seja um pouco mais chata. mas não desiste toda bonita residência começa com tijolos iguais.
 
 #### Organização dos capítulos {-}
 

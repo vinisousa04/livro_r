@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Guia definitivo do R para estudantes de sociais</title>
+  <meta name="description" content="Esta é a minha tentativa de facilitar, em especial, os alunos de ciências sociais, a desenvolveram habilidades relacionadas ao processo de analise de dados">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Guia definitivo do R para estudantes de sociais" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Esta é a minha tentativa de facilitar, em especial, os alunos de ciências sociais, a desenvolveram habilidades relacionadas ao processo de analise de dados" />
+  <meta name="github-repo" content="vinisousa04/livro_r" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Guia definitivo do R para estudantes de sociais" />
+  
+  <meta name="twitter:description" content="Esta é a minha tentativa de facilitar, em especial, os alunos de ciências sociais, a desenvolveram habilidades relacionadas ao processo de analise de dados" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="r-e-rStudio.html">
+<link rel="next" href="estruturas-de-dados.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #0000ff; } /* Keyword */
+code > span.ch { color: #008080; } /* Char */
+code > span.st { color: #008080; } /* String */
+code > span.co { color: #008000; } /* Comment */
+code > span.ot { color: #ff4000; } /* Other */
+code > span.al { color: #ff0000; } /* Alert */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #008000; font-weight: bold; } /* Warning */
+code > span.cn { } /* Constant */
+code > span.sc { color: #008080; } /* SpecialChar */
+code > span.vs { color: #008080; } /* VerbatimString */
+code > span.ss { color: #008080; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { color: #0000ff; } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #ff4000; } /* Preprocessor */
+code > span.do { color: #008000; } /* Documentation */
+code > span.an { color: #008000; } /* Annotation */
+code > span.cv { color: #008000; } /* CommentVar */
+code > span.at { } /* Attribute */
+code > span.in { color: #008000; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#motivacao"><i class="fa fa-check"></i>Motivação</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#organizacao"><i class="fa fa-check"></i>Organização</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#sobre-o-autor"><i class="fa fa-check"></i>Sobre o autor</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimentos"><i class="fa fa-check"></i>Agradecimentos</a></li>
+</ul></li>
+<li class="part"><span><b>I Introdução ao Mundo R</b></span></li>
+<li class="chapter" data-level="1" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html"><i class="fa fa-check"></i><b>1</b> R e RStudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#o_que_sao"><i class="fa fa-check"></i><b>1.1</b> O que são</a></li>
+<li class="chapter" data-level="1.2" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#layout_rstudio"><i class="fa fa-check"></i><b>1.2</b> <em>Layout</em> do RStudio</a></li>
+<li class="chapter" data-level="1.3" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#scripts"><i class="fa fa-check"></i><b>1.3</b> <em>Scripts</em></a></li>
+<li class="chapter" data-level="1.4" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#funcionamento_do_codigo"><i class="fa fa-check"></i><b>1.4</b> Funcionamento do Código</a></li>
+<li class="chapter" data-level="1.5" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#working_directory"><i class="fa fa-check"></i><b>1.5</b> <em>Working Directory</em> (ou pasta de trabalho)</a></li>
+<li class="chapter" data-level="1.6" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#pacotes"><i class="fa fa-check"></i><b>1.6</b> Pacotes (ou <em>libraries</em>)</a><ul>
+<li class="chapter" data-level="" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#pacotes-do-github"><i class="fa fa-check"></i>Pacotes do GitHub</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html"><i class="fa fa-check"></i><b>2</b> Primeiros Comandos no R</a><ul>
+<li class="chapter" data-level="2.1" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html#r_como_calculadora"><i class="fa fa-check"></i><b>2.1</b> R como calculadora</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html"><i class="fa fa-check"></i><b>3</b> Estruturas de Dados</a><ul>
+<li class="chapter" data-level="3.1" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#tipos_de_dados"><i class="fa fa-check"></i><b>3.1</b> Tipos de dados</a></li>
+<li class="chapter" data-level="3.2" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#vetores"><i class="fa fa-check"></i><b>3.2</b> Vetores</a><ul>
+<li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#criando-vetores"><i class="fa fa-check"></i>Criando Vetores</a></li>
+<li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#acessando-elementos"><i class="fa fa-check"></i>Acessando elementos</a></li>
+<li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#operacoes-vetorizadas"><i class="fa fa-check"></i>Operações Vetorizadas</a></li>
+<li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#reciglagem"><i class="fa fa-check"></i>Reciglagem</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#matrizes"><i class="fa fa-check"></i><b>3.3</b> Matrizes</a><ul>
+<li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#criando-matrizes"><i class="fa fa-check"></i>Criando Matrizes</a></li>
+<li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#acessando-elementos-1"><i class="fa fa-check"></i>Acessando Elementos</a></li>
+<li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#operacoes-com-matrizes"><i class="fa fa-check"></i>Operações com matrizes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#data-frames"><i class="fa fa-check"></i><b>3.4</b> Data Frames</a></li>
+<li class="chapter" data-level="3.5" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#listas"><i class="fa fa-check"></i><b>3.5</b> Listas</a><ul>
+<li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#criando-listas"><i class="fa fa-check"></i>Criando listas</a></li>
+<li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#acessando-elementos-das-listas"><i class="fa fa-check"></i>Acessando elementos das listas</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#resumo-melhorar-nome"><i class="fa fa-check"></i><b>3.6</b> resumo (melhorar nome)</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Guia definitivo do R para estudantes de sociais</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="primeiros_comandos_no-R" class="section level1">
+<h1><span class="header-section-number">2</span> Primeiros Comandos no R</h1>
+<p>Agora que apresentamos o R e RStudio e o básico sobre seu funcionamento, vamos começar nossa aventura dentro das linhas de comando do R apresentando…</p>
+<p>Neste capitulo usaremos os os pacotes</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">library</span>(tidyverse)
+<span class="co"># Loading tidyverse: ggplot2</span>
+<span class="co"># Loading tidyverse: tibble</span>
+<span class="co"># Loading tidyverse: tidyr</span>
+<span class="co"># Loading tidyverse: readr</span>
+<span class="co"># Loading tidyverse: purrr</span>
+<span class="co"># Loading tidyverse: dplyr</span>
+<span class="co"># Conflicts with tidy packages ----------------------------------------------</span>
+<span class="co"># filter(): dplyr, stats</span>
+<span class="co"># lag():    dplyr, stats</span>
+&gt;<span class="st"> </span><span class="kw">library</span>(DadosLivroR)</code></pre></div>
+<div id="r_como_calculadora" class="section level2">
+<h2><span class="header-section-number">2.1</span> R como calculadora</h2>
+<p>A utilização mais trivial que se pode fazer do R é como uma calculadora. Onde podemos fazer operações “comuns”, como soma, multiplicação, exponenciação e etc. A execução das operações comuns é muito intuitiva, se quisermos somar números utilizamos o símbolo <code>+</code>, dividir usamos <code>/</code>, exponenciação usamos <code>^</code>. Porém há outros tipos de operações<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> que podemos fazer que isoladamente são simples, mas que são muito úteis no processo de análise de dados.</p>
+<p>O primeiro tipo é o que chamamos de testes de igualdade. São operações que testam se duas variáveis são iguais, se uma é menor ou maior que a outra. Diferente das operações comuns que retornam valores númericos, essa operações retornam valores lógicos de <code>TRUE</code> para verdadeiro e <code>FALSE</code> para falso, valores lógicos são apresentados devidamente na seção @ref(tipos_de_dados). Então ao executar o comando <code>2 == 3</code> o resultado exibido será <code>FALSE</code> e ao executar o comando <code>2 &lt;= 3</code> retornará um resultado <code>TRUE</code>, pois é claro que 2 não é igual a 3 e é menor que 3. Como pode se verificar abaixo</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="dv">2</span>==<span class="dv">3</span>
+<span class="co"># [1] FALSE</span>
+&gt;<span class="st"> </span><span class="dv">2</span>&lt;=<span class="dv">3</span>
+<span class="co"># [1] TRUE</span></code></pre></div>
+<p>Isso pode parecer bobo, mas toda a estatística que tradicionalmente se aprende em um curso de graduação<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> é baseado em testes de hipótese que em termos práticos é verificar se o p valor de uma estatística é menor do que <span class="math inline">\(1-nível\ de\ significância\ escolhido\)</span><a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>. Ou seja, podemos automatizar decisões através de testes de igualdade.</p>
+<p>O outro tipo de operação é chamada de connectivos/operadores lógicos. Da mesma maneira que os testes de igualdade os operadores lógicos retornam valores <code>TRUE</code>ou <code>FALSE</code>. Há três operadores importantissímos, são eles o <code>E</code> que retorna <code>TRUE</code> caso as duas condições sejam verdadeiras e <code>FALSE</code> caso contrário. O <code>OU</code> que retorna <code>TRUE</code> caso uma das duas condições seja verdadeira e <code>FALSE</code> caso contrário. E o <code>negação</code> que retorna <code>TRUE</code> caso a condição seja falsa e <code>FALSE</code> caso a condição seja verdadeira. É importante parar um pouco e refletir sobre o que isso significa para ter certeza que você entendeu, e para ajudá-lo a compreendeer e mostrar os símbolos dos operados no R vamos analisar um exemplo detalhado. A tabela <a href="primeiros-comandos-no-R.html#tab:calculadora-r">2.1</a> traz resumidamente os principais operadores do R.</p>
+<table>
+<caption><span id="tab:calculadora-r">Table 2.1: </span>Principais Operadores do R</caption>
+<thead>
+<tr class="header">
+<th align="left">Operação</th>
+<th align="left">Descrição</th>
+<th align="left">Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">x + y</td>
+<td align="left">Soma y ao x</td>
+<td align="left">Número</td>
+</tr>
+<tr class="even">
+<td align="left">x - y</td>
+<td align="left">Subtrai y de x</td>
+<td align="left">Número</td>
+</tr>
+<tr class="odd">
+<td align="left">x * y</td>
+<td align="left">Multiplica x, y vezes</td>
+<td align="left">Número</td>
+</tr>
+<tr class="even">
+<td align="left">x / y</td>
+<td align="left">Divide x por y</td>
+<td align="left">Número</td>
+</tr>
+<tr class="odd">
+<td align="left">x ^ y</td>
+<td align="left">Eleva x à y potência</td>
+<td align="left">Número</td>
+</tr>
+<tr class="even">
+<td align="left">x == y</td>
+<td align="left">Testa se y é igual a x</td>
+<td align="left">TRUE/FALSE</td>
+</tr>
+<tr class="odd">
+<td align="left">x &lt;= y</td>
+<td align="left">Testa se y é menor ou igual a x</td>
+<td align="left">TRUE/FALSE</td>
+</tr>
+<tr class="even">
+<td align="left">x &gt;= y</td>
+<td align="left">Testa de y é maior ou igual a x</td>
+<td align="left">TRUE/FALSE</td>
+</tr>
+<tr class="odd">
+<td align="left">x &amp; y</td>
+<td align="left">Operador lógico ‘E’</td>
+<td align="left">TRUE/FALSE</td>
+</tr>
+<tr class="even">
+<td align="left">x | y</td>
+<td align="left">Operador lógico ‘OU’</td>
+<td align="left">TRUE/FALSE</td>
+</tr>
+<tr class="odd">
+<td align="left">!x</td>
+<td align="left">Operador lógico de negação</td>
+<td align="left">TRUE/FALSE</td>
+</tr>
+</tbody>
+</table>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-10" class="example"><strong>Example 2.1  (Utilização dos operadores de teste e lógicos)  </strong></span> O principal objetivo deste exemplo é mostrar uma aplicação de como os operadores de teste e lógicos são usados no precessso dentro do R para facilitar o processo de análise de dados. A motivação do exemplo será mostrar comparar a percepção da corrupção na América Latina e Caribe com a percepção de corrupção na África Subsahariana. Espeficicamente vamos usar o índice de percepção de corrupção para os anos de 2006 a 2015, sem os anos de 2007 e 2009 para verificar se a percepção de corrupção na América latina é maior ou menor do que na África e verificar se há algum comportamente em comum ao longo do tempo nas médias de percepção de corrupção. O índice de percepção de corrupção varia entre 0 e 100 e quanto mais próximo de 100 menor é a percepção de corrupção.</p>
+O exemplo pode ser desmontado nos seguintes passos: (i) carregar pacotes; (ii) Selecionar dados; (iii) Filtrar os dados; (iv) Criar variaveis que queremos; e (v) Ver os resultados
+</div>
+<p></p>
+<p>Vamos carregar os pacotes que usaremos:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">library</span>(tidyverse)
+&gt;<span class="st"> </span><span class="kw">library</span>(DadosLivroR)</code></pre></div>
+<p>Agora vamos selecionar o data set chamada <code>data_set1</code> do pacote <code>DadosLivroR</code> e visualizar o início dele. Para obter uma descrição do data set digite <code>?data_set1</code> no console. Ainda não apresentamos a função <code>&lt;-</code>, mas a grosso modo sempre que você se deparar com <code>x &lt;- 2</code> leia como “x recebe 2”, onde vamos chamar o que estiver o lado esquerdo do <code>&lt;-</code> de “objeto daqui para frente. No caso do <em>chunk</em> abaixo seria”dados recebe data_set1“, desse modo você pode usar o data_set1 sempre que precisar chamando o objeto <code>dados</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="co"># pegando os dados</span>
+<span class="er">&gt;</span><span class="st"> </span>dados &lt;-<span class="st"> </span>data_set1
+&gt;<span class="st"> </span>
+<span class="er">&gt;</span><span class="st"> </span><span class="kw">head</span>(dados)
+<span class="co"># # A tibble: 6 x 9</span>
+<span class="co">#          Pais     Regiao   Ano PerCap_dolar PerCap_growth   Inflacao</span>
+<span class="co">#         &lt;chr&gt;      &lt;chr&gt; &lt;int&gt;        &lt;dbl&gt;         &lt;dbl&gt;      &lt;dbl&gt;</span>
+<span class="co"># 1 Afghanistan South Asia  2006     397.9859      2.200613  7.2548956</span>
+<span class="co"># 2 Afghanistan South Asia  2008     444.9501      1.040489 30.5549406</span>
+<span class="co"># 3 Afghanistan South Asia  2010     553.3003      5.425968  0.8925369</span>
+<span class="co"># 4 Afghanistan South Asia  2011     569.2334      2.879648 10.2016601</span>
+<span class="co"># 5 Afghanistan South Asia  2012     630.4274     10.750252  7.2182578</span>
+<span class="co"># 6 Afghanistan South Asia  2013     621.8181     -1.365634  7.6543166</span>
+<span class="co"># # ... with 3 more variables: CPI &lt;dbl&gt;, PFI &lt;dbl&gt;, DI &lt;dbl&gt;</span></code></pre></div>
+<p>Em seguida vamos <strong>filtrar</strong> os dados e selecionar as variaveis que iremos trabalhar. Vamos selecionar as regiões da américa latina e África subsahariana e as variaveis relacionadas à região, ao ano e CPI que é índice de percepção de corrupção. O código abaixo faz isso:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>filtrado &lt;-<span class="st"> </span>dados %&gt;%<span class="st"> </span>
++<span class="st">   </span><span class="kw">filter</span>(Regiao ==<span class="st"> &quot;Latin America &amp; Caribbean&quot;</span> |<span class="st"> </span>Regiao ==<span class="st"> &quot;Sub-Saharan Africa&quot;</span>) %&gt;%<span class="st"> </span>
++<span class="st">   </span><span class="kw">select</span>(Regiao, Ano, CPI)</code></pre></div>
+<p>Onde tiver <code>%&gt;%</code> leia “então”. Deste modo o <em>chunk</em> acima está fazendo o seguite: pegando o objeto dados, então filtrando a coluna para valores que sejam iguais à “Latin America &amp; Caribbean” <strong>OU</strong> iguais à “Sub-Saharan Africa”, então selecionando as colunas com o nome de Regiao, Ano e CPI e salvando o resultado em um objeto chamado <code>filtrado</code>. Veja que aqui utilizamos o operador lógico OU para fazer o filtro, <code>filter(Regiao == &quot;Latin America &amp; Caribbean&quot; | Regiao == &quot;Sub-Saharan Africa&quot;)</code>!</p>
+<p>Antes de prosseguirmos, vamos verificar o data frame filtrado:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>filtrado
+<span class="co"># # A tibble: 496 x 3</span>
+<span class="co">#                       Regiao   Ano      CPI</span>
+<span class="co">#                        &lt;chr&gt; &lt;int&gt;    &lt;dbl&gt;</span>
+<span class="co">#  1        Sub-Saharan Africa  2006 22.00000</span>
+<span class="co">#  2        Sub-Saharan Africa  2008 19.00000</span>
+<span class="co">#  3        Sub-Saharan Africa  2010 19.00000</span>
+<span class="co">#  4        Sub-Saharan Africa  2011 20.05035</span>
+<span class="co">#  5        Sub-Saharan Africa  2012 22.00000</span>
+<span class="co">#  6        Sub-Saharan Africa  2013 23.00000</span>
+<span class="co">#  7        Sub-Saharan Africa  2014 19.00000</span>
+<span class="co">#  8        Sub-Saharan Africa  2015 15.00000</span>
+<span class="co">#  9 Latin America &amp; Caribbean  2006 29.00000</span>
+<span class="co"># 10 Latin America &amp; Caribbean  2008 29.00000</span>
+<span class="co"># # ... with 486 more rows</span></code></pre></div>
+<p>Vemos que temos o que queremos. Agora basta calcularmos as médias de cada ano para cada uma das regiões e depois a média geral de cada grupo:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>resultado &lt;-<span class="st"> </span>filtrado %&gt;%<span class="st"> </span>
++<span class="st">   </span><span class="kw">group_by</span>(Ano, Regiao) %&gt;%<span class="st"> </span><span class="co"># agrupando por Ano e Regiao</span>
++<span class="st">   </span><span class="kw">summarise</span>(<span class="dt">media_ano =</span> <span class="kw">mean</span>(CPI,<span class="dt">na.rm =</span> T)) %&gt;%<span class="st"> </span><span class="co"># Calculando media</span>
++<span class="st">   </span><span class="kw">group_by</span>(Regiao) %&gt;%<span class="st"> </span><span class="co"># Agrupando por regiao</span>
++<span class="st">   </span><span class="kw">mutate</span>(<span class="dt">media_periodo =</span> <span class="kw">mean</span>(media_ano), <span class="co"># criando media por ano</span>
++<span class="st">                       `</span><span class="dt">menor que periodo</span><span class="st">`</span> =<span class="st"> </span><span class="kw">if_else</span>(media_ano &lt;=<span class="st"> </span>media_periodo, <span class="st">&quot;sim&quot;</span>, <span class="st">&quot;Não&quot;</span>))
+&gt;<span class="st"> </span>resultado
+<span class="co"># Source: local data frame [16 x 5]</span>
+<span class="co"># Groups: Regiao [2]</span>
+<span class="co"># </span>
+<span class="co"># # A tibble: 16 x 5</span>
+<span class="co">#      Ano                    Regiao media_ano media_periodo</span>
+<span class="co">#    &lt;int&gt;                     &lt;chr&gt;     &lt;dbl&gt;         &lt;dbl&gt;</span>
+<span class="co">#  1  2006 Latin America &amp; Caribbean  33.20833      35.59501</span>
+<span class="co">#  2  2006        Sub-Saharan Africa  28.31429      30.70347</span>
+<span class="co">#  3  2008 Latin America &amp; Caribbean  34.45833      35.59501</span>
+<span class="co">#  4  2008        Sub-Saharan Africa  28.57895      30.70347</span>
+<span class="co">#  5  2010 Latin America &amp; Caribbean  34.52174      35.59501</span>
+<span class="co">#  6  2010        Sub-Saharan Africa  28.42105      30.70347</span>
+<span class="co">#  7  2011 Latin America &amp; Caribbean  33.44666      35.59501</span>
+<span class="co">#  8  2011        Sub-Saharan Africa  29.01819      30.70347</span>
+<span class="co">#  9  2012 Latin America &amp; Caribbean  37.54167      35.59501</span>
+<span class="co"># 10  2012        Sub-Saharan Africa  33.21053      30.70347</span>
+<span class="co"># 11  2013 Latin America &amp; Caribbean  36.79167      35.59501</span>
+<span class="co"># 12  2013        Sub-Saharan Africa  32.44737      30.70347</span>
+<span class="co"># 13  2014 Latin America &amp; Caribbean  37.58333      35.59501</span>
+<span class="co"># 14  2014        Sub-Saharan Africa  33.05405      30.70347</span>
+<span class="co"># 15  2015 Latin America &amp; Caribbean  37.20833      35.59501</span>
+<span class="co"># 16  2015        Sub-Saharan Africa  32.58333      30.70347</span>
+<span class="co"># # ... with 1 more variables: `menor que periodo` &lt;chr&gt;</span></code></pre></div>
+<p>Neste último <em>chunk</em> pegamos o objeto <code>filtrado</code>, então agrupamos por Ano e Regiao, então calculamos a média do CPI (índice de percepção de corrupção), então agrupamos por Regiao, então adicionames duas variáveis: (i) media_periodo que tem a média do CPI para todo o período de cada região; e (ii) menor do que período que diz se a média no ano específico é menor ou não do que a média geral. E perceba que na última linha usamos o teste de igualdade para computar o valor da última variável,<code>if_else(media_ano &lt;= media_periodo, &quot;sim&quot;, &quot;Não&quot;)</code>, o que essa linha fez comparar linha por linha se o valor da coluna “media_ano” é menor que o o valor “media_periodo” e caso o valor fosse menor então a coluna “menor que periodo” recebia o valor “sim” na respectiva linha, caso não fosse recebia o valor “não”!</p>
+<p>Não se preocupe em entender os detalhes do código, pois cada uma das ferramentas utilizadas serão propriamente apresentadas no decorrer do livro. O importante é que tenha ficado claro como os operados de teste e lógicos são utilizados. Outra coisa, pode parecer que é muito código, em um script seria apenas algo do tipo:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">library</span>(DadosLivroR)
+&gt;<span class="st"> </span><span class="kw">library</span>(tidyverse)
+&gt;<span class="st"> </span>
+<span class="er">&gt;</span><span class="st"> </span><span class="co"># Pegar dados</span>
+<span class="er">&gt;</span><span class="st"> </span>
+<span class="er">&gt;</span><span class="st"> </span>dados &lt;-<span class="st"> </span>data_set1
+&gt;<span class="st"> </span>
+<span class="er">&gt;</span><span class="st"> </span><span class="co"># filtar regiao e variaveis que queremos</span>
+<span class="er">&gt;</span><span class="st"> </span>
+<span class="er">&gt;</span><span class="st"> </span>filtrado &lt;-<span class="st"> </span>dados %&gt;%<span class="st"> </span>
++<span class="st">   </span><span class="kw">filter</span>(Regiao ==<span class="st"> &quot;Latin America &amp; Caribbean&quot;</span> |<span class="st"> </span>Regiao ==<span class="st"> &quot;Sub-Saharan Africa&quot;</span>) %&gt;%<span class="st"> </span>
++<span class="st">   </span><span class="kw">select</span>(Regiao, Ano, CPI)
+&gt;<span class="st"> </span>
+<span class="er">&gt;</span><span class="st"> </span><span class="co"># criar variaveis que queremos</span>
+<span class="er">&gt;</span><span class="st"> </span>
+<span class="er">&gt;</span><span class="st"> </span>resultado &lt;-<span class="st"> </span>filtrado %&gt;%<span class="st"> </span>
++<span class="st">   </span><span class="kw">group_by</span>(Ano, Regiao) %&gt;%<span class="st"> </span>
++<span class="st">   </span><span class="kw">summarise</span>(<span class="dt">media_ano =</span> <span class="kw">mean</span>(CPI,<span class="dt">na.rm =</span> T)) %&gt;%<span class="st"> </span>
++<span class="st">   </span><span class="kw">group_by</span>(Regiao) %&gt;%<span class="st"> </span>
++<span class="st">   </span><span class="kw">mutate</span>(<span class="dt">media_periodo =</span> <span class="kw">mean</span>(media_ano), 
++<span class="st">                       `</span><span class="dt">menor quegeral</span><span class="st">`</span> =<span class="st"> </span><span class="kw">if_else</span>(media_ano &lt;=<span class="st"> </span>media_periodo, <span class="st">&quot;sim&quot;</span>, <span class="st">&quot;Não&quot;</span>))</code></pre></div>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p>Estamos chamando de operações pois é uma maneira mais direta de se entender, sob uma perspectiva formal matemática seria incorreto utilizar essa nomeclatura<a href="primeiros-comandos-no-R.html#fnref3">↩</a></p></li>
+<li id="fn4"><p>Estatística inferentista<a href="primeiros-comandos-no-R.html#fnref4">↩</a></p></li>
+<li id="fn5"><p>Colocar aqui explicação sobre o significado do alpha e intervalo de confiança em termos dos tipos de erro I e II<a href="primeiros-comandos-no-R.html#fnref5">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r-e-rStudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="estruturas-de-dados.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

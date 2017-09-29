@@ -11,7 +11,7 @@ date: "`r Sys.Date()`"
 
 1. Motivação
     - Para quem é este livro?
-    - O que você vai aprender
+    - O que você vai aprender (que no inicio pode ser )
 2. Estrutura 
     - convenções de notação
     - do livro

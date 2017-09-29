@@ -1,0 +1,112 @@
+# Primeiros Comandos no R {#primeiros_comandos_no-R}
+
+Agora que apresentamos o R e RStudio e o básico sobre seu funcionamento, vamos começar nossa aventura dentro das linhas de comando do R apresentando...
+
+Neste capitulo usaremos os os pacotes
+```{r}
+library(tidyverse)
+library(DadosLivroR)
+```
+
+
+
+## R como calculadora {#r_como_calculadora}
+
+A utilização mais trivial que se pode fazer do R é como uma calculadora. Onde podemos fazer operações "comuns", como soma, multiplicação, exponenciação e etc. A execução das operações comuns é muito intuitiva, se quisermos somar números utilizamos o símbolo `+`, dividir usamos `/`, exponenciação usamos `^`. Porém há outros tipos de operações^[Estamos chamando de operações pois é uma maneira mais direta de se entender, sob uma perspectiva formal matemática seria incorreto utilizar essa nomeclatura] que podemos fazer que isoladamente são simples, mas que são muito úteis no processo de análise de dados. 
+
+O primeiro tipo é o que chamamos de testes de igualdade. São operações que testam se duas variáveis são iguais, se uma é menor ou maior que a outra. Diferente das operações comuns que retornam valores númericos, essa operações retornam valores lógicos de `TRUE` para verdadeiro e `FALSE` para falso, valores lógicos são apresentados devidamente na seção \@ref(tipos_de_dados). Então ao executar o comando `2 == 3` o resultado exibido será `FALSE` e ao executar o comando `2 <= 3` retornará um resultado `TRUE`, pois é claro que 2 não é igual a 3 e é menor que 3. Como pode se verificar abaixo
+
+```{r}
+2==3
+2<=3
+```
+
+Isso pode parecer bobo, mas toda a estatística que tradicionalmente se aprende em um curso de graduação^[Estatística inferentista] é baseado em testes de hipótese que em termos práticos é verificar se o p valor de uma estatística é menor do que $1-nível\ de\ significância\ escolhido$^[Colocar aqui explicação sobre o significado do alpha e intervalo de confiança em termos dos tipos de erro I e II]. Ou seja, podemos automatizar decisões através de testes de igualdade. 
+
+O outro tipo de operação é chamada de connectivos/operadores lógicos. Da mesma maneira que os testes de igualdade os operadores lógicos retornam valores `TRUE`ou `FALSE`. Há três operadores importantissímos, são eles o ` E` que retorna `TRUE` caso as duas condições sejam verdadeiras e `FALSE` caso contrário. O `OU` que retorna `TRUE` caso uma das duas condições seja verdadeira e `FALSE` caso contrário. E o `negação` que retorna `TRUE` caso a condição seja falsa e `FALSE` caso a condição seja verdadeira. É importante parar um pouco e refletir sobre o que isso significa para ter certeza que você entendeu, e para ajudá-lo a compreendeer e mostrar os símbolos dos operados no R vamos analisar um exemplo detalhado. A tabela \@ref(tab:calculadora-r) traz resumidamente os principais operadores do R.
+
+```{r calculadora-r, echo=FALSE}
+tab <- matrix(nrow = 11, ncol = 3)
+colnames(tab) <- c("Operação","Descrição","Resultado")
+tab[,1] <- c("x + y","x - y","x * y","x / y","x ^ y", "x == y","x <= y", "x >= y", "x & y", "x | y", " !x ")
+
+tab[,2] <- c("Soma y ao x", "Subtrai y de x","Multiplica x, y vezes", "Divide x por y", "Eleva x à y potência","Testa se y é igual a x", "Testa se y é menor ou igual a x", "Testa de y é maior ou igual a x", "Operador lógico 'E'", "Operador lógico 'OU'","Operador lógico de negação")
+tab[,3] <- c(rep("Número",5),rep("TRUE/FALSE",(nrow(tab)-5)))
+
+kable(tab,row.names = F,caption = "Principais Operadores do R")
+```
+
+```{example, name="Utilização dos operadores de teste e lógicos"}
+
+O principal objetivo deste exemplo é mostrar uma aplicação de como os operadores de teste e lógicos são usados no precessso dentro do R para facilitar o processo de análise de dados. A motivação do exemplo será mostrar comparar a percepção da corrupção na América Latina e Caribe com a percepção de corrupção na África Subsahariana. Espeficicamente vamos usar o índice de percepção de corrupção para os anos de 2006 a 2015, sem os anos de 2007 e 2009 para verificar se a percepção de corrupção na América latina é maior ou menor do que na África e verificar se há algum comportamente em comum ao longo do tempo nas médias de percepção de corrupção. O índice de percepção de corrupção varia entre 0 e 100 e quanto mais próximo de 100 menor é a percepção de  corrupção.
+
+O exemplo pode ser desmontado nos seguintes passos: (i) carregar pacotes; (ii) Selecionar dados; (iii) Filtrar os dados; (iv) Criar variaveis que queremos; e (v) Ver os resultados
+```
+
+Vamos carregar os pacotes que usaremos:
+```{r, eval=FALSE}
+library(tidyverse)
+library(DadosLivroR)
+```
+
+Agora vamos selecionar o data set chamada `data_set1` do pacote `DadosLivroR` e visualizar o início dele. Para obter uma descrição do data set digite `?data_set1` no console. Ainda não apresentamos a função `<-`, mas a grosso modo sempre que você se deparar com `x <- 2` leia como "x recebe 2", onde vamos chamar o que estiver o lado esquerdo do `<-` de "objeto daqui para frente. No caso do *chunk* abaixo seria "dados recebe data_set1", desse modo você pode usar o data_set1 sempre que precisar chamando o objeto `dados`. 
+```{r}
+# pegando os dados
+dados <- data_set1
+
+head(dados)
+```
+
+Em seguida vamos **filtrar** os dados e selecionar as variaveis que iremos trabalhar. Vamos selecionar as regiões da américa latina e África subsahariana e as variaveis relacionadas à região, ao ano e CPI que é índice de percepção de corrupção. O código abaixo faz isso:
+ 
+```{r}
+filtrado <- dados %>% 
+  filter(Regiao == "Latin America & Caribbean" | Regiao == "Sub-Saharan Africa") %>% 
+  select(Regiao, Ano, CPI)
+```
+
+Onde tiver `%>%` leia "então". Deste modo o *chunk* acima está fazendo o seguite: pegando o objeto dados, então filtrando a coluna para valores que sejam iguais à "Latin America & Caribbean" **OU** iguais à "Sub-Saharan Africa", então selecionando as colunas com o nome de Regiao, Ano e CPI e salvando o resultado em um objeto chamado `filtrado`. Veja que aqui utilizamos o operador lógico OU para fazer o filtro, `filter(Regiao == "Latin America & Caribbean" | Regiao == "Sub-Saharan Africa")`!
+
+Antes de prosseguirmos, vamos verificar o data frame filtrado:
+```{r}
+filtrado
+```
+
+Vemos que temos o que queremos. Agora basta calcularmos as médias de cada ano para cada uma das regiões e depois a média geral de cada grupo:
+```{r}
+resultado <- filtrado %>% 
+  group_by(Ano, Regiao) %>% # agrupando por Ano e Regiao
+  summarise(media_ano = mean(CPI,na.rm = T)) %>% # Calculando media
+  group_by(Regiao) %>% # Agrupando por regiao
+  mutate(media_periodo = mean(media_ano), # criando media por ano
+                      `menor que periodo` = if_else(media_ano <= media_periodo, "sim", "Não"))
+resultado
+```
+
+Neste último *chunk* pegamos o objeto `filtrado`, então agrupamos por Ano e Regiao, então calculamos a média do CPI (índice de percepção de corrupção), então agrupamos por Regiao, então adicionames duas variáveis: (i) media_periodo que tem a média do CPI para todo o período de cada região; e (ii) menor do que período que diz se a média no ano específico é menor ou não do que a média geral. E perceba que na última linha usamos o teste de igualdade para computar o valor da última variável,`if_else(media_ano <= media_periodo, "sim", "Não")`, o que essa linha fez comparar linha por linha se o valor da coluna "media_ano" é menor que o o valor "media_periodo" e caso o valor fosse menor então a coluna "menor que periodo" recebia o valor "sim" na respectiva linha, caso não fosse recebia o valor "não"! 
+
+Não se preocupe em entender os detalhes do código, pois cada uma das ferramentas utilizadas serão propriamente apresentadas no decorrer do livro. O importante é que tenha ficado claro como os operados de teste e lógicos são utilizados. Outra coisa, pode parecer que é muito código, em um script seria apenas algo do tipo:
+```{r, eval=FALSE}
+library(DadosLivroR)
+library(tidyverse)
+
+# Pegar dados
+
+dados <- data_set1
+
+# filtar regiao e variaveis que queremos
+
+filtrado <- dados %>% 
+  filter(Regiao == "Latin America & Caribbean" | Regiao == "Sub-Saharan Africa") %>% 
+  select(Regiao, Ano, CPI)
+
+# criar variaveis que queremos
+
+resultado <- filtrado %>% 
+  group_by(Ano, Regiao) %>% 
+  summarise(media_ano = mean(CPI,na.rm = T)) %>% 
+  group_by(Regiao) %>% 
+  mutate(media_periodo = mean(media_ano), 
+                      `menor quegeral` = if_else(media_ano <= media_periodo, "sim", "Não"))
+```
+

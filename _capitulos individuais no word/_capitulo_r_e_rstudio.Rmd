@@ -1,8 +1,19 @@
-# (PART) Introdução ao Mundo R {-}
+---
+title: "capitulo R e R Studio"
+output: word_document
+---
+
+```{r,include=FALSE}
+library(knitr)
+opts_chunk$set(echo = TRUE,
+                      prompt = TRUE, comment = '#',
+                      fig.align = "center",
+                      collapse = TRUE)
+```
 
 # R e RStudio {#r_e_rStudio}
 
-Neste capítulo vamos introduzir de maneira completa o R e o RStudio e apresentar o básico sobre seu funcionamento. De modo a facilitar o entendimento dos capítulos seguintes desta parte I do livro, que busca apresentar ferramentas sob as quais desenvolveremos nossas habilidades no R. 
+Antes de introduzir o leitor ao mundo do R gostaria de parabenizá-lo por aceitar o desafio de aprender um linguagem de programação que o ajudará a realizar seus trabalhos. Então, parabéns! 
 
 ## O que são {#o_que_sao}
 
@@ -124,17 +135,3 @@ include_graphics("images/_install_packages.png")
 ```
 
 Duas observações: (i) note que ao instalar o pacote o nome do pacote deve estar entre aspas e ao carregar o nome do pacote está sem aspas; (ii) **só é necessário instalar o pacote uma vez no seu computador (a primeira vez que você for utilizá-lo), mas é necessário que você carrege o pacote sempre que vocÊ abrir o R. 
-
-```{exercise, name = "Instalar o pacote tidyverse"}
-O pacote tidyverse será muito utilizado ao longo do livro e das suas atividades dentro do R. Esse pacote é na verdade um conjunto de pacotes que modernizaram e deixaram de maneia mais natural fazer as atividades relacionadas à analise de dados no R. Isto é, ele tem funções de manipulação de dados, visualização, estimação, programação etc. Seu exercício é instalar corretamente esse pacote.
-```
-
-### Pacotes do GitHub {-}
-
-Para fins deste livro podemos descrever o GitHub como uma "nuvem" (do mesmo jeito que o google drive, icloud etc.), mas para códigos de programação^[Ele é na verdade muito mais abrangente e complexo do que isso, mas para nós isso é o que importa]. Desse modo é possível que pacotes para o R sejam criando e colocados a disposição para os usuários no GitHub. E neste caso a instalação do pacote é um pouco diferente. 
-
-Para instalar um pacoite que encontra-se no GitHub utiliza-se a função `install_github("usuario/pacote")`. onde `usuário` é o nome do usuário que fez o pacote no GitHub e `pacote` é o nome do pacote. Entretando a função `install_github` pertence ao pacote `devtools`. Ou seja, para instalar um pacote do GitHub você deve ter instalado no computador o pacote devtools, que é instalado como mostrado em \@ref(pacotes).
-
-```{exercise, name="Pacote com dados usados no livro"}
-Os dados que serão utilizados nos exercícios e exemplos do livro estão disníveis em um pacote que encontra-se no GitHub, deste modo seu exercício agora é instalar e carreare o pacote devtools para poder ter acesso a função install_github. Em seguida baixe o pacote "DadosLivroR" do usuário "vinisousa04" com a função install_github.
-```
