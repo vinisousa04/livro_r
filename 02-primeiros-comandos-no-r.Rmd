@@ -36,7 +36,7 @@ tab[,3] <- c(rep("Número",5),rep("TRUE/FALSE",(nrow(tab)-5)))
 kable(tab,row.names = F,caption = "Principais Operadores do R")
 ```
 
-```{example, name="Utilização dos operadores de teste e lógicos"}
+```{example, operador-logico ,name="Utilização dos operadores de teste e lógicos"}
 
 O principal objetivo deste exemplo é mostrar uma aplicação de como os operadores de teste e lógicos são usados no precessso dentro do R para facilitar o processo de análise de dados. A motivação do exemplo será mostrar comparar a percepção da corrupção na América Latina e Caribe com a percepção de corrupção na África Subsahariana. Espeficicamente vamos usar o índice de percepção de corrupção para os anos de 2006 a 2015, sem os anos de 2007 e 2009 para verificar se a percepção de corrupção na América latina é maior ou menor do que na África e verificar se há algum comportamente em comum ao longo do tempo nas médias de percepção de corrupção. O índice de percepção de corrupção varia entre 0 e 100 e quanto mais próximo de 100 menor é a percepção de  corrupção.
 
@@ -65,7 +65,7 @@ filtrado <- dados %>%
   select(Regiao, Ano, CPI)
 ```
 
-Onde tiver `%>%` leia "então". Deste modo o *chunk* acima está fazendo o seguite: pegando o objeto dados, então filtrando a coluna para valores que sejam iguais à "Latin America & Caribbean" **OU** iguais à "Sub-Saharan Africa", então selecionando as colunas com o nome de Regiao, Ano e CPI e salvando o resultado em um objeto chamado `filtrado`. Veja que aqui utilizamos o operador lógico OU para fazer o filtro, `filter(Regiao == "Latin America & Caribbean" | Regiao == "Sub-Saharan Africa")`!
+Onde tiver `%>%` leia "então". Deste modo o *chunk* acima está fazendo o seguite: pegando o objeto dados, então filtrando a coluna Regiao para valores que sejam iguais à "Latin America & Caribbean" **OU** iguais à "Sub-Saharan Africa", então selecionando as colunas com o nome de Regiao, Ano e CPI e salvando o resultado em um objeto chamado `filtrado`. Veja que aqui utilizamos o operador lógico OU para fazer o filtro, `filter(Regiao == "Latin America & Caribbean" | Regiao == "Sub-Saharan Africa")`!
 
 Antes de prosseguirmos, vamos verificar o data frame filtrado:
 ```{r}
@@ -80,8 +80,14 @@ resultado <- filtrado %>%
   group_by(Regiao) %>% # Agrupando por regiao
   mutate(media_periodo = mean(media_ano), # criando media por ano
                       `menor que periodo` = if_else(media_ano <= media_periodo, "sim", "Não"))
-resultado
+
 ```
+Que resulta no seguinte:
+
+```{r, results='asis',echo=FALSE}
+kable(resultado)
+```
+
 
 Neste último *chunk* pegamos o objeto `filtrado`, então agrupamos por Ano e Regiao, então calculamos a média do CPI (índice de percepção de corrupção), então agrupamos por Regiao, então adicionames duas variáveis: (i) media_periodo que tem a média do CPI para todo o período de cada região; e (ii) menor do que período que diz se a média no ano específico é menor ou não do que a média geral. E perceba que na última linha usamos o teste de igualdade para computar o valor da última variável,`if_else(media_ano <= media_periodo, "sim", "Não")`, o que essa linha fez comparar linha por linha se o valor da coluna "media_ano" é menor que o o valor "media_periodo" e caso o valor fosse menor então a coluna "menor que periodo" recebia o valor "sim" na respectiva linha, caso não fosse recebia o valor "não"! 
 
@@ -94,15 +100,9 @@ library(tidyverse)
 
 dados <- data_set1
 
-# filtar regiao e variaveis que queremos
-
-filtrado <- dados %>% 
+resultado <- dados %>% 
   filter(Regiao == "Latin America & Caribbean" | Regiao == "Sub-Saharan Africa") %>% 
-  select(Regiao, Ano, CPI)
-
-# criar variaveis que queremos
-
-resultado <- filtrado %>% 
+  select(Regiao, Ano, CPI) %>% 
   group_by(Ano, Regiao) %>% 
   summarise(media_ano = mean(CPI,na.rm = T)) %>% 
   group_by(Regiao) %>% 
@@ -110,3 +110,14 @@ resultado <- filtrado %>%
                       `menor quegeral` = if_else(media_ano <= media_periodo, "sim", "Não"))
 ```
 
+Vamos agora apresentar para o usuário como acessar os dados e variáveis que o leitor importa para o R. 
+
+## *Workspace/Environment* {#workspace_environment}
+
+Para entendermos o que é o *Workspace/Environment* vamos antes apresentar oficialmente o operador de atribuição `->`. A utilizaçãp desse operador da-se da seguinte maneira `nome -> objeto`, onde `nome` é nome do `objeto`^[Ressaltamos aqui que o termo objeto não tem a mesma conotação que teria no caso de liguagens orientadas a objetos] que você quer salvar. Se olharmos o exemplo \@ref(exm:operador-logico) vemos que utilizamos o operador de atribuição três vezes para salvar os objetos `dados`, `filtrado` e `resultado`, ou seja nesse caso nossos objetos são data sets, mas poderiam ser várias outras coisas, como vetores, resultados de regressão, gráfico e etc.  Se olharmos o *Workspace/Environment* depois de executar o código do exemplo teremos algo como mostra a \@ref(fig:workspace-environment).
+
+```{r workspace-environment, echo=FALSE,fig.cap="Exemplo de workspace/Environment"}
+include_graphics("images/_workingspace.png")
+```
+
+Veja que temos nossos três objetos disponíveis para quando quisermos utiliza-los.

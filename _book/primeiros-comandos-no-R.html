@@ -111,6 +111,7 @@ code > span.in { color: #008000; } /* Information */
 </ul></li>
 <li class="chapter" data-level="2" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html"><i class="fa fa-check"></i><b>2</b> Primeiros Comandos no R</a><ul>
 <li class="chapter" data-level="2.1" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html#r_como_calculadora"><i class="fa fa-check"></i><b>2.1</b> R como calculadora</a></li>
+<li class="chapter" data-level="2.2" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html#workspace_environment"><i class="fa fa-check"></i><b>2.2</b> <em>Workspace/Environment</em></a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html"><i class="fa fa-check"></i><b>3</b> Estruturas de Dados</a><ul>
 <li class="chapter" data-level="3.1" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#tipos_de_dados"><i class="fa fa-check"></i><b>3.1</b> Tipos de dados</a></li>
@@ -243,7 +244,7 @@ code > span.in { color: #008000; } /* Information */
 </table>
 
 <div class="example">
-<p><span id="exm:unnamed-chunk-10" class="example"><strong>Example 2.1  (Utilização dos operadores de teste e lógicos)  </strong></span> O principal objetivo deste exemplo é mostrar uma aplicação de como os operadores de teste e lógicos são usados no precessso dentro do R para facilitar o processo de análise de dados. A motivação do exemplo será mostrar comparar a percepção da corrupção na América Latina e Caribe com a percepção de corrupção na África Subsahariana. Espeficicamente vamos usar o índice de percepção de corrupção para os anos de 2006 a 2015, sem os anos de 2007 e 2009 para verificar se a percepção de corrupção na América latina é maior ou menor do que na África e verificar se há algum comportamente em comum ao longo do tempo nas médias de percepção de corrupção. O índice de percepção de corrupção varia entre 0 e 100 e quanto mais próximo de 100 menor é a percepção de corrupção.</p>
+<p><span id="exm:operador-logico " class="example"><strong>(#exm:operador-logico ) (Utilização dos operadores de teste e lógicos)  </strong></span> O principal objetivo deste exemplo é mostrar uma aplicação de como os operadores de teste e lógicos são usados no precessso dentro do R para facilitar o processo de análise de dados. A motivação do exemplo será mostrar comparar a percepção da corrupção na América Latina e Caribe com a percepção de corrupção na África Subsahariana. Espeficicamente vamos usar o índice de percepção de corrupção para os anos de 2006 a 2015, sem os anos de 2007 e 2009 para verificar se a percepção de corrupção na América latina é maior ou menor do que na África e verificar se há algum comportamente em comum ao longo do tempo nas médias de percepção de corrupção. O índice de percepção de corrupção varia entre 0 e 100 e quanto mais próximo de 100 menor é a percepção de corrupção.</p>
 O exemplo pode ser desmontado nos seguintes passos: (i) carregar pacotes; (ii) Selecionar dados; (iii) Filtrar os dados; (iv) Criar variaveis que queremos; e (v) Ver os resultados
 </div>
 <p></p>
@@ -269,7 +270,7 @@ O exemplo pode ser desmontado nos seguintes passos: (i) carregar pacotes; (ii) S
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>filtrado &lt;-<span class="st"> </span>dados %&gt;%<span class="st"> </span>
 +<span class="st">   </span><span class="kw">filter</span>(Regiao ==<span class="st"> &quot;Latin America &amp; Caribbean&quot;</span> |<span class="st"> </span>Regiao ==<span class="st"> &quot;Sub-Saharan Africa&quot;</span>) %&gt;%<span class="st"> </span>
 +<span class="st">   </span><span class="kw">select</span>(Regiao, Ano, CPI)</code></pre></div>
-<p>Onde tiver <code>%&gt;%</code> leia “então”. Deste modo o <em>chunk</em> acima está fazendo o seguite: pegando o objeto dados, então filtrando a coluna para valores que sejam iguais à “Latin America &amp; Caribbean” <strong>OU</strong> iguais à “Sub-Saharan Africa”, então selecionando as colunas com o nome de Regiao, Ano e CPI e salvando o resultado em um objeto chamado <code>filtrado</code>. Veja que aqui utilizamos o operador lógico OU para fazer o filtro, <code>filter(Regiao == &quot;Latin America &amp; Caribbean&quot; | Regiao == &quot;Sub-Saharan Africa&quot;)</code>!</p>
+<p>Onde tiver <code>%&gt;%</code> leia “então”. Deste modo o <em>chunk</em> acima está fazendo o seguite: pegando o objeto dados, então filtrando a coluna Regiao para valores que sejam iguais à “Latin America &amp; Caribbean” <strong>OU</strong> iguais à “Sub-Saharan Africa”, então selecionando as colunas com o nome de Regiao, Ano e CPI e salvando o resultado em um objeto chamado <code>filtrado</code>. Veja que aqui utilizamos o operador lógico OU para fazer o filtro, <code>filter(Regiao == &quot;Latin America &amp; Caribbean&quot; | Regiao == &quot;Sub-Saharan Africa&quot;)</code>!</p>
 <p>Antes de prosseguirmos, vamos verificar o data frame filtrado:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>filtrado
 <span class="co"># # A tibble: 496 x 3</span>
@@ -292,31 +293,133 @@ O exemplo pode ser desmontado nos seguintes passos: (i) carregar pacotes; (ii) S
 +<span class="st">   </span><span class="kw">summarise</span>(<span class="dt">media_ano =</span> <span class="kw">mean</span>(CPI,<span class="dt">na.rm =</span> T)) %&gt;%<span class="st"> </span><span class="co"># Calculando media</span>
 +<span class="st">   </span><span class="kw">group_by</span>(Regiao) %&gt;%<span class="st"> </span><span class="co"># Agrupando por regiao</span>
 +<span class="st">   </span><span class="kw">mutate</span>(<span class="dt">media_periodo =</span> <span class="kw">mean</span>(media_ano), <span class="co"># criando media por ano</span>
-+<span class="st">                       `</span><span class="dt">menor que periodo</span><span class="st">`</span> =<span class="st"> </span><span class="kw">if_else</span>(media_ano &lt;=<span class="st"> </span>media_periodo, <span class="st">&quot;sim&quot;</span>, <span class="st">&quot;Não&quot;</span>))
-&gt;<span class="st"> </span>resultado
-<span class="co"># Source: local data frame [16 x 5]</span>
-<span class="co"># Groups: Regiao [2]</span>
-<span class="co"># </span>
-<span class="co"># # A tibble: 16 x 5</span>
-<span class="co">#      Ano                    Regiao media_ano media_periodo</span>
-<span class="co">#    &lt;int&gt;                     &lt;chr&gt;     &lt;dbl&gt;         &lt;dbl&gt;</span>
-<span class="co">#  1  2006 Latin America &amp; Caribbean  33.20833      35.59501</span>
-<span class="co">#  2  2006        Sub-Saharan Africa  28.31429      30.70347</span>
-<span class="co">#  3  2008 Latin America &amp; Caribbean  34.45833      35.59501</span>
-<span class="co">#  4  2008        Sub-Saharan Africa  28.57895      30.70347</span>
-<span class="co">#  5  2010 Latin America &amp; Caribbean  34.52174      35.59501</span>
-<span class="co">#  6  2010        Sub-Saharan Africa  28.42105      30.70347</span>
-<span class="co">#  7  2011 Latin America &amp; Caribbean  33.44666      35.59501</span>
-<span class="co">#  8  2011        Sub-Saharan Africa  29.01819      30.70347</span>
-<span class="co">#  9  2012 Latin America &amp; Caribbean  37.54167      35.59501</span>
-<span class="co"># 10  2012        Sub-Saharan Africa  33.21053      30.70347</span>
-<span class="co"># 11  2013 Latin America &amp; Caribbean  36.79167      35.59501</span>
-<span class="co"># 12  2013        Sub-Saharan Africa  32.44737      30.70347</span>
-<span class="co"># 13  2014 Latin America &amp; Caribbean  37.58333      35.59501</span>
-<span class="co"># 14  2014        Sub-Saharan Africa  33.05405      30.70347</span>
-<span class="co"># 15  2015 Latin America &amp; Caribbean  37.20833      35.59501</span>
-<span class="co"># 16  2015        Sub-Saharan Africa  32.58333      30.70347</span>
-<span class="co"># # ... with 1 more variables: `menor que periodo` &lt;chr&gt;</span></code></pre></div>
++<span class="st">                       `</span><span class="dt">menor que periodo</span><span class="st">`</span> =<span class="st"> </span><span class="kw">if_else</span>(media_ano &lt;=<span class="st"> </span>media_periodo, <span class="st">&quot;sim&quot;</span>, <span class="st">&quot;Não&quot;</span>))</code></pre></div>
+<p>Que resulta no seguinte:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Ano</th>
+<th align="left">Regiao</th>
+<th align="right">media_ano</th>
+<th align="right">media_periodo</th>
+<th align="left">menor que periodo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">2006</td>
+<td align="left">Latin America &amp; Caribbean</td>
+<td align="right">33.20833</td>
+<td align="right">35.59501</td>
+<td align="left">sim</td>
+</tr>
+<tr class="even">
+<td align="right">2006</td>
+<td align="left">Sub-Saharan Africa</td>
+<td align="right">28.31429</td>
+<td align="right">30.70347</td>
+<td align="left">sim</td>
+</tr>
+<tr class="odd">
+<td align="right">2008</td>
+<td align="left">Latin America &amp; Caribbean</td>
+<td align="right">34.45833</td>
+<td align="right">35.59501</td>
+<td align="left">sim</td>
+</tr>
+<tr class="even">
+<td align="right">2008</td>
+<td align="left">Sub-Saharan Africa</td>
+<td align="right">28.57895</td>
+<td align="right">30.70347</td>
+<td align="left">sim</td>
+</tr>
+<tr class="odd">
+<td align="right">2010</td>
+<td align="left">Latin America &amp; Caribbean</td>
+<td align="right">34.52174</td>
+<td align="right">35.59501</td>
+<td align="left">sim</td>
+</tr>
+<tr class="even">
+<td align="right">2010</td>
+<td align="left">Sub-Saharan Africa</td>
+<td align="right">28.42105</td>
+<td align="right">30.70347</td>
+<td align="left">sim</td>
+</tr>
+<tr class="odd">
+<td align="right">2011</td>
+<td align="left">Latin America &amp; Caribbean</td>
+<td align="right">33.44666</td>
+<td align="right">35.59501</td>
+<td align="left">sim</td>
+</tr>
+<tr class="even">
+<td align="right">2011</td>
+<td align="left">Sub-Saharan Africa</td>
+<td align="right">29.01819</td>
+<td align="right">30.70347</td>
+<td align="left">sim</td>
+</tr>
+<tr class="odd">
+<td align="right">2012</td>
+<td align="left">Latin America &amp; Caribbean</td>
+<td align="right">37.54167</td>
+<td align="right">35.59501</td>
+<td align="left">Não</td>
+</tr>
+<tr class="even">
+<td align="right">2012</td>
+<td align="left">Sub-Saharan Africa</td>
+<td align="right">33.21053</td>
+<td align="right">30.70347</td>
+<td align="left">Não</td>
+</tr>
+<tr class="odd">
+<td align="right">2013</td>
+<td align="left">Latin America &amp; Caribbean</td>
+<td align="right">36.79167</td>
+<td align="right">35.59501</td>
+<td align="left">Não</td>
+</tr>
+<tr class="even">
+<td align="right">2013</td>
+<td align="left">Sub-Saharan Africa</td>
+<td align="right">32.44737</td>
+<td align="right">30.70347</td>
+<td align="left">Não</td>
+</tr>
+<tr class="odd">
+<td align="right">2014</td>
+<td align="left">Latin America &amp; Caribbean</td>
+<td align="right">37.58333</td>
+<td align="right">35.59501</td>
+<td align="left">Não</td>
+</tr>
+<tr class="even">
+<td align="right">2014</td>
+<td align="left">Sub-Saharan Africa</td>
+<td align="right">33.05405</td>
+<td align="right">30.70347</td>
+<td align="left">Não</td>
+</tr>
+<tr class="odd">
+<td align="right">2015</td>
+<td align="left">Latin America &amp; Caribbean</td>
+<td align="right">37.20833</td>
+<td align="right">35.59501</td>
+<td align="left">Não</td>
+</tr>
+<tr class="even">
+<td align="right">2015</td>
+<td align="left">Sub-Saharan Africa</td>
+<td align="right">32.58333</td>
+<td align="right">30.70347</td>
+<td align="left">Não</td>
+</tr>
+</tbody>
+</table>
 <p>Neste último <em>chunk</em> pegamos o objeto <code>filtrado</code>, então agrupamos por Ano e Regiao, então calculamos a média do CPI (índice de percepção de corrupção), então agrupamos por Regiao, então adicionames duas variáveis: (i) media_periodo que tem a média do CPI para todo o período de cada região; e (ii) menor do que período que diz se a média no ano específico é menor ou não do que a média geral. E perceba que na última linha usamos o teste de igualdade para computar o valor da última variável,<code>if_else(media_ano &lt;= media_periodo, &quot;sim&quot;, &quot;Não&quot;)</code>, o que essa linha fez comparar linha por linha se o valor da coluna “media_ano” é menor que o o valor “media_periodo” e caso o valor fosse menor então a coluna “menor que periodo” recebia o valor “sim” na respectiva linha, caso não fosse recebia o valor “não”!</p>
 <p>Não se preocupe em entender os detalhes do código, pois cada uma das ferramentas utilizadas serão propriamente apresentadas no decorrer do livro. O importante é que tenha ficado claro como os operados de teste e lógicos são utilizados. Outra coisa, pode parecer que é muito código, em um script seria apenas algo do tipo:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">library</span>(DadosLivroR)
@@ -326,20 +429,26 @@ O exemplo pode ser desmontado nos seguintes passos: (i) carregar pacotes; (ii) S
 <span class="er">&gt;</span><span class="st"> </span>
 <span class="er">&gt;</span><span class="st"> </span>dados &lt;-<span class="st"> </span>data_set1
 &gt;<span class="st"> </span>
-<span class="er">&gt;</span><span class="st"> </span><span class="co"># filtar regiao e variaveis que queremos</span>
-<span class="er">&gt;</span><span class="st"> </span>
-<span class="er">&gt;</span><span class="st"> </span>filtrado &lt;-<span class="st"> </span>dados %&gt;%<span class="st"> </span>
+<span class="er">&gt;</span><span class="st"> </span>resultado &lt;-<span class="st"> </span>dados %&gt;%<span class="st"> </span>
 +<span class="st">   </span><span class="kw">filter</span>(Regiao ==<span class="st"> &quot;Latin America &amp; Caribbean&quot;</span> |<span class="st"> </span>Regiao ==<span class="st"> &quot;Sub-Saharan Africa&quot;</span>) %&gt;%<span class="st"> </span>
-+<span class="st">   </span><span class="kw">select</span>(Regiao, Ano, CPI)
-&gt;<span class="st"> </span>
-<span class="er">&gt;</span><span class="st"> </span><span class="co"># criar variaveis que queremos</span>
-<span class="er">&gt;</span><span class="st"> </span>
-<span class="er">&gt;</span><span class="st"> </span>resultado &lt;-<span class="st"> </span>filtrado %&gt;%<span class="st"> </span>
++<span class="st">   </span><span class="kw">select</span>(Regiao, Ano, CPI) %&gt;%<span class="st"> </span>
 +<span class="st">   </span><span class="kw">group_by</span>(Ano, Regiao) %&gt;%<span class="st"> </span>
 +<span class="st">   </span><span class="kw">summarise</span>(<span class="dt">media_ano =</span> <span class="kw">mean</span>(CPI,<span class="dt">na.rm =</span> T)) %&gt;%<span class="st"> </span>
 +<span class="st">   </span><span class="kw">group_by</span>(Regiao) %&gt;%<span class="st"> </span>
 +<span class="st">   </span><span class="kw">mutate</span>(<span class="dt">media_periodo =</span> <span class="kw">mean</span>(media_ano), 
 +<span class="st">                       `</span><span class="dt">menor quegeral</span><span class="st">`</span> =<span class="st"> </span><span class="kw">if_else</span>(media_ano &lt;=<span class="st"> </span>media_periodo, <span class="st">&quot;sim&quot;</span>, <span class="st">&quot;Não&quot;</span>))</code></pre></div>
+<p>Vamos agora apresentar para o usuário como acessar os dados e variáveis que o leitor importa para o R.</p>
+</div>
+<div id="workspace_environment" class="section level2">
+<h2><span class="header-section-number">2.2</span> <em>Workspace/Environment</em></h2>
+<p>Para entendermos o que é o <em>Workspace/Environment</em> vamos antes apresentar oficialmente o operador de atribuição <code>-&gt;</code>. A utilizaçãp desse operador da-se da seguinte maneira <code>nome -&gt; objeto</code>, onde <code>nome</code> é nome do <code>objeto</code><a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a> que você quer salvar. Se olharmos o exemplo <a href="#exm:operador-logico"><strong>??</strong></a> vemos que utilizamos o operador de atribuição três vezes para salvar os objetos <code>dados</code>, <code>filtrado</code> e <code>resultado</code>, ou seja nesse caso nossos objetos são data sets, mas poderiam ser várias outras coisas, como vetores, resultados de regressão, gráfico e etc. Se olharmos o <em>Workspace/Environment</em> depois de executar o código do exemplo teremos algo como mostra a <a href="primeiros-comandos-no-R.html#fig:workspace-environment">2.1</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:workspace-environment"></span>
+<img src="images/_workingspace.png" alt="Exemplo de workspace/Environment" width="683" />
+<p class="caption">
+Figure 2.1: Exemplo de workspace/Environment
+</p>
+</div>
+<p>Veja que temos nossos três objetos disponíveis para quando quisermos utiliza-los.</p>
 
 </div>
 </div>
@@ -349,6 +458,7 @@ O exemplo pode ser desmontado nos seguintes passos: (i) carregar pacotes; (ii) S
 <li id="fn3"><p>Estamos chamando de operações pois é uma maneira mais direta de se entender, sob uma perspectiva formal matemática seria incorreto utilizar essa nomeclatura<a href="primeiros-comandos-no-R.html#fnref3">↩</a></p></li>
 <li id="fn4"><p>Estatística inferentista<a href="primeiros-comandos-no-R.html#fnref4">↩</a></p></li>
 <li id="fn5"><p>Colocar aqui explicação sobre o significado do alpha e intervalo de confiança em termos dos tipos de erro I e II<a href="primeiros-comandos-no-R.html#fnref5">↩</a></p></li>
+<li id="fn6"><p>Ressaltamos aqui que o termo objeto não tem a mesma conotação que teria no caso de liguagens orientadas a objetos<a href="primeiros-comandos-no-R.html#fnref6">↩</a></p></li>
 </ol>
 </div>
             </section>
