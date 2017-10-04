@@ -114,10 +114,26 @@ Vamos agora apresentar para o usuário como acessar os dados e variáveis que o 
 
 ## *Workspace/Environment* {#workspace_environment}
 
-Para entendermos o que é o *Workspace/Environment* vamos antes apresentar oficialmente o operador de atribuição `->`. A utilizaçãp desse operador da-se da seguinte maneira `nome -> objeto`, onde `nome` é nome do `objeto`^[Ressaltamos aqui que o termo objeto não tem a mesma conotação que teria no caso de liguagens orientadas a objetos] que você quer salvar. Se olharmos o exemplo \@ref(exm:operador-logico) vemos que utilizamos o operador de atribuição três vezes para salvar os objetos `dados`, `filtrado` e `resultado`, ou seja nesse caso nossos objetos são data sets, mas poderiam ser várias outras coisas, como vetores, resultados de regressão, gráfico e etc.  Se olharmos o *Workspace/Environment* depois de executar o código do exemplo teremos algo como mostra a \@ref(fig:workspace-environment).
+Para entendermos o que é o *Workspace/Environment* vamos antes apresentar oficialmente o operador de atribuição `<-`. A utilizaçãp desse operador da-se da seguinte maneira `nome <- objeto`, onde `nome` é nome do `objeto`^[Ressaltamos aqui que o termo objeto não tem a mesma conotação que teria no caso de liguagens orientadas a objetos] que você quer salvar. Se olharmos o exemplo \@ref(exm:operador-logico) vemos que utilizamos o operador de atribuição três vezes para salvar os objetos `dados`, `filtrado` e `resultado`, ou seja nesse caso nossos objetos são data sets, mas poderiam ser várias outras coisas, como vetores, resultados de regressão, gráfico e etc.  Se olharmos o *Workspace/Environment* depois de executar o código do exemplo teremos algo como mostra a \@ref(fig:workspace-environment). Veja que temos nossos três objetos disponíveis para quando quisermos utiliza-los.
 
 ```{r workspace-environment, echo=FALSE,fig.cap="Exemplo de workspace/Environment"}
 include_graphics("images/_workingspace.png")
 ```
 
-Veja que temos nossos três objetos disponíveis para quando quisermos utiliza-los.
+Ao clicar com o botão esquerdo do mouse nas janelinhas no final da linha com o nome do objeto é aberta uma nova aba dentro do RStudio mostrando os dados. Veja a figura \@ref(fig:aba-com-dados).
+
+```{r aba-com-dados, echo=FALSE,fig.cap="Vendo dados no RStudio"}
+include_graphics("images/_aba_com_dados.png")
+```
+
+## Funções {#funcoes}
+
+Uma função é um meio de se automatizar uma sequência de comandos, ao invés de executar um de cada vez. Isso é feito através de *inputs*, valores que o usuário fornece à função, e a função retornará um *output* que é o resultado da execução de diversos comandos executados com os *inputs*.
+
+Um exemplo trivial é a função `mean()` que calcula a média de um determinado conjunto de número. Qual são os comandos que essa função automatiza? (i) somar cada elemento do conjunto, (ii) contar quantos elementos tem o conjunto e (iii) dividir a soma pelo númere de elementos. A sintaxe geral de uma função é `noma_da_função(argumentos)`. Desse modo, calcularíamos amédia da sequência `r 1:10` da sequinte maneira:
+```{r}
+mean(1:10)
+```
+
+Calcular a média é uma boa maneira de se apresentar o conceito de funções, mas o leitor deve ter em mente que as funções não se restringem a comandos simples como esse. 
+
