@@ -141,9 +141,38 @@ Neste caso o *input* foi a sequência de números `r 1:10` e o *output* foi o n�
 
 Ao abrir o RStudio várias funções são carregadas automaticamente, vamos chamar essas funções de funções *built-in*, porém uma das vantagens de *softwares* estatísticos gratuitos é que qualquer pessoa pode escrever funções e torna-las disponíveis através de pacotes. Como vimos na seção \@ref(pacotes) utilizamos o comando `library()` para carregar algum pacote e ao carregar um pacote estamos basicamente tornando disponível um conjunto de funções e dados para utilizarmos. Então, ao carregar o pacote `DadosLivroR` fizemos o *data set* `data_set1` disponível para utilização e ao carregar o pacote `tidyverse` tornamos a funções `filter()` disponível para usarmos. Destacamos aqui para os alunos de economia que nos últimos anos tem sido desenvolcidos pacotes que com funções que permitem acessar as principais fontes de dados econômicos do Brasil, como o sistema gerenciador de séries temporais do banco central, IBGE, SIDRA, FGV etc. Tais pacotes e funções serão apresentados na seção \@ref(dados-economia-brasileira).
 
-Ao longo do livro o leitor será exposto a várias funções que executam comandos relacoinados à todos os campos da análise de dados e conforme o leitor for utilizando o R o conhecimento das funções vai sendo acumulado e tornando cada vez mais eficiente a utilização do R como ferramente de análise de dados. 
+Ao longo do livro o leitor será exposto a várias funções que executam comandos relacionados à todos os campos da análise de dados e conforme o leitor for utilizando o R o conhecimento das funções vai sendo acumulado e tornando cada vez mais eficiente a utilização do R como ferramente de análise de dados. 
 
 ## Ajuda e documentação {#ajuda-e-documentacao}
+
+Até este ponto do livro apenas mostramos situações nas quais os comandos foram executados sem que houvesse nenhum erro, mas essa nem sempre será o caso quando o leitor estiver usando o R. É claro que não vamos escrever um código que contenha erros de propósito, porém você irá escrever códigos com erros e saber como lidar com os erros é uma das habilidades essenciais para se utilizar o R de maneira eficiente. *...saber como lidar com os erros é uma das habilidades essenciais...* pode parecer frase auto ajuda, mas no caso do R quando nos referimos a *saber como lidar com os erros* estamos querendo dizer que devemos encontrar o erro, diagnosticar e resolve-lo.
+
+Há uma infidade de possíveis erros que podem acontecer de modo que qualquer tentativa de uma solução geral é completamente inútel, o que vamos buscar fazer aqui é apresentar o "como" ocorrem os erros de modo que, entendo a maneira pela qual ele ocorre, fica mais fácil buscar as soluções. Outra coisa importante de se ter em mente é que entender um pouco de inglês ajuda (e muito) na hora de procurar ajuda e ler a dicumentação de qualquer linguagem de programação, e o R não foge disso. Por isso, algumas partes dessa sessão terão conteúdo em inglês (conforme o usuátio encontraria na internet).
+
+### Erros, Mensagens e Avisos {#erros-mensagens-e-avisos}
+
+#### Erros {-}
+
+Ao executar um comando que contenha algum erro de sintaxe aparecerá no console do RStudio uma mensagem de erro e o leitor deve considerar essa mensagem como sendo o primeiro lugar para se procurar ajuda, pois em boa parte dos casos a mensagem explicará de maneira compreensível qual foi o erro. O *chunk* abaixo mostra isso:
+```{r, error=TRUE}
+"tres" + 2
+```
+
+Ao tentar somar um pedaço de texto com um número o R retorna a mensagem `Error in "tres" + 2 : non-numeric argument to binary operator`. A operação de soma só funciona com valores númericos no R, de modo que ao executar o comando o R percebeu que um dos valores da operação binária^[Operação binária quer dizer que são necessários dois elementos para que ela ocorra, em contrapartida operações unitárias necessitam apenas de um elemente para que ela ocorra. Precisamos de dois números para que eles sejam somados (mesmo que eles sejam iguais), mas precisamos apenas de um número para termos um valor absoluto] era um pedaço de texto e então retornou o erro. 
+
+infelizmente não será sempre que vamos descobrir qual é o erro através das mensagens de erro, veja por exemplo ao tentar carregar para dentro do R a série história do IPCA (Índice Nacional de Preços ao Consumidor Amplo) do Sistema Gerenciador de Séries Temporais do Banco Central podemos nos deparar com o seguinte resultado
+
+```{r, cache=TRUE, error=TRUE}
+library(rbcb) # carregando o pacote com a função get_series
+get_series(code = 433)
+```
+
+Algo que pode ser feito é copiar e colar a mesangem de erro no em alguma ferramenta de busca (isso o google). Ao colar essa mensagem de erro no google um dos links que aparece é este [https://support.rstudio.com/hc/en-us/community/posts/115000629548-Error-in-CURL](https://support.rstudio.com/hc/en-us/community/posts/115000629548-Error-in-CURL), que no final da página tem como resposta dizendo que essa mensagem de erro está relacionada a problemas de conectividade com a internet. 
+
+Neste momento que entra a importância do inglês, pois há diversas comunidades de perguntas e repostas sobre erros do R, grande parte delas em inglês e ao utilizar esse meio de resolver os problemas o usuário irá com o passar do tempo verificando qual é a sua comunidade favorita.
+
+#### Mensagens {-}
+
 
 falar primeiro da documentação e depois dos erros e mensagens em subseções diferentes
 

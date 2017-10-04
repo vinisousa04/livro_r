@@ -113,7 +113,9 @@ code > span.in { color: #008000; } /* Information */
 <li class="chapter" data-level="2.1" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html#r-como-calculadora"><i class="fa fa-check"></i><b>2.1</b> R como calculadora</a></li>
 <li class="chapter" data-level="2.2" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html#Workspace-Environment"><i class="fa fa-check"></i><b>2.2</b> <em>Workspace/Environment</em></a></li>
 <li class="chapter" data-level="2.3" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html#funcoes"><i class="fa fa-check"></i><b>2.3</b> Funções</a></li>
-<li class="chapter" data-level="2.4" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html#ajuda-e-documentacao"><i class="fa fa-check"></i><b>2.4</b> Ajuda e documentação</a></li>
+<li class="chapter" data-level="2.4" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html#ajuda-e-documentacao"><i class="fa fa-check"></i><b>2.4</b> Ajuda e documentação</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html#erros-mensagens-e-avisos"><i class="fa fa-check"></i><b>2.4.1</b> Erros, Mensagens e Avisos</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html"><i class="fa fa-check"></i><b>3</b> Estruturas de Dados</a><ul>
 <li class="chapter" data-level="3.1" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#tipos_de_dados"><i class="fa fa-check"></i><b>3.1</b> Tipos de dados</a></li>
@@ -206,7 +208,7 @@ Figure 1.3: Layout do RStudio
 </div>
 <div id="scripts" class="section level2">
 <h2><span class="header-section-number">1.3</span> <em>Scripts</em></h2>
-<p>Outra grande vantagem de se utilizar linguagens baseadas em comandos de linha são os <em>scripts</em> que são onde ficam armazenados os comandos que devem ser executados, no caso do R os <em>scripts</em> são salvos na extensão <strong>.R</strong>. Os <em>scripts</em>, junto com variáveis e funções, possibilitam evitar a repetição mecânica dos comandos, um exemplo trivial para ilustrar o ponto é o cálculo da índice de massa corporal (IMC), podemos calcular comuma calculadora através da fórmula <span class="math display">\[IMC =\frac{peso(kg)}{altura(metros)^2}\]</span>. Para calcular o IMC dos membros de sua família você pode anotar o peso e altura de cada um e calcular individualmente, ou então você pode escrever o seguinte código:</p>
+<p>Outra grande vantagem de se utilizar linguagens baseadas em comandos de linha são os <em>scripts</em> que são onde ficam armazenados os comandos que devem ser executados, no caso do R os <em>scripts</em> são salvos na extensão <strong>.R</strong>. Os <em>scripts</em> desse modo são um conjunto de texto que serão interpretados pelo computador como “coisas” a serem feitas (como calcular uma média através do comando <code>mean()</code>), e esses textos chamaremos de sintaxe, pois é a maneira através da qual vamos nos comunicar com o computador. Os <em>scripts</em>, junto com variáveis e funções, possibilitam evitar a repetição mecânica dos comandos, um exemplo trivial para ilustrar o ponto é o cálculo da índice de massa corporal (IMC), podemos calcular comuma calculadora através da fórmula <span class="math display">\[IMC =\frac{peso(kg)}{altura(metros)^2}\]</span>. Para calcular o IMC dos membros de sua família você pode anotar o peso e altura de cada um e calcular individualmente, ou então você pode escrever o seguinte código:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>peso &lt;-<span class="st"> </span><span class="dv">65</span>
 &gt;<span class="st"> </span>altura &lt;-<span class="st"> </span><span class="fl">1.75</span>
 &gt;<span class="st"> </span>

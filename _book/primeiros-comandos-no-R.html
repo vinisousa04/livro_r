@@ -113,7 +113,9 @@ code > span.in { color: #008000; } /* Information */
 <li class="chapter" data-level="2.1" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html#r-como-calculadora"><i class="fa fa-check"></i><b>2.1</b> R como calculadora</a></li>
 <li class="chapter" data-level="2.2" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html#Workspace-Environment"><i class="fa fa-check"></i><b>2.2</b> <em>Workspace/Environment</em></a></li>
 <li class="chapter" data-level="2.3" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html#funcoes"><i class="fa fa-check"></i><b>2.3</b> Funções</a></li>
-<li class="chapter" data-level="2.4" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html#ajuda-e-documentacao"><i class="fa fa-check"></i><b>2.4</b> Ajuda e documentação</a></li>
+<li class="chapter" data-level="2.4" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html#ajuda-e-documentacao"><i class="fa fa-check"></i><b>2.4</b> Ajuda e documentação</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html#erros-mensagens-e-avisos"><i class="fa fa-check"></i><b>2.4.1</b> Erros, Mensagens e Avisos</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html"><i class="fa fa-check"></i><b>3</b> Estruturas de Dados</a><ul>
 <li class="chapter" data-level="3.1" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#tipos_de_dados"><i class="fa fa-check"></i><b>3.1</b> Tipos de dados</a></li>
@@ -456,17 +458,40 @@ Figure 2.2: Vendo dados no RStudio
 <span class="co"># [1] 5.5</span></code></pre></div>
 <p>Neste caso o <em>input</em> foi a sequência de números 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 e o <em>output</em> foi o número 5.5. Este é um exemplo trivial que funciona para mostrar como as funções funcionam, entretanto deve se ter claro em mente que há funções para desempenhar uma grande variedade de comandos dos mais simples, como calcular média, à complexos como estimar modelos de controle sintético<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>.</p>
 <p>Ao abrir o RStudio várias funções são carregadas automaticamente, vamos chamar essas funções de funções <em>built-in</em>, porém uma das vantagens de <em>softwares</em> estatísticos gratuitos é que qualquer pessoa pode escrever funções e torna-las disponíveis através de pacotes. Como vimos na seção <a href="r-e-rStudio.html#pacotes">1.6</a> utilizamos o comando <code>library()</code> para carregar algum pacote e ao carregar um pacote estamos basicamente tornando disponível um conjunto de funções e dados para utilizarmos. Então, ao carregar o pacote <code>DadosLivroR</code> fizemos o <em>data set</em> <code>data_set1</code> disponível para utilização e ao carregar o pacote <code>tidyverse</code> tornamos a funções <code>filter()</code> disponível para usarmos. Destacamos aqui para os alunos de economia que nos últimos anos tem sido desenvolcidos pacotes que com funções que permitem acessar as principais fontes de dados econômicos do Brasil, como o sistema gerenciador de séries temporais do banco central, IBGE, SIDRA, FGV etc. Tais pacotes e funções serão apresentados na seção <a href="#dados-economia-brasileira"><strong>??</strong></a>.</p>
-<p>Ao longo do livro o leitor será exposto a várias funções que executam comandos relacoinados à todos os campos da análise de dados e conforme o leitor for utilizando o R o conhecimento das funções vai sendo acumulado e tornando cada vez mais eficiente a utilização do R como ferramente de análise de dados.</p>
+<p>Ao longo do livro o leitor será exposto a várias funções que executam comandos relacionados à todos os campos da análise de dados e conforme o leitor for utilizando o R o conhecimento das funções vai sendo acumulado e tornando cada vez mais eficiente a utilização do R como ferramente de análise de dados.</p>
 </div>
 <div id="ajuda-e-documentacao" class="section level2">
 <h2><span class="header-section-number">2.4</span> Ajuda e documentação</h2>
+<p>Até este ponto do livro apenas mostramos situações nas quais os comandos foram executados sem que houvesse nenhum erro, mas essa nem sempre será o caso quando o leitor estiver usando o R. É claro que não vamos escrever um código que contenha erros de propósito, porém você irá escrever códigos com erros e saber como lidar com os erros é uma das habilidades essenciais para se utilizar o R de maneira eficiente. <em>…saber como lidar com os erros é uma das habilidades essenciais…</em> pode parecer frase auto ajuda, mas no caso do R quando nos referimos a <em>saber como lidar com os erros</em> estamos querendo dizer que devemos encontrar o erro, diagnosticar e resolve-lo.</p>
+<p>Há uma infidade de possíveis erros que podem acontecer de modo que qualquer tentativa de uma solução geral é completamente inútel, o que vamos buscar fazer aqui é apresentar o “como” ocorrem os erros de modo que, entendo a maneira pela qual ele ocorre, fica mais fácil buscar as soluções. Outra coisa importante de se ter em mente é que entender um pouco de inglês ajuda (e muito) na hora de procurar ajuda e ler a dicumentação de qualquer linguagem de programação, e o R não foge disso. Por isso, algumas partes dessa sessão terão conteúdo em inglês (conforme o usuátio encontraria na internet).</p>
+<div id="erros-mensagens-e-avisos" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Erros, Mensagens e Avisos</h3>
+<div id="erros" class="section level4 unnumbered">
+<h4>Erros</h4>
+<p>Ao executar um comando que contenha algum erro de sintaxe aparecerá no console do RStudio uma mensagem de erro e o leitor deve considerar essa mensagem como sendo o primeiro lugar para se procurar ajuda, pois em boa parte dos casos a mensagem explicará de maneira compreensível qual foi o erro. O <em>chunk</em> abaixo mostra isso:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> &quot;tres&quot;</span> +<span class="st"> </span><span class="dv">2</span>
+<span class="co"># Error in &quot;tres&quot; + 2: non-numeric argument to binary operator</span></code></pre></div>
+<p>Ao tentar somar um pedaço de texto com um número o R retorna a mensagem <code>Error in &quot;tres&quot; + 2 : non-numeric argument to binary operator</code>. A operação de soma só funciona com valores númericos no R, de modo que ao executar o comando o R percebeu que um dos valores da operação binária<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a> era um pedaço de texto e então retornou o erro.</p>
+<p>infelizmente não será sempre que vamos descobrir qual é o erro através das mensagens de erro, veja por exemplo ao tentar carregar para dentro do R a série história do IPCA (Índice Nacional de Preços ao Consumidor Amplo) do Sistema Gerenciador de Séries Temporais do Banco Central podemos nos deparar com o seguinte resultado</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">library</span>(rbcb) <span class="co"># carregando o pacote com a função get_series</span>
+&gt;<span class="st"> </span><span class="kw">get_series</span>(<span class="dt">code =</span> <span class="dv">433</span>)
+<span class="co"># Error in curl::curl_fetch_memory(url, handle = handle): Couldn&#39;t resolve host name</span></code></pre></div>
+<p>Algo que pode ser feito é copiar e colar a mesangem de erro no em alguma ferramenta de busca (isso o google). Ao colar essa mensagem de erro no google um dos links que aparece é este <a href="https://support.rstudio.com/hc/en-us/community/posts/115000629548-Error-in-CURL" class="uri">https://support.rstudio.com/hc/en-us/community/posts/115000629548-Error-in-CURL</a>, que no final da página tem como resposta dizendo que essa mensagem de erro está relacionada a problemas de conectividade com a internet.</p>
+<p>Neste momento que entra a importância do inglês, pois há diversas comunidades de perguntas e repostas sobre erros do R, grande parte delas em inglês e ao utilizar esse meio de resolver os problemas o usuário irá com o passar do tempo verificando qual é a sua comunidade favorita.</p>
+</div>
+<div id="mensagens" class="section level4">
+<h4><span class="header-section-number">2.4.1.1</span> Mensagens</h4>
+<p>falar primeiro da documentação e depois dos erros e mensagens em subseções diferentes</p>
 <p>tópicos para incluir</p>
 <ul>
 <li>usar “?” para ver documentação</li>
 <li>função example para ver como a função funciona</li>
 <li>“a duvida que você tem, não só alguém já teve, como alguem já postou na internet e outro alguém já respondeu”</li>
+<li>explicar em detalhes a diferença entre erro, warning e message que sai no console e como devemos ler para que possamos entender o que está acontecendo</li>
 </ul>
 
+</div>
+</div>
 </div>
 </div>
 <div class="footnotes">
@@ -477,6 +502,7 @@ Figure 2.2: Vendo dados no RStudio
 <li id="fn5"><p>Colocar aqui explicação sobre o significado do alpha e intervalo de confiança em termos dos tipos de erro I e II<a href="primeiros-comandos-no-R.html#fnref5">↩</a></p></li>
 <li id="fn6"><p>Ressaltamos aqui que o termo objeto não tem a mesma conotação que teria no caso de liguagens orientadas a objetos<a href="primeiros-comandos-no-R.html#fnref6">↩</a></p></li>
 <li id="fn7"><p>Veja <span class="citation">Abadie, Diamond, and Hainmueller (<a href="#ref-abadie2010synthetic">2010</a>)</span> para mais detalhes<a href="primeiros-comandos-no-R.html#fnref7">↩</a></p></li>
+<li id="fn8"><p>Operação binária quer dizer que são necessários dois elementos para que ela ocorra, em contrapartida operações unitárias necessitam apenas de um elemente para que ela ocorra. Precisamos de dois números para que eles sejam somados (mesmo que eles sejam iguais), mas precisamos apenas de um número para termos um valor absoluto<a href="primeiros-comandos-no-R.html#fnref8">↩</a></p></li>
 </ol>
 </div>
             </section>

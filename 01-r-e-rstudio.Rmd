@@ -40,7 +40,7 @@ Esse *layout* apresenta 4 janelas principais para se usar o R no RStudio. De man
 
 ## *Scripts* {#scripts}
 
-Outra grande vantagem de se utilizar linguagens baseadas em comandos de linha são os *scripts* que são onde ficam armazenados os comandos que devem ser executados, no caso do R os *scripts* são salvos na extensão **.R**. Os *scripts*, junto com variáveis e funções, possibilitam evitar a repetição mecânica dos comandos, um exemplo trivial para ilustrar o ponto é o cálculo da índice de massa corporal (IMC), podemos calcular comuma calculadora através da fórmula $$IMC =\frac{peso(kg)}{altura(metros)^2}$$. Para calcular o IMC dos membros de sua família você pode anotar o peso e altura de cada um e calcular individualmente, ou então você pode escrever o seguinte código:
+Outra grande vantagem de se utilizar linguagens baseadas em comandos de linha são os *scripts* que são onde ficam armazenados os comandos que devem ser executados, no caso do R os *scripts* são salvos na extensão **.R**. Os *scripts* desse modo são um conjunto de texto que serão interpretados pelo computador como "coisas" a serem feitas (como calcular uma média através do comando `mean()`), e esses textos chamaremos de sintaxe, pois é a maneira através da qual vamos nos comunicar com o computador. Os *scripts*, junto com variáveis e funções, possibilitam evitar a repetição mecânica dos comandos, um exemplo trivial para ilustrar o ponto é o cálculo da índice de massa corporal (IMC), podemos calcular comuma calculadora através da fórmula $$IMC =\frac{peso(kg)}{altura(metros)^2}$$. Para calcular o IMC dos membros de sua família você pode anotar o peso e altura de cada um e calcular individualmente, ou então você pode escrever o seguinte código:
 
 ```{r}
 peso <- 65
