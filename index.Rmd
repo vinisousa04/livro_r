@@ -15,9 +15,12 @@ description: "Esta é a minha tentativa de facilitar, em especial, os alunos de 
 ```{r, include=FALSE}
 library(knitr)
 opts_chunk$set(echo = TRUE,
-                      prompt = TRUE, comment = '#',
-                      fig.align = "center",
-                      collapse = TRUE)
+               prompt = TRUE, comment = '#',
+               fig.align = "center",
+               collapse = TRUE,
+               error = FALSE,
+               message = FALSE,
+               warning = FALSE)
 ```
 
 

@@ -1,16 +1,20 @@
-# Primeiros Comandos no R {#primeiros_comandos_no-R}
+# Primeiros Comandos no R {#primeiros-comandos-no-R}
 
 Agora que apresentamos o R e RStudio e o básico sobre seu funcionamento, vamos começar nossa aventura dentro das linhas de comando do R apresentando...
 
 Neste capitulo usaremos os os pacotes
-```{r}
+```{r, eval=FALSE}
+library(tidyverse)
+library(DadosLivroR)
+```
+```{r, echo=FALSE}
 library(tidyverse)
 library(DadosLivroR)
 ```
 
 
 
-## R como calculadora {#r_como_calculadora}
+## R como calculadora {#r-como-calculadora}
 
 A utilização mais trivial que se pode fazer do R é como uma calculadora. Onde podemos fazer operações "comuns", como soma, multiplicação, exponenciação e etc. A execução das operações comuns é muito intuitiva, se quisermos somar números utilizamos o símbolo `+`, dividir usamos `/`, exponenciação usamos `^`. Porém há outros tipos de operações^[Estamos chamando de operações pois é uma maneira mais direta de se entender, sob uma perspectiva formal matemática seria incorreto utilizar essa nomeclatura] que podemos fazer que isoladamente são simples, mas que são muito úteis no processo de análise de dados. 
 
@@ -36,7 +40,7 @@ tab[,3] <- c(rep("Número",5),rep("TRUE/FALSE",(nrow(tab)-5)))
 kable(tab,row.names = F,caption = "Principais Operadores do R")
 ```
 
-```{example, operador-logico ,name="Utilização dos operadores de teste e lógicos"}
+```{example, label="OperadorLogico" ,name="Utilização dos operadores de teste e lógicos"}
 
 O principal objetivo deste exemplo é mostrar uma aplicação de como os operadores de teste e lógicos são usados no precessso dentro do R para facilitar o processo de análise de dados. A motivação do exemplo será mostrar comparar a percepção da corrupção na América Latina e Caribe com a percepção de corrupção na África Subsahariana. Espeficicamente vamos usar o índice de percepção de corrupção para os anos de 2006 a 2015, sem os anos de 2007 e 2009 para verificar se a percepção de corrupção na América latina é maior ou menor do que na África e verificar se há algum comportamente em comum ao longo do tempo nas médias de percepção de corrupção. O índice de percepção de corrupção varia entre 0 e 100 e quanto mais próximo de 100 menor é a percepção de  corrupção.
 
@@ -112,9 +116,9 @@ resultado <- dados %>%
 
 Vamos agora apresentar para o usuário como acessar os dados e variáveis que o leitor importa para o R. 
 
-## *Workspace/Environment* {#workspace_environment}
+## *Workspace/Environment* {#Workspace-Environment}
 
-Para entendermos o que é o *Workspace/Environment* vamos antes apresentar oficialmente o operador de atribuição `<-`. A utilizaçãp desse operador da-se da seguinte maneira `nome <- objeto`, onde `nome` é nome do `objeto`^[Ressaltamos aqui que o termo objeto não tem a mesma conotação que teria no caso de liguagens orientadas a objetos] que você quer salvar. Se olharmos o exemplo \@ref(exm:operador-logico) vemos que utilizamos o operador de atribuição três vezes para salvar os objetos `dados`, `filtrado` e `resultado`, ou seja nesse caso nossos objetos são data sets, mas poderiam ser várias outras coisas, como vetores, resultados de regressão, gráfico e etc.  Se olharmos o *Workspace/Environment* depois de executar o código do exemplo teremos algo como mostra a \@ref(fig:workspace-environment). Veja que temos nossos três objetos disponíveis para quando quisermos utiliza-los.
+Para entendermos o que é o *Workspace/Environment* vamos antes apresentar oficialmente o operador de atribuição `<-`. A utilizaçãp desse operador da-se da seguinte maneira `nome <- objeto`, onde `nome` é nome do `objeto`^[Ressaltamos aqui que o termo objeto não tem a mesma conotação que teria no caso de liguagens orientadas a objetos] que você quer salvar. Se olharmos o exemplo \@ref(exm:OperadorLogico) vemos que utilizamos o operador de atribuição três vezes para salvar os objetos `dados`, `filtrado` e `resultado`, ou seja nesse caso nossos objetos são data sets, mas poderiam ser várias outras coisas, como vetores, resultados de regressão, gráfico e etc.  Se olharmos o *Workspace/Environment* depois de executar o código do exemplo teremos algo como mostra a \@ref(fig:workspace-environment). Veja que temos nossos três objetos disponíveis para quando quisermos utiliza-los.
 
 ```{r workspace-environment, echo=FALSE,fig.cap="Exemplo de workspace/Environment"}
 include_graphics("images/_workingspace.png")
@@ -128,12 +132,24 @@ include_graphics("images/_aba_com_dados.png")
 
 ## Funções {#funcoes}
 
-Uma função é um meio de se automatizar uma sequência de comandos, ao invés de executar um de cada vez. Isso é feito através de *inputs*, valores que o usuário fornece à função, e a função retornará um *output* que é o resultado da execução de diversos comandos executados com os *inputs*.
-
-Um exemplo trivial é a função `mean()` que calcula a média de um determinado conjunto de número. Qual são os comandos que essa função automatiza? (i) somar cada elemento do conjunto, (ii) contar quantos elementos tem o conjunto e (iii) dividir a soma pelo númere de elementos. A sintaxe geral de uma função é `noma_da_função(argumentos)`. Desse modo, calcularíamos amédia da sequência `r 1:10` da sequinte maneira:
+De maneira simples uma função é um meio de se automatizar uma sequência de comandos. Isso é feito através de *inputs* (ou argumentos) e *outputs*, onde os *inputs* são valores que o usuário fornece à função e os *outpus* são os valores retornados pela função, a sintaxe geral de uma função é `noma_da_função(argumentos)`. Um exemplo trivial é a função `mean()` que calcula a média de um determinado conjunto de número. Qual são os comandos que essa função automatiza? (i) somar cada elemento do conjunto, (ii) contar quantos elementos tem o conjunto e (iii) dividir a soma pelo númere de elementos. Desse modo, calcularíamos amédia da sequência `r 1:10` da sequinte maneira:
 ```{r}
 mean(1:10)
 ```
 
-Calcular a média é uma boa maneira de se apresentar o conceito de funções, mas o leitor deve ter em mente que as funções não se restringem a comandos simples como esse. 
+Neste caso o *input* foi a sequência de números `r 1:10` e o *output* foi o número `r mean(1:10)`. Este é um exemplo trivial que funciona para mostrar como as funções funcionam, entretanto deve se ter claro em mente que há funções para desempenhar uma grande variedade de comandos dos mais simples, como calcular média, à complexos como estimar modelos de controle sintético^[Veja @abadie2010synthetic para mais detalhes].   
 
+Ao abrir o RStudio várias funções são carregadas automaticamente, vamos chamar essas funções de funções *built-in*, porém uma das vantagens de *softwares* estatísticos gratuitos é que qualquer pessoa pode escrever funções e torna-las disponíveis através de pacotes. Como vimos na seção \@ref(pacotes) utilizamos o comando `library()` para carregar algum pacote e ao carregar um pacote estamos basicamente tornando disponível um conjunto de funções e dados para utilizarmos. Então, ao carregar o pacote `DadosLivroR` fizemos o *data set* `data_set1` disponível para utilização e ao carregar o pacote `tidyverse` tornamos a funções `filter()` disponível para usarmos. Destacamos aqui para os alunos de economia que nos últimos anos tem sido desenvolcidos pacotes que com funções que permitem acessar as principais fontes de dados econômicos do Brasil, como o sistema gerenciador de séries temporais do banco central, IBGE, SIDRA, FGV etc. Tais pacotes e funções serão apresentados na seção \@ref(dados-economia-brasileira).
+
+Ao longo do livro o leitor será exposto a várias funções que executam comandos relacoinados à todos os campos da análise de dados e conforme o leitor for utilizando o R o conhecimento das funções vai sendo acumulado e tornando cada vez mais eficiente a utilização do R como ferramente de análise de dados. 
+
+## Ajuda e documentação {#ajuda-e-documentacao}
+
+falar primeiro da documentação e depois dos erros e mensagens em subseções diferentes
+
+tópicos para incluir
+
+- usar "?" para ver documentação
+- função example para ver como a função funciona
+- "a duvida que você tem, não só alguém já teve, como alguem já postou na internet e outro alguém já respondeu"
+- explicar em detalhes a diferença entre erro, warning e message que sai no console e como devemos ler para que possamos entender o que está acontecendo

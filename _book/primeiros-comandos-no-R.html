@@ -110,8 +110,10 @@ code > span.in { color: #008000; } /* Information */
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html"><i class="fa fa-check"></i><b>2</b> Primeiros Comandos no R</a><ul>
-<li class="chapter" data-level="2.1" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html#r_como_calculadora"><i class="fa fa-check"></i><b>2.1</b> R como calculadora</a></li>
-<li class="chapter" data-level="2.2" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html#workspace_environment"><i class="fa fa-check"></i><b>2.2</b> <em>Workspace/Environment</em></a></li>
+<li class="chapter" data-level="2.1" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html#r-como-calculadora"><i class="fa fa-check"></i><b>2.1</b> R como calculadora</a></li>
+<li class="chapter" data-level="2.2" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html#Workspace-Environment"><i class="fa fa-check"></i><b>2.2</b> <em>Workspace/Environment</em></a></li>
+<li class="chapter" data-level="2.3" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html#funcoes"><i class="fa fa-check"></i><b>2.3</b> Funções</a></li>
+<li class="chapter" data-level="2.4" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html#ajuda-e-documentacao"><i class="fa fa-check"></i><b>2.4</b> Ajuda e documentação</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html"><i class="fa fa-check"></i><b>3</b> Estruturas de Dados</a><ul>
 <li class="chapter" data-level="3.1" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#tipos_de_dados"><i class="fa fa-check"></i><b>3.1</b> Tipos de dados</a></li>
@@ -150,22 +152,13 @@ code > span.in { color: #008000; } /* Information */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="primeiros_comandos_no-R" class="section level1">
+<div id="primeiros-comandos-no-R" class="section level1">
 <h1><span class="header-section-number">2</span> Primeiros Comandos no R</h1>
 <p>Agora que apresentamos o R e RStudio e o básico sobre seu funcionamento, vamos começar nossa aventura dentro das linhas de comando do R apresentando…</p>
 <p>Neste capitulo usaremos os os pacotes</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">library</span>(tidyverse)
-<span class="co"># Loading tidyverse: ggplot2</span>
-<span class="co"># Loading tidyverse: tibble</span>
-<span class="co"># Loading tidyverse: tidyr</span>
-<span class="co"># Loading tidyverse: readr</span>
-<span class="co"># Loading tidyverse: purrr</span>
-<span class="co"># Loading tidyverse: dplyr</span>
-<span class="co"># Conflicts with tidy packages ----------------------------------------------</span>
-<span class="co"># filter(): dplyr, stats</span>
-<span class="co"># lag():    dplyr, stats</span>
 &gt;<span class="st"> </span><span class="kw">library</span>(DadosLivroR)</code></pre></div>
-<div id="r_como_calculadora" class="section level2">
+<div id="r-como-calculadora" class="section level2">
 <h2><span class="header-section-number">2.1</span> R como calculadora</h2>
 <p>A utilização mais trivial que se pode fazer do R é como uma calculadora. Onde podemos fazer operações “comuns”, como soma, multiplicação, exponenciação e etc. A execução das operações comuns é muito intuitiva, se quisermos somar números utilizamos o símbolo <code>+</code>, dividir usamos <code>/</code>, exponenciação usamos <code>^</code>. Porém há outros tipos de operações<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> que podemos fazer que isoladamente são simples, mas que são muito úteis no processo de análise de dados.</p>
 <p>O primeiro tipo é o que chamamos de testes de igualdade. São operações que testam se duas variáveis são iguais, se uma é menor ou maior que a outra. Diferente das operações comuns que retornam valores númericos, essa operações retornam valores lógicos de <code>TRUE</code> para verdadeiro e <code>FALSE</code> para falso, valores lógicos são apresentados devidamente na seção @ref(tipos_de_dados). Então ao executar o comando <code>2 == 3</code> o resultado exibido será <code>FALSE</code> e ao executar o comando <code>2 &lt;= 3</code> retornará um resultado <code>TRUE</code>, pois é claro que 2 não é igual a 3 e é menor que 3. Como pode se verificar abaixo</p>
@@ -244,7 +237,7 @@ code > span.in { color: #008000; } /* Information */
 </table>
 
 <div class="example">
-<p><span id="exm:operador-logico " class="example"><strong>(#exm:operador-logico ) (Utilização dos operadores de teste e lógicos)  </strong></span> O principal objetivo deste exemplo é mostrar uma aplicação de como os operadores de teste e lógicos são usados no precessso dentro do R para facilitar o processo de análise de dados. A motivação do exemplo será mostrar comparar a percepção da corrupção na América Latina e Caribe com a percepção de corrupção na África Subsahariana. Espeficicamente vamos usar o índice de percepção de corrupção para os anos de 2006 a 2015, sem os anos de 2007 e 2009 para verificar se a percepção de corrupção na América latina é maior ou menor do que na África e verificar se há algum comportamente em comum ao longo do tempo nas médias de percepção de corrupção. O índice de percepção de corrupção varia entre 0 e 100 e quanto mais próximo de 100 menor é a percepção de corrupção.</p>
+<p><span id="exm:OperadorLogico" class="example"><strong>Example 2.1  (Utilização dos operadores de teste e lógicos)  </strong></span> O principal objetivo deste exemplo é mostrar uma aplicação de como os operadores de teste e lógicos são usados no precessso dentro do R para facilitar o processo de análise de dados. A motivação do exemplo será mostrar comparar a percepção da corrupção na América Latina e Caribe com a percepção de corrupção na África Subsahariana. Espeficicamente vamos usar o índice de percepção de corrupção para os anos de 2006 a 2015, sem os anos de 2007 e 2009 para verificar se a percepção de corrupção na América latina é maior ou menor do que na África e verificar se há algum comportamente em comum ao longo do tempo nas médias de percepção de corrupção. O índice de percepção de corrupção varia entre 0 e 100 e quanto mais próximo de 100 menor é a percepção de corrupção.</p>
 O exemplo pode ser desmontado nos seguintes passos: (i) carregar pacotes; (ii) Selecionar dados; (iii) Filtrar os dados; (iv) Criar variaveis que queremos; e (v) Ver os resultados
 </div>
 <p></p>
@@ -439,16 +432,40 @@ O exemplo pode ser desmontado nos seguintes passos: (i) carregar pacotes; (ii) S
 +<span class="st">                       `</span><span class="dt">menor quegeral</span><span class="st">`</span> =<span class="st"> </span><span class="kw">if_else</span>(media_ano &lt;=<span class="st"> </span>media_periodo, <span class="st">&quot;sim&quot;</span>, <span class="st">&quot;Não&quot;</span>))</code></pre></div>
 <p>Vamos agora apresentar para o usuário como acessar os dados e variáveis que o leitor importa para o R.</p>
 </div>
-<div id="workspace_environment" class="section level2">
+<div id="Workspace-Environment" class="section level2">
 <h2><span class="header-section-number">2.2</span> <em>Workspace/Environment</em></h2>
-<p>Para entendermos o que é o <em>Workspace/Environment</em> vamos antes apresentar oficialmente o operador de atribuição <code>-&gt;</code>. A utilizaçãp desse operador da-se da seguinte maneira <code>nome -&gt; objeto</code>, onde <code>nome</code> é nome do <code>objeto</code><a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a> que você quer salvar. Se olharmos o exemplo <a href="#exm:operador-logico"><strong>??</strong></a> vemos que utilizamos o operador de atribuição três vezes para salvar os objetos <code>dados</code>, <code>filtrado</code> e <code>resultado</code>, ou seja nesse caso nossos objetos são data sets, mas poderiam ser várias outras coisas, como vetores, resultados de regressão, gráfico e etc. Se olharmos o <em>Workspace/Environment</em> depois de executar o código do exemplo teremos algo como mostra a <a href="primeiros-comandos-no-R.html#fig:workspace-environment">2.1</a>.</p>
+<p>Para entendermos o que é o <em>Workspace/Environment</em> vamos antes apresentar oficialmente o operador de atribuição <code>&lt;-</code>. A utilizaçãp desse operador da-se da seguinte maneira <code>nome &lt;- objeto</code>, onde <code>nome</code> é nome do <code>objeto</code><a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a> que você quer salvar. Se olharmos o exemplo <a href="primeiros-comandos-no-R.html#exm:OperadorLogico">2.1</a> vemos que utilizamos o operador de atribuição três vezes para salvar os objetos <code>dados</code>, <code>filtrado</code> e <code>resultado</code>, ou seja nesse caso nossos objetos são data sets, mas poderiam ser várias outras coisas, como vetores, resultados de regressão, gráfico e etc. Se olharmos o <em>Workspace/Environment</em> depois de executar o código do exemplo teremos algo como mostra a <a href="primeiros-comandos-no-R.html#fig:workspace-environment">2.1</a>. Veja que temos nossos três objetos disponíveis para quando quisermos utiliza-los.</p>
 <div class="figure" style="text-align: center"><span id="fig:workspace-environment"></span>
 <img src="images/_workingspace.png" alt="Exemplo de workspace/Environment" width="683" />
 <p class="caption">
 Figure 2.1: Exemplo de workspace/Environment
 </p>
 </div>
-<p>Veja que temos nossos três objetos disponíveis para quando quisermos utiliza-los.</p>
+<p>Ao clicar com o botão esquerdo do mouse nas janelinhas no final da linha com o nome do objeto é aberta uma nova aba dentro do RStudio mostrando os dados. Veja a figura <a href="primeiros-comandos-no-R.html#fig:aba-com-dados">2.2</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:aba-com-dados"></span>
+<img src="images/_aba_com_dados.png" alt="Vendo dados no RStudio" width="683" />
+<p class="caption">
+Figure 2.2: Vendo dados no RStudio
+</p>
+</div>
+</div>
+<div id="funcoes" class="section level2">
+<h2><span class="header-section-number">2.3</span> Funções</h2>
+<p>De maneira simples uma função é um meio de se automatizar uma sequência de comandos. Isso é feito através de <em>inputs</em> (ou argumentos) e <em>outputs</em>, onde os <em>inputs</em> são valores que o usuário fornece à função e os <em>outpus</em> são os valores retornados pela função, a sintaxe geral de uma função é <code>noma_da_função(argumentos)</code>. Um exemplo trivial é a função <code>mean()</code> que calcula a média de um determinado conjunto de número. Qual são os comandos que essa função automatiza? (i) somar cada elemento do conjunto, (ii) contar quantos elementos tem o conjunto e (iii) dividir a soma pelo númere de elementos. Desse modo, calcularíamos amédia da sequência 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 da sequinte maneira:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">mean</span>(<span class="dv">1</span>:<span class="dv">10</span>)
+<span class="co"># [1] 5.5</span></code></pre></div>
+<p>Neste caso o <em>input</em> foi a sequência de números 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 e o <em>output</em> foi o número 5.5. Este é um exemplo trivial que funciona para mostrar como as funções funcionam, entretanto deve se ter claro em mente que há funções para desempenhar uma grande variedade de comandos dos mais simples, como calcular média, à complexos como estimar modelos de controle sintético<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>.</p>
+<p>Ao abrir o RStudio várias funções são carregadas automaticamente, vamos chamar essas funções de funções <em>built-in</em>, porém uma das vantagens de <em>softwares</em> estatísticos gratuitos é que qualquer pessoa pode escrever funções e torna-las disponíveis através de pacotes. Como vimos na seção <a href="r-e-rStudio.html#pacotes">1.6</a> utilizamos o comando <code>library()</code> para carregar algum pacote e ao carregar um pacote estamos basicamente tornando disponível um conjunto de funções e dados para utilizarmos. Então, ao carregar o pacote <code>DadosLivroR</code> fizemos o <em>data set</em> <code>data_set1</code> disponível para utilização e ao carregar o pacote <code>tidyverse</code> tornamos a funções <code>filter()</code> disponível para usarmos. Destacamos aqui para os alunos de economia que nos últimos anos tem sido desenvolcidos pacotes que com funções que permitem acessar as principais fontes de dados econômicos do Brasil, como o sistema gerenciador de séries temporais do banco central, IBGE, SIDRA, FGV etc. Tais pacotes e funções serão apresentados na seção <a href="#dados-economia-brasileira"><strong>??</strong></a>.</p>
+<p>Ao longo do livro o leitor será exposto a várias funções que executam comandos relacoinados à todos os campos da análise de dados e conforme o leitor for utilizando o R o conhecimento das funções vai sendo acumulado e tornando cada vez mais eficiente a utilização do R como ferramente de análise de dados.</p>
+</div>
+<div id="ajuda-e-documentacao" class="section level2">
+<h2><span class="header-section-number">2.4</span> Ajuda e documentação</h2>
+<p>tópicos para incluir</p>
+<ul>
+<li>usar “?” para ver documentação</li>
+<li>função example para ver como a função funciona</li>
+<li>“a duvida que você tem, não só alguém já teve, como alguem já postou na internet e outro alguém já respondeu”</li>
+</ul>
 
 </div>
 </div>
@@ -459,6 +476,7 @@ Figure 2.1: Exemplo de workspace/Environment
 <li id="fn4"><p>Estatística inferentista<a href="primeiros-comandos-no-R.html#fnref4">↩</a></p></li>
 <li id="fn5"><p>Colocar aqui explicação sobre o significado do alpha e intervalo de confiança em termos dos tipos de erro I e II<a href="primeiros-comandos-no-R.html#fnref5">↩</a></p></li>
 <li id="fn6"><p>Ressaltamos aqui que o termo objeto não tem a mesma conotação que teria no caso de liguagens orientadas a objetos<a href="primeiros-comandos-no-R.html#fnref6">↩</a></p></li>
+<li id="fn7"><p>Veja <span class="citation">Abadie, Diamond, and Hainmueller (<a href="#ref-abadie2010synthetic">2010</a>)</span> para mais detalhes<a href="primeiros-comandos-no-R.html#fnref7">↩</a></p></li>
 </ol>
 </div>
             </section>
