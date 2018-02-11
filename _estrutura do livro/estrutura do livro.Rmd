@@ -45,23 +45,6 @@ date: "`r Sys.Date()`"
 - Listas
 - Datas
 
-# Estruturas de programação
-
-- se, então (IF -ELSE)
-- *for loop*
-- *nested loop* ( se, então dentro de *loop*)
-
-# Escrever funções 
-
-(para uso próprio)
-
-# Introdução ao pacote ggplot2
-
-- "Lógica" do ggplot2 (*grammar of graphics*) e (i) falar que vamos aprender com exemplos e (ii) plot de séries temporais será visto na seção de séries temporais.
-- Histograma
-- Scatter-plot
-- Plotar densidade de variáveis
-- boxplot
 
 # Parte II: Dados {-}
 
@@ -90,7 +73,13 @@ date: "`r Sys.Date()`"
 
 # Parte III: Análise de dados {-}
 
-# Teste de hipótese
+# Plots
+- Histograma
+- Scatter-plot
+- Plotar densidade de variáveis
+- boxplot
+
+# Teste de hipótese (baseado na mat�ria advanced data analysis)
 
 - Intervalo de confiança
 - Independent t-test/wilcox rank sum
@@ -105,17 +94,31 @@ Assunto de econometria I
 
 Assunto de econometria II
     
-- Plot de séries temporais
-- testes e etc..
+- Plot de series temporais
 
-# modelos em painel (?)
+# modelos em painel
+
+Assunto de econometria III
+
+#   Parte IV: topicos avancados {-}
+
+# Estruturas de programacao
+
+- se, então (IF -ELSE)
+- *for loop*
+- *nested loop* ( se, entao dentro de *loop*)
+
+# Escrever funcoes 
 
 
-# Parte IV: tópicos avançados
+# INtroducao ao pacote ggplot2
+
+- "Logica" do ggplot2 (*grammar of graphics*) 
+
 
 # trabalhos para entregar (r markdowmn)
 
-# boas práticas no script
+# boas praticas no script
 
 - colocar no inicio da seção o setwd() e não mudar durante a seção
 - comentar os passos como `ctr+alt+r`

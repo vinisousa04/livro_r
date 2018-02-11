@@ -1,0 +1,60 @@
+# (PART) Dados {-}
+
+Nesta parte do livro o foco passa a ser o tratamento que devemos dar aos dados com os quais trabalharemos. No capítulo \@ref(importar_dados) será apresentadas principais maneiras de se trazer dados para dentro do R, em seguida é apresentado dois pacote muito uteis para a manipulação de *data frames* e por sim mostramos ao leitor como salvar dados para que eles possam ser utilizados posteriormente.
+
+# Importar dados para o R {#importar_dados}
+
+É possível importar dados para nosso *environment* de duas principais maneiras, sendo a primeira imporar um arquivo que esteja salvo no computador e a segunda importar dados da internet. As subseções seguintes apresentam tais maneiras ao leitor.
+
+## Importar dados locais
+
+A primeira maneira é importar dados que estão salvos em nosso computador. Aqui é importante saber qual o formato do arquivo. Os formatos mais provavéis que você irá encontrar são: (i) Arquivo no formato de excel separado por vígulas (caso tenha uma planilha em arquivo excel que não no formato .csv recomendo que salve-a no formato .csv); (ii) Arquivos do *software* stata; (iii) Arquivos do *softaware* SPSS. 
+
+A figura \@ref(fig:importar-locais) mostra o *working directory* com arquivos dos três tipos e para torna-los dísponíveis em nosso *enviroment* basta usarmos as funções `read.csv()`, `read.dta13()` e `read.spss()`. 
+
+```{r importar-locais,fig.cap="Working Directory", echo=FALSE}
+include_graphics(c("images/_importar_dados_locais.png"))
+```
+
+Para usar as funções relacionadas ao Stata (`read.dta()`) e a relacionada ao SPSS (`read.spss()`) são necessários os pacotes `foreign` e `readstata13`. Tendo eles basta usarmos as funções da seguinte forma:
+
+```{r, eval=FALSE}
+dados_csv <- read.csv("dados csv.csv")
+
+dados_stata <- read.dta13("dados stata.dta")
+
+dados_spss <- read.spss("dados spss.sav",to.data.frame=T)
+```
+
+Note que no arquivo do SPSS utilizamos o argumento `to.data.frame = T` para que os dados sejam importados como *data frame*, caso seja omitido os dados serão importados em forma lista. Agora pode-se obervar que os objetos foram criados e encontram-se em nosso *enviroment*, como a figura \@ref(fig:importado-locais).
+
+```{r importado-locais,fig.cap="Environment depois de importar dados", echo=FALSE}
+include_graphics(c("images/_importando_locais_rstudio.png"))
+```
+
+
+## Importando Dados da Internet
+
+Voltamos nossa atenção agora para como importar dados da internet para dentro do RStudio. Há mais de uma maneira de fazer isso, porém aqui será focamos na utilização de pacotes que nos permitem acessar dados do Banco Central do Brasil, IBGE etc.
+
+### Pacote **rbcb**
+
+O pacote rbcb é uma interface que liga o R ao sistema gerenciador de séries temporais do Banco Central do Brasil. Através deles podemos acessar as séries encontradas no sistema. A principal função do pacote é a `get_series()` que permite você importar diretamente para o *environment* uma série para determinado período. 
+
+Para mostrar como utilizar a função vamos importar a série do percentual da carteira com atraso de 15 a 90 dias de pessoas físicas para o ano de 2017, isto é feito no chunk abaixo:
+
+```{r pacote rbcb,eval=FALSE}
+library(rbcb)
+
+serie <- get_series(code = 21005, start_date = "2017-01-01",end_date = "2017-12-31",as = "data.frame")
+```
+
+O primeiro argumento da função, `code=`, indica o número da série que você deseja importar. Talvez esse seja o maior impecílio do pacote, ainda é necessário acessar o Sistema de Genrenciador de Séries Temporais para obter o número da série. Neste caso o código 21005 é o referente a série "Percentual da carteira com atraso entre 15 e 90 dias - Pessoas físicas - Total". O segundo argumento, `start_date=`, indica desde quando você quer buscar a série e neste caso foi escolhido janeiro de 2017, isto é, `"2017-01-01"`. O penúltimo argumento, `end_date=`, indica até quando você quer a série e nesse caso foi escolhido dezembro de 2017, isto é, `"2017-12-31"`. Por fim, o argumento `as` indica qual a estrutura de dados que desejamos importar os dados e, como pode ser facilmente deduzido, escolhemos importar os dados como um *data frame*. 
+
+Certo, após executar essa linha de código qual o resultado você pode estar se perguntando. A figura \@ref(fig:rbcb) responde a pergunta.
+
+```{r rbcb,echo=FALSE,fig.cap="Usando pacote rbcb"}
+include_graphics(c("images/_rbcb.png"))
+```
+
+Nela vemos que há o objeto no *environment* e no console vemos que esse *data frame* nos trás a data referente ao dado e o dado em si.
