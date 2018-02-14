@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Guia definitivo do R para estudantes de sociais</title>
   <meta name="description" content="Esta é a minha tentativa de facilitar, em especial, os alunos de ciências sociais, a desenvolveram habilidades relacionadas ao processo de analise de dados">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.6 and GitBook 2.6.7">
 
   <meta property="og:title" content="Guia definitivo do R para estudantes de sociais" />
   <meta property="og:type" content="book" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="estruturas-de-dados.html">
-
+<link rel="next" href="tidy-data.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -139,9 +139,19 @@ code > span.in { color: #008000; } /* Information */
 </ul></li>
 <li class="part"><span><b>II Dados</b></span></li>
 <li class="chapter" data-level="4" data-path="importar-dados.html"><a href="importar-dados.html"><i class="fa fa-check"></i><b>4</b> Importar dados para o R</a><ul>
-<li class="chapter" data-level="4.1" data-path="importar-dados.html"><a href="importar-dados.html#importar-dados-locais"><i class="fa fa-check"></i><b>4.1</b> Importar dados locais</a></li>
-<li class="chapter" data-level="4.2" data-path="importar-dados.html"><a href="importar-dados.html#importando-dados-da-internet"><i class="fa fa-check"></i><b>4.2</b> Importando Dados da Internet</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="importar-dados.html"><a href="importar-dados.html#pacote-rbcb"><i class="fa fa-check"></i><b>4.2.1</b> Pacote <strong>rbcb</strong></a></li>
+<li class="chapter" data-level="4.1" data-path="importar-dados.html"><a href="importar-dados.html#importar-dados-locais-importando_dados_locais"><i class="fa fa-check"></i><b>4.1</b> Importar dados locais {importando_dados_locais}</a></li>
+<li class="chapter" data-level="4.2" data-path="importar-dados.html"><a href="importar-dados.html#importando-dados-da-internet-importanto_dados_da_internet"><i class="fa fa-check"></i><b>4.2</b> Importando Dados da Internet {importanto_dados_da_internet}</a><ul>
+<li><a href="importar-dados.html#pacote-rbcb">Pacote <strong>rbcb</strong></a></li>
+<li class="chapter" data-level="" data-path="importar-dados.html"><a href="importar-dados.html#pacote-quandl"><i class="fa fa-check"></i>Pacote Quandl</a></li>
+<li class="chapter" data-level="" data-path="importar-dados.html"><a href="importar-dados.html#pacote-quantmod"><i class="fa fa-check"></i>Pacote quantmod</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>5</b> Tidy Data</a><ul>
+<li class="chapter" data-level="5.1" data-path="tidy-data.html"><a href="tidy-data.html#tibbles"><i class="fa fa-check"></i><b>5.1</b> Digressão: Tibbles</a></li>
+<li class="chapter" data-level="5.2" data-path="tidy-data.html"><a href="tidy-data.html#o_que_e_tidy_data"><i class="fa fa-check"></i><b>5.2</b> O que é Tidy Data</a></li>
+<li class="chapter" data-level="5.3" data-path="tidy-data.html"><a href="tidy-data.html#modificando_um_mesmo_data_set"><i class="fa fa-check"></i><b>5.3</b> Modificando um mesmo data set</a><ul>
+<li class="chapter" data-level="" data-path="tidy-data.html"><a href="tidy-data.html#selecionando-colunas-de-interessa-funcao-select"><i class="fa fa-check"></i>Selecionando Colunas de Interessa (função select)</a></li>
+<li class="chapter" data-level="" data-path="tidy-data.html"><a href="tidy-data.html#juntando-colunas-em-uma-unica-variavel-funcoes-gather-e-spread"><i class="fa fa-check"></i>Juntando colunas em uma única variável (funções gather e spread)</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -164,12 +174,12 @@ code > span.in { color: #008000; } /* Information */
 <div id="importar_dados" class="section level1">
 <h1><span class="header-section-number">4</span> Importar dados para o R</h1>
 <p>É possível importar dados para nosso <em>environment</em> de duas principais maneiras, sendo a primeira imporar um arquivo que esteja salvo no computador e a segunda importar dados da internet. As subseções seguintes apresentam tais maneiras ao leitor.</p>
-<div id="importar-dados-locais" class="section level2">
-<h2><span class="header-section-number">4.1</span> Importar dados locais</h2>
+<div id="importar-dados-locais-importando_dados_locais" class="section level2">
+<h2><span class="header-section-number">4.1</span> Importar dados locais {importando_dados_locais}</h2>
 <p>A primeira maneira é importar dados que estão salvos em nosso computador. Aqui é importante saber qual o formato do arquivo. Os formatos mais provavéis que você irá encontrar são: (i) Arquivo no formato de excel separado por vígulas (caso tenha uma planilha em arquivo excel que não no formato .csv recomendo que salve-a no formato .csv); (ii) Arquivos do <em>software</em> stata; (iii) Arquivos do <em>softaware</em> SPSS.</p>
 <p>A figura <a href="importar-dados.html#fig:importar-locais">4.1</a> mostra o <em>working directory</em> com arquivos dos três tipos e para torna-los dísponíveis em nosso <em>enviroment</em> basta usarmos as funções <code>read.csv()</code>, <code>read.dta13()</code> e <code>read.spss()</code>.</p>
 <div class="figure" style="text-align: center"><span id="fig:importar-locais"></span>
-<img src="images/_importar_dados_locais.png" alt="Working Directory" width="684" />
+<img src="images/_importar_dados_locais.png" alt="Working Directory"  />
 <p class="caption">
 Figure 4.1: Working Directory
 </p>
@@ -182,17 +192,17 @@ Figure 4.1: Working Directory
 <span class="er">&gt;</span><span class="st"> </span>dados_spss &lt;-<span class="st"> </span><span class="kw">read.spss</span>(<span class="st">&quot;dados spss.sav&quot;</span>,<span class="dt">to.data.frame=</span>T)</code></pre></div>
 <p>Note que no arquivo do SPSS utilizamos o argumento <code>to.data.frame = T</code> para que os dados sejam importados como <em>data frame</em>, caso seja omitido os dados serão importados em forma lista. Agora pode-se obervar que os objetos foram criados e encontram-se em nosso <em>enviroment</em>, como a figura <a href="importar-dados.html#fig:importado-locais">4.2</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:importado-locais"></span>
-<img src="images/_importando_locais_rstudio.png" alt="Environment depois de importar dados" width="684" />
+<img src="images/_importando_locais_rstudio.png" alt="Environment depois de importar dados"  />
 <p class="caption">
 Figure 4.2: Environment depois de importar dados
 </p>
 </div>
 </div>
-<div id="importando-dados-da-internet" class="section level2">
-<h2><span class="header-section-number">4.2</span> Importando Dados da Internet</h2>
-<p>Voltamos nossa atenção agora para como importar dados da internet para dentro do RStudio. Há mais de uma maneira de fazer isso, porém aqui será focamos na utilização de pacotes que nos permitem acessar dados do Banco Central do Brasil, IBGE etc.</p>
-<div id="pacote-rbcb" class="section level3">
-<h3><span class="header-section-number">4.2.1</span> Pacote <strong>rbcb</strong></h3>
+<div id="importando-dados-da-internet-importanto_dados_da_internet" class="section level2">
+<h2><span class="header-section-number">4.2</span> Importando Dados da Internet {importanto_dados_da_internet}</h2>
+<p>Voltamos nossa atenção agora para como importar dados da internet para dentro do RStudio. Há mais de uma maneira de fazer isso, porém aqui será focamos na utilização de pacotes que nos permitem acessar dados do Banco Central do Brasil, Federal Reserve etc.</p>
+<div id="pacote-rbcb" class="section level3 unnumbered">
+<h3>Pacote <strong>rbcb</strong></h3>
 <p>O pacote rbcb é uma interface que liga o R ao sistema gerenciador de séries temporais do Banco Central do Brasil. Através deles podemos acessar as séries encontradas no sistema. A principal função do pacote é a <code>get_series()</code> que permite você importar diretamente para o <em>environment</em> uma série para determinado período.</p>
 <p>Para mostrar como utilizar a função vamos importar a série do percentual da carteira com atraso de 15 a 90 dias de pessoas físicas para o ano de 2017, isto é feito no chunk abaixo:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">library</span>(rbcb)
@@ -201,49 +211,67 @@ Figure 4.2: Environment depois de importar dados
 <p>O primeiro argumento da função, <code>code=</code>, indica o número da série que você deseja importar. Talvez esse seja o maior impecílio do pacote, ainda é necessário acessar o Sistema de Genrenciador de Séries Temporais para obter o número da série. Neste caso o código 21005 é o referente a série “Percentual da carteira com atraso entre 15 e 90 dias - Pessoas físicas - Total”. O segundo argumento, <code>start_date=</code>, indica desde quando você quer buscar a série e neste caso foi escolhido janeiro de 2017, isto é, <code>&quot;2017-01-01&quot;</code>. O penúltimo argumento, <code>end_date=</code>, indica até quando você quer a série e nesse caso foi escolhido dezembro de 2017, isto é, <code>&quot;2017-12-31&quot;</code>. Por fim, o argumento <code>as</code> indica qual a estrutura de dados que desejamos importar os dados e, como pode ser facilmente deduzido, escolhemos importar os dados como um <em>data frame</em>.</p>
 <p>Certo, após executar essa linha de código qual o resultado você pode estar se perguntando. A figura <a href="importar-dados.html#fig:rbcb">4.3</a> responde a pergunta.</p>
 <div class="figure" style="text-align: center"><span id="fig:rbcb"></span>
-<img src="images/_rbcb.png" alt="Usando pacote rbcb" width="684" />
+<img src="images/_rbcb.png" alt="Usando pacote rbcb"  />
 <p class="caption">
 Figure 4.3: Usando pacote rbcb
 </p>
 </div>
 <p>Nela vemos que há o objeto no <em>environment</em> e no console vemos que esse <em>data frame</em> nos trás a data referente ao dado e o dado em si.</p>
-
-<div id="refs" class="references">
-<div>
-<p>Abadie, Alberto, Alexis Diamond, and Jens Hainmueller. 2010. “Synthetic Control Methods for Comparative Case Studies: Estimating the Effect of California’s Tobacco Control Program.” <em>Journal of the American Statistical Association</em> 105 (490). Taylor &amp; Francis: 493–505.</p>
 </div>
-<div>
-<p>Matloff, Norman. 2011. <em>The Art of R Programming: A Tour of Statistical Software Design</em>. No Starch Press.</p>
+<div id="pacote-quandl" class="section level3 unnumbered">
+<h3>Pacote Quandl</h3>
+<p>Outro pacote que permite importarmos dados direto da internet para o R é o <em>Quandl</em>. O <em>Quandl</em> é um site que reune diferentes fontes de dados em um local comum e o pacote permite que usando os códigos do site importemos dados de maneira similar a que fizemos com o pacote rbcb.</p>
+<p>Para começar mostramos na figura <a href="importar-dados.html#fig:Quandl">4.4</a> a página referente aos dados do <em>Federal Reserve</em> (Banco Central dos Estados Unidos) e destacamos o código referente à taxa natural de desemprego de curto prazo da economia norte americana.</p>
+<div class="figure" style="text-align: center"><span id="fig:Quandl"></span>
+<img src="images/_quandl.png" alt="Dados do FED no Quandl"  />
+<p class="caption">
+Figure 4.4: Dados do FED no Quandl
+</p>
+</div>
+<p>A função que nos permite importar os dados é a <code>Quandl</code>, e novamente vamos pegar os dados referentes ao ano de 2017 conforme no chunk que segue:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">install.packages</span>(<span class="st">&quot;Quandl&quot;</span>)
+&gt;<span class="st"> </span><span class="kw">library</span>(Quandl)
+&gt;<span class="st"> </span>
+<span class="er">&gt;</span><span class="st"> </span>desemprego_eua &lt;-<span class="st"> </span><span class="kw">Quandl</span>(<span class="dt">code =</span> <span class="st">&quot;FRED/NROUST&quot;</span>, <span class="dt">start_date =</span> <span class="st">&quot;2017-01-01&quot;</span>,
++<span class="st">                          </span><span class="dt">end_date =</span> <span class="st">&quot;2017-12-31&quot;</span>,<span class="dt">type =</span> <span class="st">&quot;raw&quot;</span>)
+&gt;<span class="st"> </span></code></pre></div>
+<p>Os argumentos da função são bastante intuitivos, o único merecedor de uma explicação talvez seja o <code>type=</code>. Veremos mais para frente que quando trata-se de séries temporais há a possibilidade de armazenarmos os dados em outras estruturas de dados, de modo que os pacotes de importar dados permitem que o usuário escolha qual a estrutura de dado a ser usada. Neste cado atribuir o valor <code>&quot;raw&quot;</code> para o argumento <code>type=</code> faz com que os dados sejam salvos em um objeto na forma de um <em>data frame</em>, o qual estamos acostumados. <strong>colocar referencia da figura final do capitulo</strong></p>
+</div>
+<div id="pacote-quantmod" class="section level3 unnumbered">
+<h3>Pacote quantmod</h3>
+<p>O último pacote que mostro é o <em>quantmod</em> que também nos permite pegar dados de diferentes fontes, entretanto dou enfase é que considero ser mais comum: Yahoo Finance. Suponha que queiramos obter a cotação das ações da Vale/S.A. e da Apple/S.A. na bolsa de Nova Iorque para o ano de 2017, para isso precisamos dos códigos refenrentes as ações e isso encontra-se facilmente no Yahoo Finance, como a figura <a href="importar-dados.html#fig:yahoo-finance">4.5</a> mostra.</p>
+<div class="figure" style="text-align: center"><span id="fig:yahoo-finance"></span>
+<img src="images/_apple_vale.png" alt="Código Vale e Apple na Bolsa de NY"  />
+<p class="caption">
+Figure 4.5: Código Vale e Apple na Bolsa de NY
+</p>
+</div>
+<p>Agora basta utilizarmos os códigos da seguinte maneira</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span><span class="kw">install.packages</span>(<span class="st">&quot;quantmod&quot;</span>)
+&gt;<span class="st"> </span><span class="kw">library</span>(quantmod)
+&gt;<span class="st"> </span>
+<span class="er">&gt;</span><span class="st"> </span><span class="kw">getSymbols</span>(<span class="dt">Symbols =</span> <span class="kw">c</span>(<span class="st">&quot;VALE&quot;</span>,<span class="st">&quot;AAPL&quot;</span> ),<span class="dt">src =</span> <span class="st">&#39;yahoo&#39;</span>,<span class="dt">start_date=</span><span class="st">&quot;2017-01-01&quot;</span>,
++<span class="st">            </span><span class="dt">end_date=</span><span class="st">&quot;2017-12-31&quot;</span>)
+&gt;<span class="st"> </span></code></pre></div>
+<p>Veja que no argumento <code>Symbols=</code> podemos atribuir um vetor com mais de um dos códigos de modo a importar mais de uma série ao mesmo tempo. Novamento o início e fimda série são definidos atrasvés dos argumentos <code>start_date=</code> e <code>end_date=</code>, respectivamente. O argumento <code>scr=</code> (que é uma abreviação de <em>source</em>) é necessário para informar de onde queremos pegar os dados.</p>
+<p>Aqui faze-se uma ressalva. Ao executar o código serão importados para o <em>environment</em> dois objetos com os nomes de <code>VALE</code> e <code>AAPL</code> na estrutura de xts, que é uma estrutura específica para séries temporais, porém ainda não fomos apresentados a essa estrutura de modo que iremos trasforma-las em <em>data frames</em> no chunk abaixo:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>VALE &lt;-<span class="st"> </span><span class="kw">data.frame</span>(VALE)
+&gt;<span class="st"> </span>
+<span class="er">&gt;</span><span class="st"> </span>AAPL &lt;-<span class="st"> </span><span class="kw">data.frame</span>(AAPL)
+&gt;<span class="st"> </span></code></pre></div>
+<p>O resultado final é apresetado na figura @ref(fig:importado_quantmod).</p>
+<p><img src="images/_importado_quantmod.png" style="display: block; margin: auto;" /></p>
+
 </div>
 </div>
 </div>
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="estruturas-de-dados.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="estruturas-de-dados.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tidy-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -288,9 +316,11 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

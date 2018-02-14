@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Guia definitivo do R para estudantes de sociais</title>
   <meta name="description" content="Esta é a minha tentativa de facilitar, em especial, os alunos de ciências sociais, a desenvolveram habilidades relacionadas ao processo de analise de dados">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.6 and GitBook 2.6.7">
 
   <meta property="og:title" content="Guia definitivo do R para estudantes de sociais" />
   <meta property="og:type" content="book" />
@@ -139,9 +139,19 @@ code > span.in { color: #008000; } /* Information */
 </ul></li>
 <li class="part"><span><b>II Dados</b></span></li>
 <li class="chapter" data-level="4" data-path="importar-dados.html"><a href="importar-dados.html"><i class="fa fa-check"></i><b>4</b> Importar dados para o R</a><ul>
-<li class="chapter" data-level="4.1" data-path="importar-dados.html"><a href="importar-dados.html#importar-dados-locais"><i class="fa fa-check"></i><b>4.1</b> Importar dados locais</a></li>
-<li class="chapter" data-level="4.2" data-path="importar-dados.html"><a href="importar-dados.html#importando-dados-da-internet"><i class="fa fa-check"></i><b>4.2</b> Importando Dados da Internet</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="importar-dados.html"><a href="importar-dados.html#pacote-rbcb"><i class="fa fa-check"></i><b>4.2.1</b> Pacote <strong>rbcb</strong></a></li>
+<li class="chapter" data-level="4.1" data-path="importar-dados.html"><a href="importar-dados.html#importar-dados-locais-importando_dados_locais"><i class="fa fa-check"></i><b>4.1</b> Importar dados locais {importando_dados_locais}</a></li>
+<li class="chapter" data-level="4.2" data-path="importar-dados.html"><a href="importar-dados.html#importando-dados-da-internet-importanto_dados_da_internet"><i class="fa fa-check"></i><b>4.2</b> Importando Dados da Internet {importanto_dados_da_internet}</a><ul>
+<li><a href="importar-dados.html#pacote-rbcb">Pacote <strong>rbcb</strong></a></li>
+<li class="chapter" data-level="" data-path="importar-dados.html"><a href="importar-dados.html#pacote-quandl"><i class="fa fa-check"></i>Pacote Quandl</a></li>
+<li class="chapter" data-level="" data-path="importar-dados.html"><a href="importar-dados.html#pacote-quantmod"><i class="fa fa-check"></i>Pacote quantmod</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>5</b> Tidy Data</a><ul>
+<li class="chapter" data-level="5.1" data-path="tidy-data.html"><a href="tidy-data.html#tibbles"><i class="fa fa-check"></i><b>5.1</b> Digressão: Tibbles</a></li>
+<li class="chapter" data-level="5.2" data-path="tidy-data.html"><a href="tidy-data.html#o_que_e_tidy_data"><i class="fa fa-check"></i><b>5.2</b> O que é Tidy Data</a></li>
+<li class="chapter" data-level="5.3" data-path="tidy-data.html"><a href="tidy-data.html#modificando_um_mesmo_data_set"><i class="fa fa-check"></i><b>5.3</b> Modificando um mesmo data set</a><ul>
+<li class="chapter" data-level="" data-path="tidy-data.html"><a href="tidy-data.html#selecionando-colunas-de-interessa-funcao-select"><i class="fa fa-check"></i>Selecionando Colunas de Interessa (função select)</a></li>
+<li class="chapter" data-level="" data-path="tidy-data.html"><a href="tidy-data.html#juntando-colunas-em-uma-unica-variavel-funcoes-gather-e-spread"><i class="fa fa-check"></i>Juntando colunas em uma única variável (funções gather e spread)</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -438,7 +448,7 @@ Mais adiante no livro<a href="#fn12" class="footnoteRef" id="fnref12"><sup>12</s
 <span class="co">#  [7] &quot;Tasina&quot;   &quot;Julian&quot;   &quot;Devika&quot;   &quot;Nicholas&quot;</span></code></pre></div>
 <p>O RStudio possui uma ferramenta conveniente para nos ajudar, ao digitar <code>empregados$</code> e em seguida pressionar <code>TAB</code> o RStudio mostrará um menu <em>dropdown</em> com os nomes das colunas do data frame, como mostra a figura <a href="estruturas-de-dados.html#fig:rstudio-dropdown-menu">3.1</a>, de modo que não é necessário sabermos qual o número da coluna em que se encontra a variável de interesse e nem ter que saber de cabeça o nome de todas as variáveis disponíveis no data frame.</p>
 <div class="figure" style="text-align: center"><span id="fig:rstudio-dropdown-menu"></span>
-<img src="images/_empregados_colunas.png" alt="Menu Dropdown do RStudio" width="682" />
+<img src="images/_empregados_colunas.png" alt="Menu Dropdown do RStudio"  />
 <p class="caption">
 Figure 3.1: Menu Dropdown do RStudio
 </p>
@@ -467,7 +477,7 @@ A figura <a href="estruturas-de-dados.html#fig:exemplo-versatilidade-lista">3.2<
 </div>
 
 <div class="figure" style="text-align: center"><span id="fig:exemplo-versatilidade-lista"></span>
-<img src="images/_exemplo_versatilidade_lista.png" alt="Ambiente com objeto regressão" width="683" />
+<img src="images/_exemplo_versatilidade_lista.png" alt="Ambiente com objeto regressão"  />
 <p class="caption">
 Figure 3.2: Ambiente com objeto regressão
 </p>
@@ -525,7 +535,7 @@ Figure 3.2: Ambiente com objeto regressão
 <span class="co"># List of 1</span>
 <span class="co">#  $ nomes: chr [1:10] &quot;Mia&quot; &quot;William&quot; &quot;Gregory&quot; &quot;Amanda&quot; ...</span>
 &gt;<span class="st"> </span><span class="kw">str</span>(y)
-<span class="co">#  chr [1:10] &quot;Mia&quot; &quot;William&quot; &quot;Gregory&quot; &quot;Amanda&quot; &quot;Mahmood&quot; ...</span></code></pre></div>
+<span class="co">#  chr [1:10] &quot;Mia&quot; &quot;William&quot; &quot;Gregory&quot; &quot;Amanda&quot; &quot;Mahmood&quot; &quot;Abigail&quot; ...</span></code></pre></div>
 <p>Vemos que <code>x</code> é uma lista com o vetor <code>nomes</code> sendo o único elemnto e que <code>y</code> é o vetor <code>nomes</code>. Ou seja, utilizar <code>[]</code> (chaves simples) retorna uma lista ao passo que utilizar <code>[[]]</code> (chaves duplas) retorna a estrutura de dados no elemento que está sendo acessado!</p>
 </div>
 </div>
@@ -606,9 +616,11 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

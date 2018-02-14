@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Guia definitivo do R para estudantes de sociais</title>
   <meta name="description" content="Esta é a minha tentativa de facilitar, em especial, os alunos de ciências sociais, a desenvolveram habilidades relacionadas ao processo de analise de dados">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.6 and GitBook 2.6.7">
 
   <meta property="og:title" content="Guia definitivo do R para estudantes de sociais" />
   <meta property="og:type" content="book" />
@@ -137,6 +137,23 @@ code > span.in { color: #008000; } /* Information */
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#resumo-melhorar-nome"><i class="fa fa-check"></i><b>3.6</b> resumo (melhorar nome)</a></li>
 </ul></li>
+<li class="part"><span><b>II Dados</b></span></li>
+<li class="chapter" data-level="4" data-path="importar-dados.html"><a href="importar-dados.html"><i class="fa fa-check"></i><b>4</b> Importar dados para o R</a><ul>
+<li class="chapter" data-level="4.1" data-path="importar-dados.html"><a href="importar-dados.html#importar-dados-locais-importando_dados_locais"><i class="fa fa-check"></i><b>4.1</b> Importar dados locais {importando_dados_locais}</a></li>
+<li class="chapter" data-level="4.2" data-path="importar-dados.html"><a href="importar-dados.html#importando-dados-da-internet-importanto_dados_da_internet"><i class="fa fa-check"></i><b>4.2</b> Importando Dados da Internet {importanto_dados_da_internet}</a><ul>
+<li><a href="importar-dados.html#pacote-rbcb">Pacote <strong>rbcb</strong></a></li>
+<li class="chapter" data-level="" data-path="importar-dados.html"><a href="importar-dados.html#pacote-quandl"><i class="fa fa-check"></i>Pacote Quandl</a></li>
+<li class="chapter" data-level="" data-path="importar-dados.html"><a href="importar-dados.html#pacote-quantmod"><i class="fa fa-check"></i>Pacote quantmod</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>5</b> Tidy Data</a><ul>
+<li class="chapter" data-level="5.1" data-path="tidy-data.html"><a href="tidy-data.html#tibbles"><i class="fa fa-check"></i><b>5.1</b> Digressão: Tibbles</a></li>
+<li class="chapter" data-level="5.2" data-path="tidy-data.html"><a href="tidy-data.html#o_que_e_tidy_data"><i class="fa fa-check"></i><b>5.2</b> O que é Tidy Data</a></li>
+<li class="chapter" data-level="5.3" data-path="tidy-data.html"><a href="tidy-data.html#modificando_um_mesmo_data_set"><i class="fa fa-check"></i><b>5.3</b> Modificando um mesmo data set</a><ul>
+<li class="chapter" data-level="" data-path="tidy-data.html"><a href="tidy-data.html#selecionando-colunas-de-interessa-funcao-select"><i class="fa fa-check"></i>Selecionando Colunas de Interessa (função select)</a></li>
+<li class="chapter" data-level="" data-path="tidy-data.html"><a href="tidy-data.html#juntando-colunas-em-uma-unica-variavel-funcoes-gather-e-spread"><i class="fa fa-check"></i>Juntando colunas em uma única variável (funções gather e spread)</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -252,15 +269,14 @@ O exemplo pode ser desmontado nos seguintes passos: (i) carregar pacotes; (ii) S
 &gt;<span class="st"> </span>
 <span class="er">&gt;</span><span class="st"> </span><span class="kw">head</span>(dados)
 <span class="co"># # A tibble: 6 x 9</span>
-<span class="co">#          Pais     Regiao   Ano PerCap_dolar PerCap_growth   Inflacao</span>
-<span class="co">#         &lt;chr&gt;      &lt;chr&gt; &lt;int&gt;        &lt;dbl&gt;         &lt;dbl&gt;      &lt;dbl&gt;</span>
-<span class="co"># 1 Afghanistan South Asia  2006     397.9859      2.200613  7.2548956</span>
-<span class="co"># 2 Afghanistan South Asia  2008     444.9501      1.040489 30.5549406</span>
-<span class="co"># 3 Afghanistan South Asia  2010     553.3003      5.425968  0.8925369</span>
-<span class="co"># 4 Afghanistan South Asia  2011     569.2334      2.879648 10.2016601</span>
-<span class="co"># 5 Afghanistan South Asia  2012     630.4274     10.750252  7.2182578</span>
-<span class="co"># 6 Afghanistan South Asia  2013     621.8181     -1.365634  7.6543166</span>
-<span class="co"># # ... with 3 more variables: CPI &lt;dbl&gt;, PFI &lt;dbl&gt;, DI &lt;dbl&gt;</span></code></pre></div>
+<span class="co">#   Pais  Regiao   Ano PerCap_dolar PerCap_growth Inflacao   CPI   PFI    DI</span>
+<span class="co">#   &lt;chr&gt; &lt;chr&gt;  &lt;int&gt;        &lt;dbl&gt;         &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co"># 1 Afgh~ South~  2006          398          2.20    7.25  NA     44.2  3.06</span>
+<span class="co"># 2 Afgh~ South~  2008          445          1.04   30.6   15.0   59.2  3.02</span>
+<span class="co"># 3 Afgh~ South~  2010          553          5.43    0.893 14.0   51.7  2.48</span>
+<span class="co"># 4 Afgh~ South~  2011          569          2.88   10.2   15.2   74.0  2.48</span>
+<span class="co"># 5 Afgh~ South~  2012          630         10.8     7.22   8.00  74.0  2.48</span>
+<span class="co"># 6 Afgh~ South~  2013          622        - 1.37    7.65   8.00  37.4  2.48</span></code></pre></div>
 <p>Em seguida vamos <strong>filtrar</strong> os dados e selecionar as variaveis que iremos trabalhar. Vamos selecionar as regiões da américa latina e África subsahariana e as variaveis relacionadas à região, ao ano e CPI que é índice de percepção de corrupção. O código abaixo faz isso:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>filtrado &lt;-<span class="st"> </span>dados %&gt;%<span class="st"> </span>
 +<span class="st">   </span><span class="kw">filter</span>(Regiao ==<span class="st"> &quot;Latin America &amp; Caribbean&quot;</span> |<span class="st"> </span>Regiao ==<span class="st"> &quot;Sub-Saharan Africa&quot;</span>) %&gt;%<span class="st"> </span>
@@ -269,18 +285,18 @@ O exemplo pode ser desmontado nos seguintes passos: (i) carregar pacotes; (ii) S
 <p>Antes de prosseguirmos, vamos verificar o data frame filtrado:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>filtrado
 <span class="co"># # A tibble: 496 x 3</span>
-<span class="co">#                       Regiao   Ano      CPI</span>
-<span class="co">#                        &lt;chr&gt; &lt;int&gt;    &lt;dbl&gt;</span>
-<span class="co">#  1        Sub-Saharan Africa  2006 22.00000</span>
-<span class="co">#  2        Sub-Saharan Africa  2008 19.00000</span>
-<span class="co">#  3        Sub-Saharan Africa  2010 19.00000</span>
-<span class="co">#  4        Sub-Saharan Africa  2011 20.05035</span>
-<span class="co">#  5        Sub-Saharan Africa  2012 22.00000</span>
-<span class="co">#  6        Sub-Saharan Africa  2013 23.00000</span>
-<span class="co">#  7        Sub-Saharan Africa  2014 19.00000</span>
-<span class="co">#  8        Sub-Saharan Africa  2015 15.00000</span>
-<span class="co">#  9 Latin America &amp; Caribbean  2006 29.00000</span>
-<span class="co"># 10 Latin America &amp; Caribbean  2008 29.00000</span>
+<span class="co">#    Regiao                      Ano   CPI</span>
+<span class="co">#    &lt;chr&gt;                     &lt;int&gt; &lt;dbl&gt;</span>
+<span class="co">#  1 Sub-Saharan Africa         2006  22.0</span>
+<span class="co">#  2 Sub-Saharan Africa         2008  19.0</span>
+<span class="co">#  3 Sub-Saharan Africa         2010  19.0</span>
+<span class="co">#  4 Sub-Saharan Africa         2011  20.1</span>
+<span class="co">#  5 Sub-Saharan Africa         2012  22.0</span>
+<span class="co">#  6 Sub-Saharan Africa         2013  23.0</span>
+<span class="co">#  7 Sub-Saharan Africa         2014  19.0</span>
+<span class="co">#  8 Sub-Saharan Africa         2015  15.0</span>
+<span class="co">#  9 Latin America &amp; Caribbean  2006  29.0</span>
+<span class="co"># 10 Latin America &amp; Caribbean  2008  29.0</span>
 <span class="co"># # ... with 486 more rows</span></code></pre></div>
 <p>Vemos que temos o que queremos. Agora basta calcularmos as médias de cada ano para cada uma das regiões e depois a média geral de cada grupo:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>resultado &lt;-<span class="st"> </span>filtrado %&gt;%<span class="st"> </span>
@@ -438,14 +454,14 @@ O exemplo pode ser desmontado nos seguintes passos: (i) carregar pacotes; (ii) S
 <h2><span class="header-section-number">2.2</span> <em>Workspace/Environment</em></h2>
 <p>Para entendermos o que é o <em>Workspace/Environment</em> vamos antes apresentar oficialmente o operador de atribuição <code>&lt;-</code>. A utilizaçãp desse operador da-se da seguinte maneira <code>nome &lt;- objeto</code>, onde <code>nome</code> é nome do <code>objeto</code><a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a> que você quer salvar. Se olharmos o exemplo <a href="primeiros-comandos-no-R.html#exm:OperadorLogico">2.1</a> vemos que utilizamos o operador de atribuição três vezes para salvar os objetos <code>dados</code>, <code>filtrado</code> e <code>resultado</code>, ou seja nesse caso nossos objetos são data sets, mas poderiam ser várias outras coisas, como vetores, resultados de regressão, gráfico e etc. Se olharmos o <em>Workspace/Environment</em> depois de executar o código do exemplo teremos algo como mostra a <a href="primeiros-comandos-no-R.html#fig:workspace-environment">2.1</a>. Veja que temos nossos três objetos disponíveis para quando quisermos utiliza-los.</p>
 <div class="figure" style="text-align: center"><span id="fig:workspace-environment"></span>
-<img src="images/_workingspace.png" alt="Exemplo de workspace/Environment" width="683" />
+<img src="images/_workingspace.png" alt="Exemplo de workspace/Environment"  />
 <p class="caption">
 Figure 2.1: Exemplo de workspace/Environment
 </p>
 </div>
 <p>Ao clicar com o botão esquerdo do mouse nas janelinhas no final da linha com o nome do objeto é aberta uma nova aba dentro do RStudio mostrando os dados. Veja a figura <a href="primeiros-comandos-no-R.html#fig:aba-com-dados">2.2</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:aba-com-dados"></span>
-<img src="images/_aba_com_dados.png" alt="Vendo dados no RStudio" width="683" />
+<img src="images/_aba_com_dados.png" alt="Vendo dados no RStudio"  />
 <p class="caption">
 Figure 2.2: Vendo dados no RStudio
 </p>
@@ -556,9 +572,11 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

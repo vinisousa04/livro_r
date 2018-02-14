@@ -6,7 +6,7 @@ Nesta parte do livro o foco passa a ser o tratamento que devemos dar aos dados c
 
 É possível importar dados para nosso *environment* de duas principais maneiras, sendo a primeira imporar um arquivo que esteja salvo no computador e a segunda importar dados da internet. As subseções seguintes apresentam tais maneiras ao leitor.
 
-## Importar dados locais
+## Importar dados locais {importando_dados_locais}
 
 A primeira maneira é importar dados que estão salvos em nosso computador. Aqui é importante saber qual o formato do arquivo. Os formatos mais provavéis que você irá encontrar são: (i) Arquivo no formato de excel separado por vígulas (caso tenha uma planilha em arquivo excel que não no formato .csv recomendo que salve-a no formato .csv); (ii) Arquivos do *software* stata; (iii) Arquivos do *softaware* SPSS. 
 
@@ -33,11 +33,11 @@ include_graphics(c("images/_importando_locais_rstudio.png"))
 ```
 
 
-## Importando Dados da Internet
+## Importando Dados da Internet {importanto_dados_da_internet}
 
-Voltamos nossa atenção agora para como importar dados da internet para dentro do RStudio. Há mais de uma maneira de fazer isso, porém aqui será focamos na utilização de pacotes que nos permitem acessar dados do Banco Central do Brasil, IBGE etc.
+Voltamos nossa atenção agora para como importar dados da internet para dentro do RStudio. Há mais de uma maneira de fazer isso, porém aqui será focamos na utilização de pacotes que nos permitem acessar dados do Banco Central do Brasil, Federal Reserve etc.
 
-### Pacote **rbcb**
+### Pacote **rbcb** {-}
 
 O pacote rbcb é uma interface que liga o R ao sistema gerenciador de séries temporais do Banco Central do Brasil. Através deles podemos acessar as séries encontradas no sistema. A principal função do pacote é a `get_series()` que permite você importar diretamente para o *environment* uma série para determinado período. 
 
@@ -58,3 +58,63 @@ include_graphics(c("images/_rbcb.png"))
 ```
 
 Nela vemos que há o objeto no *environment* e no console vemos que esse *data frame* nos trás a data referente ao dado e o dado em si.
+
+### Pacote Quandl {-}
+
+Outro pacote que permite importarmos dados direto da internet para o R é o *Quandl*. O *Quandl* é um site que reune diferentes fontes de dados em um local comum e o pacote permite que usando os códigos do site importemos dados de maneira similar a que fizemos com o pacote rbcb. 
+
+Para começar mostramos na figura \@ref(fig:Quandl) a página referente aos dados do *Federal Reserve* (Banco Central dos Estados Unidos) e destacamos o código referente à taxa natural de desemprego de curto prazo da economia norte americana.
+
+```{r Quandl, echo=FALSE,fig.cap="Dados do FED no Quandl"}
+include_graphics(c("images/_Quandl.png"))
+```
+
+A função que nos permite importar os dados é a `Quandl`, e novamente vamos pegar os dados referentes ao ano de 2017 conforme no chunk que segue:
+
+```{r, eval=FALSE}
+install.packages("Quandl")
+library(Quandl)
+
+desemprego_eua <- Quandl(code = "FRED/NROUST", start_date = "2017-01-01",
+                         end_date = "2017-12-31",type = "raw")
+
+```
+
+Os argumentos da função são bastante intuitivos, o único merecedor de uma explicação talvez seja o `type=`. Veremos mais para frente que quando trata-se de séries temporais há a possibilidade de armazenarmos os dados em outras estruturas de dados, de modo que os pacotes de importar dados permitem que o usuário escolha qual a estrutura de dado a ser usada. Neste cado atribuir o valor `"raw"` para o argumento `type=` faz com que os dados sejam salvos em um objeto na forma de um *data frame*, o qual estamos acostumados. **colocar referencia da figura final do capitulo**
+
+
+### Pacote quantmod {-}
+
+O último pacote que mostro é o *quantmod* que também nos permite pegar dados de diferentes fontes, entretanto dou enfase é que considero ser mais comum: Yahoo Finance. Suponha que queiramos obter a cotação das ações da Vale/S.A. e da Apple/S.A. na bolsa de Nova Iorque para o ano de 2017, para isso precisamos dos códigos refenrentes as ações e isso encontra-se facilmente no Yahoo Finance, como a figura \@ref(fig:yahoo-finance) mostra.
+
+```{r yahoo-finance, fig.cap="Código Vale e Apple na Bolsa de NY",echo=FALSE}
+include_graphics(c("images/_apple_vale.png"))
+```
+
+Agora basta utilizarmos os códigos da seguinte maneira
+
+```{r,eval=FALSE}
+install.packages("quantmod")
+library(quantmod)
+
+getSymbols(Symbols = c("VALE","AAPL" ),src = 'yahoo',start_date="2017-01-01",
+           end_date="2017-12-31")
+
+```
+
+Veja que no argumento `Symbols=` podemos atribuir um vetor com mais de um dos códigos de modo a importar mais de uma série ao mesmo tempo. Novamento o início e fimda série são definidos atrasvés dos argumentos `start_date=` e `end_date=`, respectivamente. O argumento `scr=` (que é uma abreviação de *source*) é necessário para informar de onde queremos pegar os dados. 
+
+Aqui faze-se uma ressalva. Ao executar o código serão importados para o *environment* dois objetos com os nomes de `VALE` e `AAPL` na estrutura de xts, que é uma estrutura específica para séries temporais, porém ainda não fomos apresentados a essa estrutura de modo que iremos trasforma-las em *data frames* no chunk abaixo:
+```{r, eval=FALSE}
+VALE <- data.frame(VALE)
+
+AAPL <- data.frame(AAPL)
+
+```
+
+O resultado final é apresetado na figura \@ref(fig:importado_quantmod).
+
+```{r impotado-quantmod, echo=FALSE}
+include_graphics(c("images/_importado_quantmod.png"))
+```
+

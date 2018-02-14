@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Guia definitivo do R para estudantes de sociais</title>
+  <meta name="description" content="Esta é a minha tentativa de facilitar, em especial, os alunos de ciências sociais, a desenvolveram habilidades relacionadas ao processo de analise de dados">
+  <meta name="generator" content="bookdown 0.6 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Guia definitivo do R para estudantes de sociais" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Esta é a minha tentativa de facilitar, em especial, os alunos de ciências sociais, a desenvolveram habilidades relacionadas ao processo de analise de dados" />
+  <meta name="github-repo" content="vinisousa04/livro_r" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Guia definitivo do R para estudantes de sociais" />
+  
+  <meta name="twitter:description" content="Esta é a minha tentativa de facilitar, em especial, os alunos de ciências sociais, a desenvolveram habilidades relacionadas ao processo de analise de dados" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="importar-dados.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #0000ff; } /* Keyword */
+code > span.ch { color: #008080; } /* Char */
+code > span.st { color: #008080; } /* String */
+code > span.co { color: #008000; } /* Comment */
+code > span.ot { color: #ff4000; } /* Other */
+code > span.al { color: #ff0000; } /* Alert */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #008000; font-weight: bold; } /* Warning */
+code > span.cn { } /* Constant */
+code > span.sc { color: #008080; } /* SpecialChar */
+code > span.vs { color: #008080; } /* VerbatimString */
+code > span.ss { color: #008080; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { color: #0000ff; } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #ff4000; } /* Preprocessor */
+code > span.do { color: #008000; } /* Documentation */
+code > span.an { color: #008000; } /* Annotation */
+code > span.cv { color: #008000; } /* CommentVar */
+code > span.at { } /* Attribute */
+code > span.in { color: #008000; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#motivacao"><i class="fa fa-check"></i>Motivação</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#organizacao"><i class="fa fa-check"></i>Organização</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#sobre-o-autor"><i class="fa fa-check"></i>Sobre o autor</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimentos"><i class="fa fa-check"></i>Agradecimentos</a></li>
+</ul></li>
+<li class="part"><span><b>I Introdução ao Mundo R</b></span></li>
+<li class="chapter" data-level="1" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html"><i class="fa fa-check"></i><b>1</b> R e RStudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#o_que_sao"><i class="fa fa-check"></i><b>1.1</b> O que são</a></li>
+<li class="chapter" data-level="1.2" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#layout_rstudio"><i class="fa fa-check"></i><b>1.2</b> <em>Layout</em> do RStudio</a></li>
+<li class="chapter" data-level="1.3" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#scripts"><i class="fa fa-check"></i><b>1.3</b> <em>Scripts</em></a></li>
+<li class="chapter" data-level="1.4" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#funcionamento_do_codigo"><i class="fa fa-check"></i><b>1.4</b> Funcionamento do Código</a></li>
+<li class="chapter" data-level="1.5" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#working_directory"><i class="fa fa-check"></i><b>1.5</b> <em>Working Directory</em> (ou pasta de trabalho)</a></li>
+<li class="chapter" data-level="1.6" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#pacotes"><i class="fa fa-check"></i><b>1.6</b> Pacotes (ou <em>libraries</em>)</a><ul>
+<li class="chapter" data-level="" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#pacotes-do-github"><i class="fa fa-check"></i>Pacotes do GitHub</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html"><i class="fa fa-check"></i><b>2</b> Primeiros Comandos no R</a><ul>
+<li class="chapter" data-level="2.1" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html#r-como-calculadora"><i class="fa fa-check"></i><b>2.1</b> R como calculadora</a></li>
+<li class="chapter" data-level="2.2" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html#Workspace-Environment"><i class="fa fa-check"></i><b>2.2</b> <em>Workspace/Environment</em></a></li>
+<li class="chapter" data-level="2.3" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html#funcoes"><i class="fa fa-check"></i><b>2.3</b> Funções</a></li>
+<li class="chapter" data-level="2.4" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html#ajuda-e-documentacao"><i class="fa fa-check"></i><b>2.4</b> Ajuda e documentação</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="primeiros-comandos-no-R.html"><a href="primeiros-comandos-no-R.html#erros-mensagens-e-avisos"><i class="fa fa-check"></i><b>2.4.1</b> Erros, Mensagens e Avisos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html"><i class="fa fa-check"></i><b>3</b> Estruturas de Dados</a><ul>
+<li class="chapter" data-level="3.1" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#tipos_de_dados"><i class="fa fa-check"></i><b>3.1</b> Tipos de dados</a></li>
+<li class="chapter" data-level="3.2" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#vetores"><i class="fa fa-check"></i><b>3.2</b> Vetores</a><ul>
+<li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#criando-vetores"><i class="fa fa-check"></i>Criando Vetores</a></li>
+<li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#acessando-elementos"><i class="fa fa-check"></i>Acessando elementos</a></li>
+<li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#operacoes-vetorizadas"><i class="fa fa-check"></i>Operações Vetorizadas</a></li>
+<li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#reciglagem"><i class="fa fa-check"></i>Reciglagem</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#matrizes"><i class="fa fa-check"></i><b>3.3</b> Matrizes</a><ul>
+<li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#criando-matrizes"><i class="fa fa-check"></i>Criando Matrizes</a></li>
+<li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#acessando-elementos-1"><i class="fa fa-check"></i>Acessando Elementos</a></li>
+<li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#operacoes-com-matrizes"><i class="fa fa-check"></i>Operações com matrizes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#data-frames"><i class="fa fa-check"></i><b>3.4</b> Data Frames</a></li>
+<li class="chapter" data-level="3.5" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#listas"><i class="fa fa-check"></i><b>3.5</b> Listas</a><ul>
+<li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#criando-listas"><i class="fa fa-check"></i>Criando listas</a></li>
+<li class="chapter" data-level="" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#acessando-elementos-das-listas"><i class="fa fa-check"></i>Acessando elementos das listas</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="estruturas-de-dados.html"><a href="estruturas-de-dados.html#resumo-melhorar-nome"><i class="fa fa-check"></i><b>3.6</b> resumo (melhorar nome)</a></li>
+</ul></li>
+<li class="part"><span><b>II Dados</b></span></li>
+<li class="chapter" data-level="4" data-path="importar-dados.html"><a href="importar-dados.html"><i class="fa fa-check"></i><b>4</b> Importar dados para o R</a><ul>
+<li class="chapter" data-level="4.1" data-path="importar-dados.html"><a href="importar-dados.html#importar-dados-locais-importando_dados_locais"><i class="fa fa-check"></i><b>4.1</b> Importar dados locais {importando_dados_locais}</a></li>
+<li class="chapter" data-level="4.2" data-path="importar-dados.html"><a href="importar-dados.html#importando-dados-da-internet-importanto_dados_da_internet"><i class="fa fa-check"></i><b>4.2</b> Importando Dados da Internet {importanto_dados_da_internet}</a><ul>
+<li><a href="importar-dados.html#pacote-rbcb">Pacote <strong>rbcb</strong></a></li>
+<li class="chapter" data-level="" data-path="importar-dados.html"><a href="importar-dados.html#pacote-quandl"><i class="fa fa-check"></i>Pacote Quandl</a></li>
+<li class="chapter" data-level="" data-path="importar-dados.html"><a href="importar-dados.html#pacote-quantmod"><i class="fa fa-check"></i>Pacote quantmod</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>5</b> Tidy Data</a><ul>
+<li class="chapter" data-level="5.1" data-path="tidy-data.html"><a href="tidy-data.html#tibbles"><i class="fa fa-check"></i><b>5.1</b> Digressão: Tibbles</a></li>
+<li class="chapter" data-level="5.2" data-path="tidy-data.html"><a href="tidy-data.html#o_que_e_tidy_data"><i class="fa fa-check"></i><b>5.2</b> O que é Tidy Data</a></li>
+<li class="chapter" data-level="5.3" data-path="tidy-data.html"><a href="tidy-data.html#modificando_um_mesmo_data_set"><i class="fa fa-check"></i><b>5.3</b> Modificando um mesmo data set</a><ul>
+<li class="chapter" data-level="" data-path="tidy-data.html"><a href="tidy-data.html#selecionando-colunas-de-interessa-funcao-select"><i class="fa fa-check"></i>Selecionando Colunas de Interessa (função select)</a></li>
+<li class="chapter" data-level="" data-path="tidy-data.html"><a href="tidy-data.html#juntando-colunas-em-uma-unica-variavel-funcoes-gather-e-spread"><i class="fa fa-check"></i>Juntando colunas em uma única variável (funções gather e spread)</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Guia definitivo do R para estudantes de sociais</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="tidy_data" class="section level1">
+<h1><span class="header-section-number">5</span> Tidy Data</h1>
+<p>Neste capítulo apresentaremos o conceito de <em>Tidy Data</em> que nos ajuda organizar os dados com os quais os leitores irão trabalha. O <em>modus operandi</em> dos cursos de economia (acredito que nas demais ciências sociais não seja diferente) é de que os alunos recebam dados já no formato apropriado para o tipo de análise pedida pelo professor. Entretando, caso o leitor participe de algum projeto de pesquisa, ou até mesmo em estágios nos quais é necessário lidar com dados, eles (dados) nem sempre estarão disponíveis da maneira como precisa-se. Deste modo, saber como fazer alterações simples, porém que ajudam muito, torna o leitor mais eficiente e produtivo.</p>
+<p>Antes de apresentarmos o conceito e algumas operações básicos com dados, iremos dedicar um breve tempo para familizar o leitor com os <em>tibbles</em></p>
+<div id="tibbles" class="section level2">
+<h2><span class="header-section-number">5.1</span> Digressão: Tibbles</h2>
+<p>Os <em>tibbles</em> nada mais são do que versões modernas dos <em>data frames</em>. Dentra as vantagens de se usar <em>tibbles</em> no lugar de <em>data frames</em> apresentamos aqui duas delas. A primeira coisa que devemos fazer é instalar (apenas a primeira vez) e em seguida carregar o pacote <code>tibble</code>, para que possamos utilizar essa estrutura de dados.</p>
+<p>Para mostrar as diferenças entre <em>tibbles</em> e <em>data frames</em> vamos usar o <em>data set</em> <code>cpi</code> (de <em>corruption perception index</em>) que econtra-se disponível no pacote <code>DadosLivroR</code>, que o leitor já deve ter instalado pelo exercício 1.2. Lembre-se de que você pode utilizar <code>?</code>para ver a documentação do <em>data set</em>.</p>
+<p>O primeiro ponto a favor dos <em>tibbles</em> é que ao executar determinado <em>data set</em> para você vê-lo no console o resultado é diferente para <em>tibbles</em> e <em>data frames</em>. Caso o <em>data set</em> esteja como <em>data frame</em> então todo o <em>data frame</em> será exibido no console, o que não é nemmum pouco útil para termos uma ideia dos dados. Para entender o que eu me refiro basta executar no seu RStudio o comando <code>cpi</code>. Entretando, caso o <em>data frame</em> estiver na forma de um <em>tibble</em> o resultado será o que aparece no chunk a abaixo</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>cpi
+<span class="co"># # A tibble: 2,790 x 3</span>
+<span class="co">#    Pais        Ano     CPI</span>
+<span class="co">#  * &lt;chr&gt;       &lt;chr&gt; &lt;dbl&gt;</span>
+<span class="co">#  1 Afghanistan 2002   NA  </span>
+<span class="co">#  2 Afghanistan 2003   NA  </span>
+<span class="co">#  3 Afghanistan 2004   NA  </span>
+<span class="co">#  4 Afghanistan 2005   25.0</span>
+<span class="co">#  5 Afghanistan 2006   NA  </span>
+<span class="co">#  6 Afghanistan 2007   18.0</span>
+<span class="co">#  7 Afghanistan 2008   15.0</span>
+<span class="co">#  8 Afghanistan 2009   13.0</span>
+<span class="co">#  9 Afghanistan 2010   14.0</span>
+<span class="co"># 10 Afghanistan 2011   15.2</span>
+<span class="co"># # ... with 2,780 more rows</span></code></pre></div>
+<p>Percebe que ao invés de simplesmente nos retornar todos os dados, temos na verdade um “resumão” do <em>data set</em> com o número de observações (linhas), o número de colunas, qual a estrutura de dados de cada coluna. E além disso, nos é retornado as dez primeiras observações do <em>data set</em>.</p>
+<p>A segunda vantagem é que as funções que serão apresentadas ao longo deste capítulo podem apresentar comportamentos inesperados quando são usadas com <em>data frames</em>, coisa que não ocorre com <em>tibbles</em>. Para terminar nossa digressão, é interessante saber que caso o leitor queira trocar a estrutura de <em>data frame</em> para <em>tibble</em> isto é feito através da função <code>as_tibble(nome do data frame)</code>, do pacote <code>tibbles</code>. Podemos agora seguir para o conceito de <em>tidy data</em>.</p>
+</div>
+<div id="o_que_e_tidy_data" class="section level2">
+<h2><span class="header-section-number">5.2</span> O que é Tidy Data</h2>
+<p>Colocado de maneira simples e direta <em>tidy data</em> é uma maneira de organizar os <em>data sets</em> que segue três princípios básicos:</p>
+<ul>
+<li>Observações como linhas;</li>
+<li>Variáveis como colunas;</li>
+<li>Um tipo de unidade observacional por matrix.</li>
+</ul>
+<p>Os dois primeiros pontos podem ser entendidos de maneira conjunta. Para tornar o entendimento simples imagine que tenhamos um data set com a etnia e o peso de 3 pessoas da seguinte maneira:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>tidy_set &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Nome =</span> <span class="kw">c</span>(<span class="st">&quot;Roberto&quot;</span>,<span class="st">&quot;Cecília&quot;</span>,<span class="st">&quot;Sarah&quot;</span>),
++<span class="st">                    </span><span class="dt">Etnia =</span> <span class="kw">c</span>(<span class="st">&quot;Branca&quot;</span>,<span class="st">&quot;Índigena&quot;</span>,<span class="st">&quot;Cafuzo&quot;</span>),
++<span class="st">                    </span><span class="dt">Peso =</span> <span class="kw">c</span>(<span class="dv">80</span>,<span class="dv">38</span>,<span class="dv">55</span>))
+&gt;<span class="st"> </span>tidy_set
+<span class="co"># # A tibble: 3 x 3</span>
+<span class="co">#   Nome    Etnia     Peso</span>
+<span class="co">#   &lt;chr&gt;   &lt;chr&gt;    &lt;dbl&gt;</span>
+<span class="co"># 1 Roberto Branca    80.0</span>
+<span class="co"># 2 Cecília Índigena  38.0</span>
+<span class="co"># 3 Sarah   Cafuzo    55.0</span></code></pre></div>
+<p>Perceba que cada observação (as pessoas) encontram-se em linhas separadas e as diferentes informações sobre as pessoas estão organizadas em colunas. Parece muito óbvio isso, de fato, entretando eu não me surpreenderia caso encontra-se as mesmas informações em um <em>data set</em> organizado de maneira um pouco diferente…</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>non_tidy &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">Nome =</span> <span class="kw">c</span>(<span class="st">&quot;Roberto&quot;</span>,<span class="st">&quot;Cecília&quot;</span>,<span class="st">&quot;Sarah&quot;</span>),
++<span class="st">                    </span><span class="dt">Branca =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>),
++<span class="st">                    </span><span class="dt">Indigena =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),
++<span class="st">                    </span><span class="dt">Cafuza =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>),
++<span class="st">                    </span><span class="dt">Peso =</span> <span class="kw">c</span>(<span class="dv">80</span>,<span class="dv">35</span>,<span class="dv">55</span>))
+&gt;<span class="st"> </span>non_tidy
+<span class="co"># # A tibble: 3 x 5</span>
+<span class="co">#   Nome    Branca Indigena Cafuza  Peso</span>
+<span class="co">#   &lt;chr&gt;    &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;</span>
+<span class="co"># 1 Roberto   0        1.00   0     80.0</span>
+<span class="co"># 2 Cecília   1.00     0      0     35.0</span>
+<span class="co"># 3 Sarah     0        0      1.00  55.0</span></code></pre></div>
+<p>Veja que agora a etnia das pessoas está espalhada em diferentes colunas. Um <em>data set</em> organizado desta maneira serviria para o propósito de se estimar um modelo com variável <em>dummy</em>. O último princípio simplesmente indica que se estamos diante de um <em>data set</em> sobre pessoas não faria sentido colocar as informações de uma empresa nele, tais informações devem ir para outro <em>data set</em>.</p>
+<p>É importante ressaltar que não há um jeito certo ou errado de se arrumar os <em>data set</em>, a organização das informações dentro de um <em>data set</em> va depender da análise que o leitor deseja fazer. Entretanto, entender o conceito de <em>tidy data</em>, e usá-lo como nosso ponto de partida facilita quando é necessário reorganizar o <em>data set</em>.</p>
+</div>
+<div id="modificando_um_mesmo_data_set" class="section level2">
+<h2><span class="header-section-number">5.3</span> Modificando um mesmo data set</h2>
+<p>Na minha (limitada) experiência percebi que a habilidade de manipular <em>data sets</em> não é ensinada aos alunos. Entretanto é uma atividade que é constantemente necessitada e o aluno acaba utilizando o excel e movendo as células para lá e para cá, o que por experiência próprio sei que dá muito trabalho além de as vezes não conseguimos obter o resultado que desejamos. Nesta seção mostraremos como executar manipulações elementares, porém que acredito ajudarão bastante o leitor em suas atividades.</p>
+<p>Para tornar a atividade mais interessante vamos manipular o <em>data set</em> <code>cpi_raw</code> que encontra-se disponível no pacote <code>DadosLivroR</code>. De maneira resumida este <em>data_set</em> trás o ínice de percepção de cocrrupção para 186 paises para o período de 2002 a 2016 e ele encontra-se da maneira como foi baixada do site <a href="https://knoema.com/">Knoema</a>, que através de um cadastro gratuito fornece acesso a um compilado de dados de inúmeras instituições. De modo que o além de prático o exercício demonstra a real aplicabilidade dos recursos apresentados. Além do pacote com os dados utilizaremos os pacotes: (i) <code>tibble</code>, (ii) <code>dplyr</code>,e (iii) <code>tidyr</code></p>
+<p>O primeiro passo para manipularmos um <em>data set</em> é verificarmos como ele está organizado e definir como queremos que ele fique ao final da manipulaçao. Não há uma regra geral e isso vai variar muito de caso para caso. Abaixo vemos o <em>data set</em> <code>cpi_raw</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>cpi_raw
+<span class="co"># # A tibble: 186 x 23</span>
+<span class="co">#    Country `Country Name`      `Country Region~ Indicator `Indicator Name`</span>
+<span class="co">#    &lt;chr&gt;   &lt;chr&gt;               &lt;chr&gt;            &lt;chr&gt;     &lt;chr&gt;           </span>
+<span class="co">#  1 CD      Congo, Democratic ~ CD               KN.CSCR   CPI Score       </span>
+<span class="co">#  2 CG      Congo, Republic of~ CG               KN.CSCR   CPI Score       </span>
+<span class="co">#  3 RW      Rwanda              RW               KN.CSCR   CPI Score       </span>
+<span class="co">#  4 GH      Ghana               GH               KN.CSCR   CPI Score       </span>
+<span class="co">#  5 DZ      Algeria             DZ               KN.CSCR   CPI Score       </span>
+<span class="co">#  6 ZA      South Africa        ZA               KN.CSCR   CPI Score       </span>
+<span class="co">#  7 LY      Libya               LY               KN.CSCR   CPI Score       </span>
+<span class="co">#  8 EG      Egypt               EG               KN.CSCR   CPI Score       </span>
+<span class="co">#  9 GN      Guinea              GN               KN.CSCR   CPI Score       </span>
+<span class="co"># 10 LS      Lesotho             LS               KN.CSCR   CPI Score       </span>
+<span class="co"># # ... with 176 more rows, and 18 more variables: `Indicator</span>
+<span class="co"># #   Definition` &lt;chr&gt;, Scale &lt;chr&gt;, Units &lt;chr&gt;, `2002` &lt;dbl&gt;,</span>
+<span class="co"># #   `2003` &lt;dbl&gt;, `2004` &lt;dbl&gt;, `2005` &lt;dbl&gt;, `2006` &lt;dbl&gt;, `2007` &lt;dbl&gt;,</span>
+<span class="co"># #   `2008` &lt;dbl&gt;, `2009` &lt;dbl&gt;, `2010` &lt;dbl&gt;, `2011` &lt;dbl&gt;, `2012` &lt;dbl&gt;,</span>
+<span class="co"># #   `2013` &lt;dbl&gt;, `2014` &lt;dbl&gt;, `2015` &lt;dbl&gt;, `2016` &lt;dbl&gt;</span></code></pre></div>
+<p>Perceba que o <em>data_set</em> está salvo como um <em>tibble</em> e que ao invés de mostrar todas as colunas, pois há muitas, é mostrado na parte de baixo quantas variáveis além das que são mostradas. Não só quantas as mais variáveis como diz o nome delas e o tipo de informação que elas contêm.</p>
+<p>Agora que vimos como está organizado o <em>data_set</em>, podemos definir como queremos deixar as informações organizadas. Neste caso iremos manipular o <em>data_set</em> e deixá-lo de acordo com os princípios do <em>tidy data</em>. Para tal precisamos verificar qual dos princípios precisa ser atendido, é claro que as observações (neste caso países) estão devidamente colocados em diferentes linhas e que a matriz possui apenas informações relacionadas à países. O leitor atento, porém percebeu que os anos, que são uma variável, estão espalhados em diferentes colunas. Então precisamos resolver esse problema para deixar os dados no formato que desejamos.</p>
+<p>De maneira resumida queremos como resultado final um <em>tibble</em> que tenha o seguinte formato:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>cpi
+<span class="co"># # A tibble: 2,790 x 3</span>
+<span class="co">#    Pais        Ano     CPI</span>
+<span class="co">#  * &lt;chr&gt;       &lt;chr&gt; &lt;dbl&gt;</span>
+<span class="co">#  1 Afghanistan 2002   NA  </span>
+<span class="co">#  2 Afghanistan 2003   NA  </span>
+<span class="co">#  3 Afghanistan 2004   NA  </span>
+<span class="co">#  4 Afghanistan 2005   25.0</span>
+<span class="co">#  5 Afghanistan 2006   NA  </span>
+<span class="co">#  6 Afghanistan 2007   18.0</span>
+<span class="co">#  7 Afghanistan 2008   15.0</span>
+<span class="co">#  8 Afghanistan 2009   13.0</span>
+<span class="co">#  9 Afghanistan 2010   14.0</span>
+<span class="co"># 10 Afghanistan 2011   15.2</span>
+<span class="co"># # ... with 2,780 more rows</span></code></pre></div>
+<p>Isto é, com três colunas sendo a primeira com os nomes dos países, a segundo com o ano e por fim a coluna com o valor do índice em si.</p>
+<div id="selecionando-colunas-de-interessa-funcao-select" class="section level3 unnumbered">
+<h3>Selecionando Colunas de Interessa (função select)</h3>
+<p>Antes de arrumar o problema dos anos espalhados em diferentes colunas vamos selecionar apenas as colunas com as quais queremos trabalhar, ou eliminarmos as que não desejamos utilizar. Isso pode ser feito da maneira como foi mostrado no capítulo 3, acessando os elementos do <em>tibble</em> do mesmo jeito que o fizemos com matrizes utilizando o <code>[]</code>. Entretando a função <code>select()</code>do pacote <code>dplyr</code> oferece uma alternativa.</p>
+<p>Queremos manter apenas a coluna com o nome dos países e as colunas dos anos, pois elas contém o índice de percepção de corrupção. A função <code>select()</code> precisa de dois argumentos: (i) um <em>tibble</em> do qual queremos selecionar as colunas, e (ii) um vetor com o nome das colunas que queremos selecionar ou com o nome das colunas que queremos eliminar. Isto é feito no <em>chunk</em> abaixo:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>cpi_tidy &lt;-<span class="st"> </span><span class="kw">select</span>(cpi_raw,-<span class="kw">c</span>(Country,<span class="st">`</span><span class="dt">Country RegionId</span><span class="st">`</span>,Indicator,
++<span class="st">                              `</span><span class="dt">Indicator Name</span><span class="st">`</span>,<span class="st">`</span><span class="dt">Indicator Definition</span><span class="st">`</span>,
++<span class="st">                              </span>Scale,Units))</code></pre></div>
+<p>Isso na primeira vista pode parecer mais trabalhoso do que usar os números das colunas e o operador <code>[]</code>, porém ele deixa o <em>script</em> mais organizado, caso você queira rever o que executou. Outra obserção é que trabalhando com as funções do pacote <code>dplyr</code>e <em>tibbles</em> os nomes das colunas não precisam estar entre aspas, entretanto caso o nome da coluna seja separa do espaço é necessário colocar o nome entre crases (` `), como no <em>chunk</em>.</p>
+<p>Se verificarmos como nosso novo objeto está organizado, veremos que agora temos somente as colunas que temos interesse.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>cpi_tidy
+<span class="co"># # A tibble: 186 x 16</span>
+<span class="co">#    `Country Name`  `2002` `2003` `2004` `2005` `2006` `2007` `2008` `2009`</span>
+<span class="co">#    &lt;chr&gt;            &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;</span>
+<span class="co">#  1 Congo, Democra~   NA     NA     20.0   21.0   20.0   19.0   17.0   19.0</span>
+<span class="co">#  2 Congo, Republi~   NA     22.0   23.0   23.0   22.0   21.0   19.0   19.0</span>
+<span class="co">#  3 Rwanda            NA     NA     NA     31.0   25.0   28.0   30.0   33.0</span>
+<span class="co">#  4 Ghana             39.0   33.0   36.0   35.0   33.0   37.0   39.0   39.0</span>
+<span class="co">#  5 Algeria           NA     26.0   27.0   28.0   31.0   30.0   32.0   28.0</span>
+<span class="co">#  6 South Africa      48.0   44.0   46.0   45.0   46.0   51.0   49.0   47.0</span>
+<span class="co">#  7 Libya             NA     21.0   25.0   25.0   27.0   25.0   26.0   25.0</span>
+<span class="co">#  8 Egypt             34.0   33.0   32.0   34.0   33.0   29.0   28.0   28.0</span>
+<span class="co">#  9 Guinea            NA     NA     NA     NA     19.0   19.0   16.0   18.0</span>
+<span class="co"># 10 Lesotho           NA     NA     NA     34.0   32.0   33.0   32.0   33.0</span>
+<span class="co"># # ... with 176 more rows, and 7 more variables: `2010` &lt;dbl&gt;,</span>
+<span class="co"># #   `2011` &lt;dbl&gt;, `2012` &lt;dbl&gt;, `2013` &lt;dbl&gt;, `2014` &lt;dbl&gt;, `2015` &lt;dbl&gt;,</span>
+<span class="co"># #   `2016` &lt;dbl&gt;</span></code></pre></div>
+</div>
+<div id="juntando-colunas-em-uma-unica-variavel-funcoes-gather-e-spread" class="section level3 unnumbered">
+<h3>Juntando colunas em uma única variável (funções gather e spread)</h3>
+<p>Falta agora colocar as colunas que têm como nome os anos em uma coluna chamado de “ano” e os valores que se encontram nas colunas nomeadas com anos em uma única coluna chamada de “cpi”. Para isso usaremos a função <code>gather()</code> do pacote <code>tidyr</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>cpi_tidy &lt;-<span class="st"> </span><span class="kw">gather</span>(<span class="dt">data =</span> cpi_tidy,<span class="dt">key =</span> ano,<span class="dt">value =</span> cpi, -<span class="kw">c</span>(<span class="st">`</span><span class="dt">Country Name</span><span class="st">`</span>))</code></pre></div>
+<p>A função leva quatro argumentos. O primeiro <code>data =</code> recebe o nome do objeto (tibble) que faremos a manipulação. O segundo <code>Key =</code> recebe o nome da variável cuja os valores estão espalhados como nomes de colunas, no nosso caso a variável que está com os valores espalhados nas colunas é o “ano”, visto que as colunas estão com os nomes de <code>2002</code>, <code>2003</code> e etc. O terceiro argumento recebe o nome da variável cuja os valores estão nas celulas do <em>tibble</em>. Por exemplo se verificarmos a sexta linha e segunda coluna do <code>cpi_tidy</code> veremos que o índice de percepção de corrupção da Áfrca do Sul em 2002 foi de 48, e esse valor é referente a variável “cpi”. Por fim o último argumento, que não tem nome, deve receber as colunas que queremos juntar ou as colunas que devem ser ignoradas na hora de juntar as colunas. Neste caso é mais conveniente explicitar que a coluna <code>Country Name</code> deve ser deixada de lado.</p>
+<p>Depois de utilizar a função <code>gather()</code> como especificado, temos o seguinte resultado:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>cpi_tidy
+<span class="co"># # A tibble: 2,790 x 3</span>
+<span class="co">#    `Country Name`             ano     cpi</span>
+<span class="co">#    &lt;chr&gt;                      &lt;chr&gt; &lt;dbl&gt;</span>
+<span class="co">#  1 Congo, Democratic Republic 2002   NA  </span>
+<span class="co">#  2 Congo, Republic of the     2002   NA  </span>
+<span class="co">#  3 Rwanda                     2002   NA  </span>
+<span class="co">#  4 Ghana                      2002   39.0</span>
+<span class="co">#  5 Algeria                    2002   NA  </span>
+<span class="co">#  6 South Africa               2002   48.0</span>
+<span class="co">#  7 Libya                      2002   NA  </span>
+<span class="co">#  8 Egypt                      2002   34.0</span>
+<span class="co">#  9 Guinea                     2002   NA  </span>
+<span class="co"># 10 Lesotho                    2002   NA  </span>
+<span class="co"># # ... with 2,780 more rows</span></code></pre></div>
+
+<div id="refs" class="references">
+<div>
+<p>Abadie, Alberto, Alexis Diamond, and Jens Hainmueller. 2010. “Synthetic Control Methods for Comparative Case Studies: Estimating the Effect of California’s Tobacco Control Program.” <em>Journal of the American Statistical Association</em> 105 (490). Taylor &amp; Francis: 493–505.</p>
+</div>
+<div>
+<p>Matloff, Norman. 2011. <em>The Art of R Programming: A Tour of Statistical Software Design</em>. No Starch Press.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="importar-dados.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

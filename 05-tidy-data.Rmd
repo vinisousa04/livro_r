@@ -1,0 +1,122 @@
+# Tidy Data {#tidy_data}
+
+```{r, include=FALSE}
+library(tibble)
+library(DadosLivroR)
+library(tidyr)
+library(dplyr)
+```
+
+
+Neste capítulo apresentaremos o conceito de *Tidy Data* que nos ajuda organizar os dados com os quais os leitores irão trabalha. O *modus operandi* dos cursos de economia (acredito que nas demais ciências sociais não seja diferente) é de que os alunos recebam dados já no formato apropriado para o tipo de análise pedida pelo professor. Entretando, caso o leitor participe de algum projeto de pesquisa, ou até mesmo em estágios nos quais é necessário lidar com dados, eles (dados) nem sempre estarão disponíveis da maneira como precisa-se. Deste modo, saber como fazer alterações simples, porém que ajudam muito, torna o leitor mais eficiente e produtivo.
+
+Antes de apresentarmos o conceito e algumas operações básicos com dados, iremos dedicar um breve tempo para familizar o leitor com os *tibbles*
+
+## Digressão: Tibbles {#tibbles}
+
+Os *tibbles* nada mais são do que versões modernas dos *data frames*. Dentra as vantagens de se usar *tibbles* no lugar de *data frames* apresentamos aqui duas delas. A primeira coisa que devemos fazer é instalar (apenas a primeira vez) e em seguida carregar o pacote `tibble`, para que possamos utilizar essa estrutura de dados.
+
+Para mostrar as diferenças entre *tibbles* e *data frames* vamos usar o *data set* `cpi` (de *corruption perception index*) que econtra-se disponível no pacote `DadosLivroR`, que o leitor já deve ter instalado pelo exercício 1.2. Lembre-se de que você pode utilizar `?`para ver a documentação do *data set*. 
+
+O primeiro ponto a favor dos *tibbles* é que ao executar determinado *data set* para você vê-lo no console o resultado é diferente para *tibbles* e *data frames*. Caso o *data set* esteja como *data frame* então todo o *data frame* será exibido no console, o que não é nemmum pouco útil para termos uma ideia dos dados. Para entender o que eu me refiro basta executar no seu RStudio o comando `cpi`. Entretando, caso o *data frame* estiver na forma de um *tibble* o resultado será o que aparece no chunk a abaixo
+```{r}
+cpi
+```
+
+Percebe que ao invés de simplesmente nos retornar todos os dados, temos na verdade um "resumão" do *data set* com o número de observações (linhas), o número de colunas, qual a estrutura de dados de cada coluna. E além disso, nos é retornado as dez primeiras observações do *data set*. 
+
+A segunda vantagem é que as funções que serão apresentadas ao longo deste capítulo podem apresentar comportamentos inesperados quando são usadas com *data frames*, coisa que não ocorre com *tibbles*. Para terminar nossa digressão, é interessante saber que caso o leitor queira trocar a estrutura de *data frame* para *tibble* isto é feito através da função `as_tibble(nome do data frame)`, do pacote `tibbles`. Podemos agora seguir para o conceito de *tidy data*.
+
+## O que é Tidy Data {#o_que_e_tidy_data}
+
+Colocado de maneira simples e direta *tidy data* é uma maneira de organizar os *data sets* que segue três princípios básicos:
+
+- Observações como linhas;
+- Variáveis como colunas;
+- Um tipo de unidade observacional por matrix.
+
+Os dois primeiros pontos podem ser entendidos de maneira conjunta. Para tornar o entendimento simples imagine que tenhamos um data set com a etnia e o peso de 3 pessoas da seguinte maneira:
+```{r}
+tidy_set <- tibble(Nome = c("Roberto","Cecília","Sarah"),
+                   Etnia = c("Branca","Índigena","Cafuzo"),
+                   Peso = c(80,38,55))
+tidy_set
+```
+
+Perceba que cada observação (as pessoas) encontram-se em linhas separadas e as diferentes informações sobre as pessoas estão organizadas em colunas. Parece muito óbvio isso, de fato, entretando eu não me surpreenderia caso encontra-se as mesmas informações em um *data set* organizado de maneira um pouco diferente...
+```{r}
+non_tidy <- tibble(Nome = c("Roberto","Cecília","Sarah"),
+                   Branca = c(0,1,0),
+                   Indigena = c(1,0,0),
+                   Cafuza = c(0,0,1),
+                   Peso = c(80,35,55))
+non_tidy
+```
+
+Veja que agora a etnia das pessoas está espalhada em diferentes colunas. Um *data set* organizado desta maneira serviria para o propósito de se estimar um modelo com variável *dummy*. O último princípio simplesmente indica que se estamos diante de um *data set* sobre pessoas não faria sentido colocar as informações de uma empresa nele, tais informações devem ir para outro *data set*.
+
+É importante ressaltar que não há um jeito certo ou errado de se arrumar os *data set*, a organização das informações dentro de um *data set* va depender da análise que o leitor deseja fazer. Entretanto, entender o conceito de *tidy data*, e usá-lo como nosso ponto de partida facilita quando é necessário reorganizar o *data set*. 
+
+
+## Modificando um mesmo data set {#modificando_um_mesmo_data_set}
+
+Na minha (limitada) experiência percebi que a habilidade de manipular *data sets* não é ensinada aos alunos. Entretanto é uma atividade que é constantemente necessitada e o aluno acaba utilizando o excel e movendo as células para lá e para cá, o que por experiência próprio sei que dá muito trabalho além de as vezes não conseguimos obter o resultado que desejamos. Nesta seção mostraremos como executar manipulações elementares, porém que acredito ajudarão bastante o leitor em suas atividades.
+
+Para tornar a atividade mais interessante vamos manipular o *data set* `cpi_raw` que encontra-se disponível no pacote `DadosLivroR`. De maneira resumida este *data_set* trás o ínice de percepção de cocrrupção para 186 paises para o período de 2002 a 2016 e ele encontra-se da maneira como foi baixada do site [Knoema](https://knoema.com/), que através de um cadastro gratuito fornece acesso a um compilado de dados de inúmeras instituições. De modo que o além de prático o exercício demonstra a real aplicabilidade dos recursos apresentados. Além do pacote com os dados utilizaremos os pacotes: (i) `tibble`, (ii) `dplyr`,e (iii) `tidyr` 
+
+
+
+O primeiro passo para manipularmos um *data set* é verificarmos como ele está organizado e definir como queremos que ele fique ao final da manipulaçao. Não há uma regra geral e isso vai variar muito de caso para caso. Abaixo vemos o *data set* `cpi_raw`.
+
+```{r}
+cpi_raw
+```
+
+Perceba que o *data_set* está salvo como um *tibble* e que ao invés de mostrar todas as colunas, pois há muitas, é mostrado na parte de baixo quantas variáveis além das que são mostradas. Não só quantas as mais variáveis como diz o nome delas e o tipo de informação que elas contêm.
+
+Agora que vimos como está organizado o *data_set*, podemos definir como queremos deixar as informações organizadas. Neste caso iremos manipular o *data_set* e deixá-lo de acordo com os princípios do *tidy data*. Para tal precisamos verificar qual dos princípios precisa ser atendido, é claro que as observações (neste caso países) estão devidamente colocados em diferentes linhas e que a matriz possui apenas informações relacionadas à países. O leitor atento, porém percebeu que os anos, que são uma variável, estão espalhados em diferentes colunas. Então precisamos resolver esse problema para deixar os dados no formato que desejamos.
+
+De maneira resumida queremos como resultado final um *tibble* que tenha o seguinte formato:
+```{r}
+cpi
+```
+
+Isto é, com três colunas sendo a primeira com os nomes dos países, a segundo com o ano e por fim a coluna com o valor do índice em si.
+
+### Selecionando Colunas de Interessa (função select) {-}
+
+Antes de arrumar o problema dos anos espalhados em diferentes colunas vamos selecionar apenas as colunas com as quais queremos trabalhar, ou eliminarmos as que não desejamos utilizar. Isso pode ser feito da maneira como foi mostrado no capítulo 3, acessando os elementos do *tibble* do mesmo jeito que o fizemos com matrizes utilizando o `[]`. Entretando a função `select()`do pacote `dplyr` oferece uma alternativa.
+
+Queremos manter apenas a coluna com o nome dos países e as colunas dos anos, pois elas contém o índice de percepção de corrupção. A função `select()` precisa de dois argumentos: (i) um *tibble* do qual queremos selecionar as colunas, e (ii) um vetor com o nome das colunas que queremos selecionar ou com o nome das colunas que queremos eliminar. Isto é feito no *chunk* abaixo:
+
+```{r}
+cpi_tidy <- select(cpi_raw,-c(Country,`Country RegionId`,Indicator,
+                             `Indicator Name`,`Indicator Definition`,
+                             Scale,Units))
+```
+
+Isso na primeira vista pode parecer mais trabalhoso do que usar os números das colunas e o operador `[]`, porém ele deixa o *script* mais organizado, caso você queira rever o que executou. Outra obserção é que trabalhando com as funções do pacote `dplyr`e *tibbles* os nomes das colunas não precisam estar entre aspas, entretanto caso o nome da coluna seja separa do espaço é necessário colocar o nome entre crases (` `), como no *chunk*.
+
+Se verificarmos como nosso novo objeto está organizado, veremos que agora temos somente as colunas que temos interesse.
+```{r}
+cpi_tidy
+```
+
+
+### Juntando colunas em uma única variável (funções gather e spread) {-}
+
+Falta agora colocar as colunas que têm como nome os anos em uma coluna chamado de "ano" e os valores que se encontram nas colunas nomeadas com anos em uma única coluna chamada de "cpi". Para isso usaremos a função `gather()` do pacote `tidyr`.
+
+```{r}
+cpi_tidy <- gather(data = cpi_tidy,key = ano,value = cpi, -c(`Country Name`))
+```
+
+A função leva quatro argumentos. O primeiro `data =` recebe o nome do objeto (tibble) que faremos a manipulação. O segundo `Key =` recebe o nome da variável cuja os valores estão espalhados como nomes de colunas, no nosso caso a variável que está com os valores espalhados nas colunas é o "ano", visto que as colunas estão com os nomes de `2002`, `2003` e etc. O terceiro argumento recebe o nome da variável cuja os valores estão nas celulas do *tibble*. Por exemplo se verificarmos a sexta linha e segunda coluna do `cpi_tidy` veremos que o índice de percepção de corrupção da Áfrca do Sul em 2002 foi de 48, e esse valor é referente a variável "cpi". Por fim o último argumento, que não tem nome, deve receber as colunas que queremos juntar ou as colunas que devem ser ignoradas na hora de juntar as colunas. Neste caso é mais conveniente explicitar que a coluna `Country Name` deve ser deixada de lado.
+
+Desta maneira manipulamos o *data_set* baixado do Knoema e o colocamos de acordo com os princípios de *tidy data*, como pode ser observado
+
+```{r}
+cpi_tidy
+```
+
+

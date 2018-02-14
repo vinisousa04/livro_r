@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Guia definitivo do R para estudantes de sociais</title>
   <meta name="description" content="Esta é a minha tentativa de facilitar, em especial, os alunos de ciências sociais, a desenvolveram habilidades relacionadas ao processo de analise de dados">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.6 and GitBook 2.6.7">
 
   <meta property="og:title" content="Guia definitivo do R para estudantes de sociais" />
   <meta property="og:type" content="book" />
@@ -139,9 +139,19 @@ code > span.in { color: #008000; } /* Information */
 </ul></li>
 <li class="part"><span><b>II Dados</b></span></li>
 <li class="chapter" data-level="4" data-path="importar-dados.html"><a href="importar-dados.html"><i class="fa fa-check"></i><b>4</b> Importar dados para o R</a><ul>
-<li class="chapter" data-level="4.1" data-path="importar-dados.html"><a href="importar-dados.html#importar-dados-locais"><i class="fa fa-check"></i><b>4.1</b> Importar dados locais</a></li>
-<li class="chapter" data-level="4.2" data-path="importar-dados.html"><a href="importar-dados.html#importando-dados-da-internet"><i class="fa fa-check"></i><b>4.2</b> Importando Dados da Internet</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="importar-dados.html"><a href="importar-dados.html#pacote-rbcb"><i class="fa fa-check"></i><b>4.2.1</b> Pacote <strong>rbcb</strong></a></li>
+<li class="chapter" data-level="4.1" data-path="importar-dados.html"><a href="importar-dados.html#importar-dados-locais-importando_dados_locais"><i class="fa fa-check"></i><b>4.1</b> Importar dados locais {importando_dados_locais}</a></li>
+<li class="chapter" data-level="4.2" data-path="importar-dados.html"><a href="importar-dados.html#importando-dados-da-internet-importanto_dados_da_internet"><i class="fa fa-check"></i><b>4.2</b> Importando Dados da Internet {importanto_dados_da_internet}</a><ul>
+<li><a href="importar-dados.html#pacote-rbcb">Pacote <strong>rbcb</strong></a></li>
+<li class="chapter" data-level="" data-path="importar-dados.html"><a href="importar-dados.html#pacote-quandl"><i class="fa fa-check"></i>Pacote Quandl</a></li>
+<li class="chapter" data-level="" data-path="importar-dados.html"><a href="importar-dados.html#pacote-quantmod"><i class="fa fa-check"></i>Pacote quantmod</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>5</b> Tidy Data</a><ul>
+<li class="chapter" data-level="5.1" data-path="tidy-data.html"><a href="tidy-data.html#tibbles"><i class="fa fa-check"></i><b>5.1</b> Digressão: Tibbles</a></li>
+<li class="chapter" data-level="5.2" data-path="tidy-data.html"><a href="tidy-data.html#o_que_e_tidy_data"><i class="fa fa-check"></i><b>5.2</b> O que é Tidy Data</a></li>
+<li class="chapter" data-level="5.3" data-path="tidy-data.html"><a href="tidy-data.html#modificando_um_mesmo_data_set"><i class="fa fa-check"></i><b>5.3</b> Modificando um mesmo data set</a><ul>
+<li class="chapter" data-level="" data-path="tidy-data.html"><a href="tidy-data.html#selecionando-colunas-de-interessa-funcao-select"><i class="fa fa-check"></i>Selecionando Colunas de Interessa (função select)</a></li>
+<li class="chapter" data-level="" data-path="tidy-data.html"><a href="tidy-data.html#juntando-colunas-em-uma-unica-variavel-funcoes-gather-e-spread"><i class="fa fa-check"></i>Juntando colunas em uma única variável (funções gather e spread)</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -170,26 +180,26 @@ code > span.in { color: #008000; } /* Information */
 <p>O ponto é que utilizar pacotes estatíscos de botões (como SPSS, Gretl, Stata e afins) é como se você estivesse utilizando o transporte público, ao passo que ao introduzir ferramentas de programação (como o R e Python fazem, por exemplo) abre inúmeras possibilidades que são limitadas apenas pelo conhecimento do usuário. Deste modo você consegue chegar em lugares novos e chegar mais rápido em lugares que de outra maneira seria mais demorado.</p>
 <p>Dito isso, o primeiro passo para entrarmos no mundo é baixar e instalar p O eo RStudio. Para baixar o R acesse o site do R Project (<a href="https://www.r-project.org/" class="uri">https://www.r-project.org/</a>), clique em <em>download R</em> e em seguida escolha um dos <em>mirrors</em> brasileiros, a figura <a href="r-e-rStudio.html#fig:baixar-r">1.1</a> sintetizaos passos. O próximo passo é apenas executar o arquivo baixado.</p>
 <div class="figure" style="text-align: center"><span id="fig:baixar-r"></span>
-<img src="images/_baixar_r_1.png" alt="Baixando o R" width="683" />
+<img src="images/_baixar_r_1.png" alt="Baixando o R"  />
 <p class="caption">
 Figure 1.1: Baixando o R
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:baixar-r"></span>
-<img src="images/_baixar_r_2.png" alt="Baixando o R" width="683" />
+<img src="images/_baixar_r_2.png" alt="Baixando o R"  />
 <p class="caption">
 Figure 1.1: Baixando o R
 </p>
 </div>
 <p>Já o RStudio, como dito anteriormente, é um ambiente que torna a utilização da linguagem R mais agradavél e possibilita uma organização muito boa da análise que está sendo feita. Para baixar o RStudio acesse o site do RStudio (<a href="https://www.rstudio.com/" class="uri">https://www.rstudio.com/</a>), clique no icone <em>Download RSstudio</em>, em seguida clique em <em>Desktop Open Source License</em> e por fim basta executar o arquivo baixado, a figura <a href="r-e-rStudio.html#fig:baixar-rstudio">1.2</a> sintetiza os passos.</p>
 <div class="figure" style="text-align: center"><span id="fig:baixar-rstudio"></span>
-<img src="images/_baixar_rstudio_1.png" alt="Baixando o RStudio" width="683" />
+<img src="images/_baixar_rstudio_1.png" alt="Baixando o RStudio"  />
 <p class="caption">
 Figure 1.2: Baixando o RStudio
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:baixar-rstudio"></span>
-<img src="images/_baixar_rstudio_2.png" alt="Baixando o RStudio" width="683" />
+<img src="images/_baixar_rstudio_2.png" alt="Baixando o RStudio"  />
 <p class="caption">
 Figure 1.2: Baixando o RStudio
 </p>
@@ -200,7 +210,7 @@ Figure 1.2: Baixando o RStudio
 <h2><span class="header-section-number">1.2</span> <em>Layout</em> do RStudio</h2>
 Depois de instalar o R e RStudio abra o RStudio, pois como comentado anteriorment o RStudio é um ambiente que torna mais eficiente a programação em R, e desse modo utilizaremos ele como interface para usar o R. Ao abrir o RStudio você deve se deparar com o <em>layout</em> apresentado na figura <a href="r-e-rStudio.html#fig:layout-rstudio">1.3</a>.
 <div class="figure" style="text-align: center"><span id="fig:layout-rstudio"></span>
-<img src="images/_layout_rstudio.png" alt="Layout do RStudio" width="683" />
+<img src="images/_layout_rstudio.png" alt="Layout do RStudio"  />
 <p class="caption">
 Figure 1.3: Layout do RStudio
 </p>
@@ -243,7 +253,7 @@ Figure 1.3: Layout do RStudio
 <p>O <em>chunk</em> possui ao todo 4 comandos, pois as linhas que começam com <code>#</code> são chamadas de comentários elas são executadas apenas como texto. O primeiro comando, <code>vetor &lt;- rnorm(10)</code>, cria um vetor com 10 números aleatório, o segundo, <code>mean(vetor)</code>, calcula a média dos elementos do vetor, o terceiro, <code>x &lt;- 3</code>, atribui à variável <code>x</code>o valor 3 e, por fim, o quarto comando, que começa no <code>if(x %% 2 == 0)</code>, testa de <code>x</code> é par e retorna uma mensagem caso ele seja par e outra caso <code>x</code> seja ímpar.</p>
 <p>Para executar um comando utiliza-se o atalho no teclado <code>ctrl+Enter</code> e a linha em que você se encontra será executada, no caso dos três primeiros comandos é direto a execução com o atalho. Porém, se prestarmos atenção o quarto comando encontra-se “espalhado” em 5 linhas e aí reside um detalhe, note que sabemos que o comando tem mais de uma linha através do <code>+</code> que aparece nas três linhas subsequentes à primeira. O RStudio permite que você escolha entre duas opções de execução de comandos com mais de uma linha. A primeira opção é executar uma linha de cada vez, no nosso exemplo seria necessário utilizar o <code>ctrl+Enter</code> quatro vezes para executar o quarto comando. A segundo opção é fazer com que comandos com mais de uma linha sejam executados de uma só vez, neste caso para executar o quarto comando seria necessário utilizar p <code>ctrl+Enter</code> apenas na linha <code>if(x %% 2 ==0)</code> para executar o quarto comando. Independente de qual das opções foi utilizada para executar o código o resultado apóes executar os quatro comandos acima é apresentado na figura <a href="r-e-rStudio.html#fig:resultados-4-comandos">1.4</a></p>
 <div class="figure" style="text-align: center"><span id="fig:resultados-4-comandos"></span>
-<img src="images/_all_lines_one_statement_result.png" alt="Resultado" width="683" />
+<img src="images/_all_lines_one_statement_result.png" alt="Resultado"  />
 <p class="caption">
 Figure 1.4: Resultado
 </p>
@@ -251,7 +261,7 @@ Figure 1.4: Resultado
 <p>Vemos que no console aparece o comando que foi executado, linhas que começam com <code>&gt;</code>, seguido pelo resultado do comando, linhas que começam com <code>[1]</code>, o que acontece nos bastidores é que ao executar um comando no <em>script</em> esse comando é “jogado” para o console onde ele é executado. Por fim, vemos que no <em>Environment</em> estão salvos o <code>vetor</code> e a variável <code>x</code>.</p>
 <p>A escolha entre as duas maneiras de executar o código é uma escolha do usuário, pois o resultado final do código será o mesmo. Para optar pela execução de todas as linhas do comando de uma só vez acesse a aba <span class="math inline">\(Tools\Rightarrow Global\ Options\Rightarrow Code\)</span> e então marque a opção <em>Execute all lines in a statement</em><a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>, a figura <a href="r-e-rStudio.html#fig:all-lines-one-statement">1.5</a> mostra o caminho completo.</p>
 <div class="figure" style="text-align: center"><span id="fig:all-lines-one-statement"></span>
-<img src="images/_all_lines_one_statement.png" alt="Opções de execução do código RStudio" width="683" />
+<img src="images/_all_lines_one_statement.png" alt="Opções de execução do código RStudio"  />
 <p class="caption">
 Figure 1.5: Opções de execução do código RStudio
 </p>
@@ -275,7 +285,7 @@ Figure 1.5: Opções de execução do código RStudio
 <p>Em todas as esferas da análise de dados (importar dados, manipular dados, estimar modelos/testes estatísticos e reportar resultados) no R trabalha-se com funções que nos auxiliam, <code>setwd()</code> e <code>mean()</code> são duas funções já apresentadas. O R possui várias funções <em>built in</em>, isto é, que ao instalar o programa as funções já estão disponíveis. Um pacote neste contexto nada mais é do que um conjunto de funções sobre um tema parecido que não são carregadas autimaticamento ao abrir o RStudio. Por exemplo, no capítulo @ref(intrpducao_ao_ggplott2) vamos mostrar o básico do pacote ggplot2 que é um pacote desenvolvido para viasualização de dados e contém funções para histogramas, boxplots, gráficos de densidade 2d etc.</p>
 <p>Para instalar um novo pacote utiliza-se a função <code>install.packages(&quot;nome do pacote&quot;)</code>, isso instala no seu computador as funções que estão no pacote, mas não as deixa disponíveis para utilização. Para fazer isso é necessário que você carrege as funções para o R através do comando <code>library(nome do pacote)</code>. Ao instalar um pacote uma aba com o progresso abrirá mostrando qual o status da instalação, como mostrado na figura <a href="r-e-rStudio.html#fig:installing-packages">1.6</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:installing-packages"></span>
-<img src="images/_install_packages.png" alt="Status de instalação de pacote" width="684" />
+<img src="images/_install_packages.png" alt="Status de instalação de pacote"  />
 <p class="caption">
 Figure 1.6: Status de instalação de pacote
 </p>
@@ -366,9 +376,11 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

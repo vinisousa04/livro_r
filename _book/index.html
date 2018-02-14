@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Guia definitivo do R para estudantes de sociais</title>
   <meta name="description" content="Esta é a minha tentativa de facilitar, em especial, os alunos de ciências sociais, a desenvolveram habilidades relacionadas ao processo de analise de dados">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.6 and GitBook 2.6.7">
 
   <meta property="og:title" content="Guia definitivo do R para estudantes de sociais" />
   <meta property="og:type" content="book" />
@@ -47,6 +47,38 @@
 
 
 
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #0000ff; } /* Keyword */
+code > span.ch { color: #008080; } /* Char */
+code > span.st { color: #008080; } /* String */
+code > span.co { color: #008000; } /* Comment */
+code > span.ot { color: #ff4000; } /* Other */
+code > span.al { color: #ff0000; } /* Alert */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #008000; font-weight: bold; } /* Warning */
+code > span.cn { } /* Constant */
+code > span.sc { color: #008080; } /* SpecialChar */
+code > span.vs { color: #008080; } /* VerbatimString */
+code > span.ss { color: #008080; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { color: #0000ff; } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #ff4000; } /* Preprocessor */
+code > span.do { color: #008000; } /* Documentation */
+code > span.an { color: #008000; } /* Annotation */
+code > span.cv { color: #008000; } /* CommentVar */
+code > span.at { } /* Attribute */
+code > span.in { color: #008000; } /* Information */
+</style>
 
 </head>
 
@@ -72,10 +104,8 @@
 <li class="chapter" data-level="1.2" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#layout_rstudio"><i class="fa fa-check"></i><b>1.2</b> <em>Layout</em> do RStudio</a></li>
 <li class="chapter" data-level="1.3" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#scripts"><i class="fa fa-check"></i><b>1.3</b> <em>Scripts</em></a></li>
 <li class="chapter" data-level="1.4" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#funcionamento_do_codigo"><i class="fa fa-check"></i><b>1.4</b> Funcionamento do Código</a></li>
-<li class="chapter" data-level="1.5" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#calculando-media-de-um-vetor"><i class="fa fa-check"></i><b>1.5</b> Calculando média de um vetor</a></li>
-<li class="chapter" data-level="1.6" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#vendo-se-um-numero-e-impar-ou-par"><i class="fa fa-check"></i><b>1.6</b> Vendo se um número é impar ou par</a></li>
-<li class="chapter" data-level="1.7" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#working_directory"><i class="fa fa-check"></i><b>1.7</b> <em>Working Directory</em> (ou pasta de trabalho)</a></li>
-<li class="chapter" data-level="1.8" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#pacotes"><i class="fa fa-check"></i><b>1.8</b> Pacotes (ou <em>libraries</em>)</a><ul>
+<li class="chapter" data-level="1.5" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#working_directory"><i class="fa fa-check"></i><b>1.5</b> <em>Working Directory</em> (ou pasta de trabalho)</a></li>
+<li class="chapter" data-level="1.6" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#pacotes"><i class="fa fa-check"></i><b>1.6</b> Pacotes (ou <em>libraries</em>)</a><ul>
 <li class="chapter" data-level="" data-path="r-e-rStudio.html"><a href="r-e-rStudio.html#pacotes-do-github"><i class="fa fa-check"></i>Pacotes do GitHub</a></li>
 </ul></li>
 </ul></li>
@@ -109,9 +139,19 @@
 </ul></li>
 <li class="part"><span><b>II Dados</b></span></li>
 <li class="chapter" data-level="4" data-path="importar-dados.html"><a href="importar-dados.html"><i class="fa fa-check"></i><b>4</b> Importar dados para o R</a><ul>
-<li class="chapter" data-level="4.1" data-path="importar-dados.html"><a href="importar-dados.html#importar-dados-locais"><i class="fa fa-check"></i><b>4.1</b> Importar dados locais</a></li>
-<li class="chapter" data-level="4.2" data-path="importar-dados.html"><a href="importar-dados.html#importando-dados-da-internet"><i class="fa fa-check"></i><b>4.2</b> Importando Dados da Internet</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="importar-dados.html"><a href="importar-dados.html#pacote-rbcb"><i class="fa fa-check"></i><b>4.2.1</b> Pacote <strong>rbcb</strong></a></li>
+<li class="chapter" data-level="4.1" data-path="importar-dados.html"><a href="importar-dados.html#importar-dados-locais-importando_dados_locais"><i class="fa fa-check"></i><b>4.1</b> Importar dados locais {importando_dados_locais}</a></li>
+<li class="chapter" data-level="4.2" data-path="importar-dados.html"><a href="importar-dados.html#importando-dados-da-internet-importanto_dados_da_internet"><i class="fa fa-check"></i><b>4.2</b> Importando Dados da Internet {importanto_dados_da_internet}</a><ul>
+<li><a href="importar-dados.html#pacote-rbcb">Pacote <strong>rbcb</strong></a></li>
+<li class="chapter" data-level="" data-path="importar-dados.html"><a href="importar-dados.html#pacote-quandl"><i class="fa fa-check"></i>Pacote Quandl</a></li>
+<li class="chapter" data-level="" data-path="importar-dados.html"><a href="importar-dados.html#pacote-quantmod"><i class="fa fa-check"></i>Pacote quantmod</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tidy-data.html"><a href="tidy-data.html"><i class="fa fa-check"></i><b>5</b> Tidy Data</a><ul>
+<li class="chapter" data-level="5.1" data-path="tidy-data.html"><a href="tidy-data.html#tibbles"><i class="fa fa-check"></i><b>5.1</b> Digressão: Tibbles</a></li>
+<li class="chapter" data-level="5.2" data-path="tidy-data.html"><a href="tidy-data.html#o_que_e_tidy_data"><i class="fa fa-check"></i><b>5.2</b> O que é Tidy Data</a></li>
+<li class="chapter" data-level="5.3" data-path="tidy-data.html"><a href="tidy-data.html#modificando_um_mesmo_data_set"><i class="fa fa-check"></i><b>5.3</b> Modificando um mesmo data set</a><ul>
+<li class="chapter" data-level="" data-path="tidy-data.html"><a href="tidy-data.html#selecionando-colunas-de-interessa-funcao-select"><i class="fa fa-check"></i>Selecionando Colunas de Interessa (função select)</a></li>
+<li class="chapter" data-level="" data-path="tidy-data.html"><a href="tidy-data.html#juntando-colunas-em-uma-unica-variavel-funcoes-gather-e-spread"><i class="fa fa-check"></i>Juntando colunas em uma única variável (funções gather e spread)</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -246,6 +286,19 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

@@ -26,6 +26,8 @@ date: "`r Sys.Date()`"
 
 - o que são
 - layout dp RStudio
+- scripts
+- Funcionamento do codigo
 - working direcory
 - pacotes (lembrar de falar pra baixar do github e cran)
 
@@ -43,7 +45,6 @@ date: "`r Sys.Date()`"
 - Matrizes
 - *Data frames*
 - Listas
-- Datas
 
 
 # Parte II: Dados {-}
@@ -59,7 +60,7 @@ date: "`r Sys.Date()`"
     - Economia Geral: Quandl, quantmod etc...
 
 # Tidy Data (pacotes dplyr and tidyr)
-
+- Digressão introduzindo os tibbles
 - Modificando um mesmo dataset
     - long to wide
     - wide to long
@@ -79,7 +80,7 @@ date: "`r Sys.Date()`"
 - Plotar densidade de variáveis
 - boxplot
 
-# Teste de hipótese (baseado na mat�ria advanced data analysis)
+# Teste de hipótese (baseado na mat?ria advanced data analysis)
 
 - Intervalo de confiança
 - Independent t-test/wilcox rank sum
@@ -107,6 +108,7 @@ Assunto de econometria III
 - se, então (IF -ELSE)
 - *for loop*
 - *nested loop* ( se, entao dentro de *loop*)
+- exemplos de utilização: (i) loop para pegar mais de uma série temporal com o rbcb; (ii) popuar matrizes/data frames
 
 # Escrever funcoes 
 
@@ -125,3 +127,5 @@ Assunto de econometria III
 - carregar pacotes no inicio do script
 - mostrar como programar facilita quando as atividades são mais complexas e evita repetições
 - ensinar a fazer trabalhos para entregar no RMarkdown
+
+# observação importante: ver se vou deixar ou não exercícios
